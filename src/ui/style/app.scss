@@ -1,0 +1,6 @@
+@import './normalize';
+@import './variables';
+.container {
+  width: $container-width;
+  margin: 0 auto;
+}
