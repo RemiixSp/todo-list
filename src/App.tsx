@@ -1,11 +1,7 @@
 import React from 'react';
-import './App.css';
+import Router from './ui/boot/router';
 function App() {
-  return (
-    <div>
-      <p>Hello</p>
-    </div>
-  );
+  return <Router />;
 }
 
 export default App;
