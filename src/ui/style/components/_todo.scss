@@ -1,4 +1,5 @@
 .todo {
+  position: relative;
   width: 48%;
   padding: 10px;
   padding-right: 22px;
@@ -6,9 +7,29 @@
   border-radius: 15px;
   background-color: #18b5a4;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  &__content {
-    p {
-      color: white;
+
+  p {
+    color: white;
+  }
+  &__img {
+    position: absolute;
+    top: 10px;
+    left: 280px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
     }
+  }
+
+  &__pin {
+  }
+  &__done {
+    top: 30px;
+  }
+  &__delete {
+    top: 50px;
   }
 }
