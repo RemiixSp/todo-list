@@ -4,4 +4,31 @@
 .container {
   width: $container-width;
   margin: 0 auto;
+
+  .home {
+    .todo-block {
+      // border: solid 1px black;
+      width: 45%;
+      min-height: 200px;
+
+      &__header {
+        padding-top: 15px;
+      }
+
+      .all-todos {
+        min-height: 300px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        background-color: $light-yellow;
+        border-radius: 15px;
+        margin-top: 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        &__no-task {
+          margin: auto 0;
+        }
+      }
+    }
+  }
 }
