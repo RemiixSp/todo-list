@@ -9,6 +9,19 @@ const Home = () => {
         <Header />
 
         <div className='todo-block'>
+          <div className='todo-block__add-container'>
+            <h2>Add task</h2>
+            <form onSubmit={(event) => event.preventDefault()}>
+              <textarea
+                cols={30}
+                rows={10}
+                className='todo-description'
+                placeholder='Enter to-do you want to add'
+              ></textarea>
+
+              <button type='submit'>Submit</button>
+            </form>
+          </div>
           <h2 className='todo-block__header'>Here is your to-do list</h2>
           <div className='all-todos'>
             {a === 1 ? (
