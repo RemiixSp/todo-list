@@ -1,11 +1,10 @@
 .todo {
-  border: 1px solid black;
   width: 48%;
   padding: 10px;
   margin: 10px 0;
   border-radius: 15px;
   background-color: #18b5a4;
-
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   &__content {
     p {
       color: white;
