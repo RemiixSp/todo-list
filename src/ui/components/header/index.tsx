@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from '../../media/images/logo.png';
-import styles from '../style/components/header.module.scss';
-import Button from './button';
+import logo from '../../../media/images/logo.png';
+import styles from './header.module.scss';
+import Button from '../../common/button';
 const Header = () => {
   return (
     <div className={styles.header}>
