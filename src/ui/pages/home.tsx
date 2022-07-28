@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/header';
 import TodoBlock from '../components/todoBlock';
 import styles from '../style/pages/home.module.scss';
+import TextArea from '../components/textArea';
 const Home = () => {
   let a = 0;
   return (
@@ -13,12 +14,12 @@ const Home = () => {
           <div className={styles.todoBlock__addContainer}>
             <h2>Add task</h2>
             <form onSubmit={(event) => event.preventDefault()}>
-              <textarea
+              <TextArea
                 cols={30}
                 rows={10}
                 className={styles.todoDescription}
                 placeholder='Enter to-do you want to add'
-              ></textarea>
+              />
 
               <button type='submit'>Submit</button>
             </form>
