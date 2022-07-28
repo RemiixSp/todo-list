@@ -11,7 +11,7 @@ const Home = () => {
         <Header />
 
         <div className={styles.todoBlock}>
-          <div className={styles.todoBlock__addContainer}>
+          <div className={styles.addContainer}>
             <h2>Add task</h2>
             <form onSubmit={(event) => event.preventDefault()}>
               <TextArea
@@ -24,10 +24,10 @@ const Home = () => {
               <button type='submit'>Submit</button>
             </form>
           </div>
-          <h2 className={styles.todoBlock__header}>Here is your to-do list</h2>
+          <h2 className={styles.todoBlockHeader}>Here is your to-do list</h2>
           <div className={styles.allTodos}>
             {a === 1 ? (
-              <h3 className={styles.allTodos__noTask}>
+              <h3 className={styles.noTask}>
                 You havent added any task yet. Its never late to do it rigth now
               </h3>
             ) : (

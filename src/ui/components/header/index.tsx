@@ -6,18 +6,18 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={styles.container}>
-        <div className={styles.header__logo}>
+        <div className={styles.logo}>
           <img src={logo} alt='todo Logo' />
           <div>
             <h1>To-do app</h1>
             <p>the best for controlling your time</p>
           </div>
         </div>
-        <div className={styles.header__authorization}>
-          <Button className={styles.header__login} onClick={() => {}}>
+        <div className={styles.authorization}>
+          <Button className={styles.login} onClick={() => {}}>
             Login
           </Button>
-          <Button className={styles.header__signUp} onClick={() => {}}>
+          <Button className={styles.signUp} onClick={() => {}}>
             Sign up
           </Button>
         </div>

@@ -8,7 +8,7 @@
     width: 100%;
     justify-content: space-between;
   }
-  &__logo {
+  .logo {
     display: flex;
     img {
       margin-right: 15px;
@@ -26,7 +26,7 @@
       color: #7b7b7b;
     }
   }
-  &__authorization {
+  .authorization {
     button {
       cursor: pointer;
       border: 0;
@@ -44,12 +44,12 @@
       }
     }
   }
-  &__login {
+  .login {
     color: rgb(104, 85, 224);
     background-color: rgba(255, 255, 255, 1);
     border: 1px solid rgba(104, 85, 224, 1);
   }
-  &__signUp {
+  .signUp {
     color: white;
     background-color: rgba(104, 85, 224, 1);
   }
