@@ -4,9 +4,9 @@ import done from '../../media/images/done.png';
 import deleteImg from '../../media/images/delete.png';
 import styles from '../style/components/todo.module.scss';
 import cn from 'classnames';
-type TodoProps = {
+interface TodoProps {
   description: string;
-};
+}
 
 const TodoBlock: React.FC<TodoProps> = ({ description }) => {
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../media/images/logo.png';
 import styles from '../style/components/header.module.scss';
+import Button from './button';
 const Header = () => {
   return (
     <div className={styles.header}>
@@ -13,8 +14,12 @@ const Header = () => {
           </div>
         </div>
         <div className={styles.header__authorization}>
-          <button className={styles.header__login}>Login</button>
-          <button className={styles.header__signUp}>Sign Up</button>
+          <Button className={styles.header__login} onClick={() => {}}>
+            Login
+          </Button>
+          <Button className={styles.header__signUp} onClick={() => {}}>
+            Sign up
+          </Button>
         </div>
       </div>
     </div>

@@ -1,0 +1,17 @@
+import React from 'react';
+import cn from 'classnames';
+interface ButtonProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  className: string;
+  children: string;
+}
+
+const Button: React.FC<ButtonProps> = ({ onClick, className, children }) => {
+  return (
+    <button onClick={onClick} className={cn(className)}>
+      {children}
+    </button>
+  );
+};
+
+export default Button;
