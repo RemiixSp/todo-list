@@ -12,20 +12,16 @@ interface TodoProps {
 const TodoBlock: React.FC<TodoProps> = ({ description }) => (
   <div className={styles.todo}>
     <p>{description}</p>
-    <img
-      className={cn(styles.todoImg, styles.todoPin)}
-      src={pin}
-      alt='Pin img'
-    />
+    <img className={cn(styles.todoImg, styles.todoPin)} src={pin} alt='Pin' />
     <img
       className={cn(styles.todoImg, styles.todoDone)}
       src={done}
-      alt='Done img'
+      alt='Done'
     />
     <img
       className={cn(styles.todoImg, styles.todoDelete)}
       src={deleteImg}
-      alt='Delete img'
+      alt='Delete'
     />
   </div>
 );
