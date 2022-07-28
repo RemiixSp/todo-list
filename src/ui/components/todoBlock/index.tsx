@@ -4,6 +4,7 @@ import done from '../../../media/images/done.svg';
 import deleteImg from '../../../media/images/delete.svg';
 import styles from './todo.module.scss';
 import cn from 'classnames';
+
 interface TodoProps {
   description: string;
 }

@@ -3,6 +3,7 @@ import Header from '../../components/header';
 import TodoBlock from '../../components/todoBlock';
 import styles from './home.module.scss';
 import TextArea from '../../common/textArea';
+
 const Home = () => {
   let a = 0;
   return (
