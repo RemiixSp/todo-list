@@ -1,7 +1,2 @@
-@import './normalize';
-@import './variables';
-@import './components/all';
-.container {
-  width: $container-width;
-  margin: 0 auto;
-}
+@use './normalize';
+@use './variables';
