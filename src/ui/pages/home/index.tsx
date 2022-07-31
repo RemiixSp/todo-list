@@ -25,7 +25,9 @@ const Home = () => {
   const allTasks = useSelector((state: RootState) => state.todoReducer);
   const addTaskAction = () => {
     const newTodo: Task = { description: textAreaValue, status: Status.LISTED };
-    if (allTasks.listedTasks.find((obj) => obj.description === textAreaValue)) {
+    if (
+      allTasks.listedTasks?.find((obj) => obj.description === textAreaValue)
+    ) {
       alert('this task is already added');
     } else {
       dispatch(addTask(newTodo));
@@ -75,13 +77,13 @@ const Home = () => {
           </div>
           <h2 className={styles.todoBlockHeader}>Here is your to-do list</h2>
           <div className={styles.allTodos}>
-            {allTasks.listedTasks.length === 0 ? (
+            {allTasks.listedTasks?.length === 0 ? (
               <h3 className={styles.noTask}>
                 You havent added any task yet. Its never late to do it rigth now
               </h3>
             ) : (
               <>
-                {allTasks.listedTasks.map((obj, index) => (
+                {allTasks.listedTasks?.map((obj, index) => (
                   <TodoBlock
                     key={obj.description}
                     description={obj.description}
@@ -94,9 +96,9 @@ const Home = () => {
             )}
           </div>
           <h2 className={styles.todoBlockHeader}>Here is your done tasks</h2>
-          {allTasks.doneTasks.length !== 0 && (
+          {allTasks.doneTasks?.length > 0 && (
             <div className={styles.allTodos}>
-              {allTasks.doneTasks.map((obj, index) => (
+              {allTasks.doneTasks?.map((obj, index) => (
                 <TodoBlock
                   done
                   key={obj.description}
