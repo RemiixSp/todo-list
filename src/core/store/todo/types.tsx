@@ -1,6 +1,7 @@
 export enum Status {
   LISTED = 'listed',
   PINNED = 'pinned',
+  DELETED = 'deleted',
 }
 
 export type Task = {

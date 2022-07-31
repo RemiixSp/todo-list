@@ -5,7 +5,7 @@ import styles from './home.module.scss';
 import TextArea from '../../common/textArea';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../core/store/store';
-import { addTask } from '../../../core/store/todo';
+import { addTask, finishTask } from '../../../core/store/todo';
 import { Task, Status } from '../../../core/store/todo/types';
 
 const Home = () => {
@@ -18,18 +18,20 @@ const Home = () => {
     setTextAreaValue(event.target.value);
   };
 
-  const listTasks = useSelector(
-    (state: RootState) => state.todoReducer.listedTasks
-  );
   const allTasks = useSelector((state: RootState) => state.todoReducer);
   const addTaskAction = () => {
     const newTodo: Task = { description: textAreaValue, status: Status.LISTED };
     dispatch(addTask(newTodo));
   };
+  const makeTaskDone = (val: string) => {
+    dispatch(finishTask(val));
+  };
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addTaskAction();
+    if (window.confirm('Add this task to your list?')) {
+      addTaskAction();
+    }
   };
   React.useEffect(() => {
     if (componentDidMount.current) {
@@ -62,22 +64,36 @@ const Home = () => {
           </div>
           <h2 className={styles.todoBlockHeader}>Here is your to-do list</h2>
           <div className={styles.allTodos}>
-            {listTasks.length === 0 ? (
+            {allTasks.listedTasks.length === 0 ? (
               <h3 className={styles.noTask}>
                 You havent added any task yet. Its never late to do it rigth now
               </h3>
             ) : (
               <>
-                {listTasks.map((obj, index) => (
+                {allTasks.listedTasks.map((obj, index) => (
                   <TodoBlock
                     key={obj.description}
                     description={obj.description}
                     isPinned={obj.status === 'pinned' ? true : false}
+                    onDoneClick={makeTaskDone}
                   />
                 ))}
               </>
             )}
           </div>
+          <h2 className={styles.todoBlockHeader}>Here is your done tasks</h2>
+          {allTasks.doneTasks.length !== 0 && (
+            <div className={styles.allTodos}>
+              {allTasks.doneTasks.map((obj, index) => (
+                <TodoBlock
+                  done
+                  key={obj.description}
+                  description={obj.description}
+                  isPinned={obj.status === 'pinned' ? true : false}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -7,14 +7,17 @@ import cn from 'classnames';
 
 interface TodoProps {
   description: string;
-  isPinned: boolean;
+  isPinned?: boolean;
+  done?: boolean;
+  onDoneClick?: (val: string) => void;
 }
 
-const TodoBlock: React.FC<TodoProps> = ({ description }) => (
+const TodoBlock: React.FC<TodoProps> = ({ description, onDoneClick }) => (
   <div className={styles.todo}>
     <p>{description}</p>
     <img className={cn(styles.todoImg, styles.todoPin)} src={pin} alt='Pin' />
     <img
+      onClick={() => onDoneClick?.(description)}
       className={cn(styles.todoImg, styles.todoDone)}
       src={done}
       alt='Done'
