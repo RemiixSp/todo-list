@@ -5,7 +5,11 @@ import styles from './home.module.scss';
 import TextArea from '../../common/textArea';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../core/store/store';
-import { addTask, finishTask } from '../../../core/store/todo';
+import {
+  addTask,
+  finishTask,
+  deleteTaskFromStorage,
+} from '../../../core/store/todo';
 import { Task, Status } from '../../../core/store/todo/types';
 
 const Home = () => {
@@ -21,17 +25,24 @@ const Home = () => {
   const allTasks = useSelector((state: RootState) => state.todoReducer);
   const addTaskAction = () => {
     const newTodo: Task = { description: textAreaValue, status: Status.LISTED };
-    dispatch(addTask(newTodo));
+    if (allTasks.listedTasks.find((obj) => obj.description === textAreaValue)) {
+      alert('this task is already added');
+    } else {
+      dispatch(addTask(newTodo));
+    }
   };
   const makeTaskDone = (val: string) => {
     dispatch(finishTask(val));
   };
+  const deleteTask = (val: Task) => {
+    dispatch(deleteTaskFromStorage(val));
+  };
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (window.confirm('Add this task to your list?')) {
-      addTaskAction();
-    }
+    // if (window.confirm('Add this task to your list?')) {
+    addTaskAction();
+    // }
   };
   React.useEffect(() => {
     if (componentDidMount.current) {
@@ -74,8 +85,9 @@ const Home = () => {
                   <TodoBlock
                     key={obj.description}
                     description={obj.description}
-                    isPinned={obj.status === 'pinned' ? true : false}
+                    status={obj.status}
                     onDoneClick={makeTaskDone}
+                    onDeleteClick={deleteTask}
                   />
                 ))}
               </>
@@ -89,7 +101,8 @@ const Home = () => {
                   done
                   key={obj.description}
                   description={obj.description}
-                  isPinned={obj.status === 'pinned' ? true : false}
+                  status={obj.status}
+                  onDeleteClick={deleteTask}
                 />
               ))}
             </div>

@@ -16,12 +16,7 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action: PayloadAction<Task>) => {
-      const isAdded = state.listedTasks.find(
-        (obj) => obj.description === action.payload.description
-      );
-      if (!isAdded) {
-        state.listedTasks.push(action.payload);
-      }
+      state.listedTasks.push(action.payload);
     },
     finishTask: (state, action: PayloadAction<string>) => {
       const listedTasks = state.listedTasks.filter(
@@ -29,9 +24,26 @@ export const todoSlice = createSlice({
       );
       const task: Task = {
         description: action.payload,
-        status: Status.DELETED,
+        status: Status.DONE,
       };
       const doneTasks = state.doneTasks.concat(task);
+      return {
+        ...state,
+        listedTasks,
+        doneTasks,
+      };
+    },
+    deleteTaskFromStorage: (state, action: PayloadAction<Task>) => {
+      const listedTasks = state.listedTasks.filter(
+        (obj) =>
+          obj.description !== action.payload.description ||
+          obj.status !== action.payload.status
+      );
+      const doneTasks = state.doneTasks.filter(
+        (obj) =>
+          obj.description !== action.payload.description ||
+          obj.status !== action.payload.status
+      );
       return {
         ...state,
         listedTasks,
@@ -41,6 +53,6 @@ export const todoSlice = createSlice({
   },
 });
 
-export const { addTask, finishTask } = todoSlice.actions;
+export const { addTask, finishTask, deleteTaskFromStorage } = todoSlice.actions;
 
 export default todoSlice.reducer;

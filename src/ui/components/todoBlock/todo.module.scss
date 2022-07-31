@@ -32,4 +32,10 @@
   .todoDelete {
     top: 50px;
   }
+  .imgWhenDone {
+    visibility: hidden;
+  }
+  .doneDescription {
+    text-decoration: line-through;
+  }
 }
