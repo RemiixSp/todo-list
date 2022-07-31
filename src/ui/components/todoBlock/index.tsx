@@ -7,6 +7,7 @@ import cn from 'classnames';
 
 interface TodoProps {
   description: string;
+  isPinned: boolean;
 }
 
 const TodoBlock: React.FC<TodoProps> = ({ description }) => (

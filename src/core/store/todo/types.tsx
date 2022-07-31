@@ -1,6 +1,11 @@
+export enum Status {
+  LISTED = 'listed',
+  PINNED = 'pinned',
+}
+
 export type Task = {
-  descripton: string;
-  status: string;
+  description: string;
+  status: Status;
 };
 
 export interface TodoState {
