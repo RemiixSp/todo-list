@@ -6,7 +6,7 @@ import {
   getDoneTasksFromLS,
 } from '../../utils/getTasksFromLS';
 import { filterNeededTask } from '../../utils/FilterNeededTask';
-
+import { getPinOrUnpinTask } from '../../utils/pinTaskOrUnpin';
 const initialState: TodoState = {
   listedTasks: getListedTasksFromLS(),
   doneTasks: getDoneTasksFromLS(),
@@ -43,14 +43,8 @@ export const todoSlice = createSlice({
       };
     },
     pinTask: (state, action: PayloadAction<Task>) => {
-      const newPinObj = {
-        description: action.payload.description,
-        status: Status.PINNED,
-      };
-      const listedTasks = [
-        newPinObj,
-        ...filterNeededTask(state.listedTasks, action.payload),
-      ];
+      let listedTasks = getPinOrUnpinTask(state.listedTasks, action.payload);
+
       return {
         ...state,
         listedTasks,
