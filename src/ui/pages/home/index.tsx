@@ -9,13 +9,17 @@ import {
   addTask,
   finishTask,
   deleteTaskFromStorage,
+  pinTask,
 } from '../../../core/store/todo';
 import { Task, Status } from '../../../core/store/todo/types';
 
 const Home = () => {
   const dispatch = useDispatch();
+
   const [textAreaValue, setTextAreaValue] = useState('');
+
   const componentDidMount = useRef(false);
+
   const onChangeTextAreaVal = (
     event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
@@ -23,6 +27,7 @@ const Home = () => {
   };
 
   const allTasks = useSelector((state: RootState) => state.todoReducer);
+
   const addTaskAction = () => {
     const newTodo: Task = { description: textAreaValue, status: Status.LISTED };
     if (
@@ -33,12 +38,6 @@ const Home = () => {
       dispatch(addTask(newTodo));
     }
   };
-  const makeTaskDone = (val: string) => {
-    dispatch(finishTask(val));
-  };
-  const deleteTask = (val: Task) => {
-    dispatch(deleteTaskFromStorage(val));
-  };
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -47,6 +46,19 @@ const Home = () => {
       setTextAreaValue('');
     }
   };
+
+  const makeTaskDone = (val: string) => {
+    dispatch(finishTask(val));
+  };
+
+  const deleteTask = (val: Task) => {
+    dispatch(deleteTaskFromStorage(val));
+  };
+
+  const makeTaskPinned = (val: Task) => {
+    dispatch(pinTask(val));
+  };
+
   React.useEffect(() => {
     if (componentDidMount.current) {
       const json = JSON.stringify(allTasks);
@@ -90,6 +102,7 @@ const Home = () => {
                     description={obj.description}
                     status={obj.status}
                     onDoneClick={makeTaskDone}
+                    onPinClick={makeTaskPinned}
                     onDeleteClick={deleteTask}
                   />
                 ))}

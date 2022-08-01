@@ -11,6 +11,7 @@ interface TodoProps {
   status: Status;
   done?: boolean;
   onDoneClick?: (val: string) => void;
+  onPinClick?: (val: Task) => void;
   onDeleteClick: (val: Task) => void;
 }
 
@@ -18,12 +19,18 @@ const TodoBlock: React.FC<TodoProps> = ({
   description,
   onDoneClick,
   onDeleteClick,
+  onPinClick,
   done,
   status,
 }) => (
-  <div className={styles.todo}>
+  <div
+    className={cn(styles.todo, {
+      [styles.pinnedBlock]: status === Status.PINNED,
+    })}
+  >
     <p className={cn({ [styles.doneDescription]: done })}>{description}</p>
     <img
+      onClick={() => onPinClick?.({ description: description, status: status })}
       className={cn(styles.todoImg, styles.todoPin, {
         [styles.imgWhenDone]: done,
       })}

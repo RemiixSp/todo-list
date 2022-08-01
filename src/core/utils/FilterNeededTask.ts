@@ -1,4 +1,4 @@
-import { Task, TodoState } from '../store/todo/types';
+import { Task } from '../store/todo/types';
 
 export const filterNeededTask = (state: Task[], task: Task) => {
   return state.filter(

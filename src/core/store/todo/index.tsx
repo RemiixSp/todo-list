@@ -42,10 +42,24 @@ export const todoSlice = createSlice({
         doneTasks,
       };
     },
-    pinTask: (state, action: PayloadAction<Task>) => {},
+    pinTask: (state, action: PayloadAction<Task>) => {
+      const newPinObj = {
+        description: action.payload.description,
+        status: Status.PINNED,
+      };
+      const listedTasks = [
+        newPinObj,
+        ...filterNeededTask(state.listedTasks, action.payload),
+      ];
+      return {
+        ...state,
+        listedTasks,
+      };
+    },
   },
 });
 
-export const { addTask, finishTask, deleteTaskFromStorage } = todoSlice.actions;
+export const { addTask, finishTask, deleteTaskFromStorage, pinTask } =
+  todoSlice.actions;
 
 export default todoSlice.reducer;
