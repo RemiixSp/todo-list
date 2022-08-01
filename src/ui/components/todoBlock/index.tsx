@@ -25,9 +25,10 @@ const TodoBlock: React.FC<TodoProps> = ({
 }) => (
   <div
     className={cn(styles.todo, {
-      [styles.pinnedBlock]: status === Status.PINNED,
+      [styles.todoPinned]: status === Status.PINNED,
     })}
   >
+    <p className={styles.pinnedIdentifier}>pinned</p>
     <p className={cn({ [styles.doneDescription]: done })}>{description}</p>
     <img
       onClick={() => onPinClick?.({ description: description, status: status })}

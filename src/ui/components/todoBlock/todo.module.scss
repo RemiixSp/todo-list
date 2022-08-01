@@ -13,6 +13,12 @@
   p {
     color: white;
   }
+  .pinnedIdentifier {
+    position: absolute;
+    top: 10px;
+    left: 75%;
+    visibility: hidden;
+  }
   .todoImg {
     position: absolute;
     top: 10px;
@@ -37,5 +43,18 @@
   }
   .doneDescription {
     text-decoration: line-through;
+  }
+}
+
+.todoPinned {
+  background-color: aqua;
+  padding-right: 80px;
+  p {
+    color: black;
+  }
+  .pinnedIdentifier {
+    visibility: visible;
+    color: gray;
+    font-size: 12px;
   }
 }
