@@ -42,9 +42,10 @@ const Home = () => {
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // if (window.confirm('Add this task to your list?')) {
-    addTaskAction();
-    // }
+    if (window.confirm('Add this task to your list?')) {
+      addTaskAction();
+      setTextAreaValue('');
+    }
   };
   React.useEffect(() => {
     if (componentDidMount.current) {

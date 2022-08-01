@@ -5,6 +5,7 @@ import {
   getListedTasksFromLS,
   getDoneTasksFromLS,
 } from '../../utils/getTasksFromLS';
+import { filterNeededTask } from '../../utils/FilterNeededTask';
 
 const initialState: TodoState = {
   listedTasks: getListedTasksFromLS(),
@@ -22,11 +23,10 @@ export const todoSlice = createSlice({
       const listedTasks = state.listedTasks.filter(
         (obj) => obj.description !== action.payload
       );
-      const task: Task = {
+      const doneTasks = state.doneTasks.concat({
         description: action.payload,
         status: Status.DONE,
-      };
-      const doneTasks = state.doneTasks.concat(task);
+      });
       return {
         ...state,
         listedTasks,
@@ -34,22 +34,15 @@ export const todoSlice = createSlice({
       };
     },
     deleteTaskFromStorage: (state, action: PayloadAction<Task>) => {
-      const listedTasks = state.listedTasks.filter(
-        (obj) =>
-          obj.description !== action.payload.description ||
-          obj.status !== action.payload.status
-      );
-      const doneTasks = state.doneTasks.filter(
-        (obj) =>
-          obj.description !== action.payload.description ||
-          obj.status !== action.payload.status
-      );
+      const listedTasks = filterNeededTask(state.listedTasks, action.payload);
+      const doneTasks = filterNeededTask(state.doneTasks, action.payload);
       return {
         ...state,
         listedTasks,
         doneTasks,
       };
     },
+    pinTask: (state, action: PayloadAction<Task>) => {},
   },
 });
 
