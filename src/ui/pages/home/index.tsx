@@ -52,7 +52,8 @@ const Home = () => {
   };
 
   const deleteTask = (val: Task) => {
-    dispatch(deleteTaskFromStorage(val));
+    if (window.confirm('Do you really want to delete this task?'))
+      dispatch(deleteTaskFromStorage(val));
   };
 
   const makeTaskPinned = (val: Task) => {
