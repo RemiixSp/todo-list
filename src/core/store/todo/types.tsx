@@ -5,6 +5,7 @@ export enum Status {
 }
 
 export type Task = {
+  id: string;
   description: string;
   status: Status;
 };

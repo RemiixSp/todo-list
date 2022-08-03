@@ -11,6 +11,7 @@ import {
   deleteTaskFromStorage,
   pinTask,
 } from '../../../core/store/todo';
+import { nanoid } from '@reduxjs/toolkit';
 import { Task, Status } from '../../../core/store/todo/types';
 
 const Home = () => {
@@ -29,7 +30,11 @@ const Home = () => {
   const allTasks = useSelector((state: RootState) => state.todoReducer);
 
   const addTaskAction = () => {
-    const newTodo: Task = { description: textAreaValue, status: Status.LISTED };
+    const newTodo: Task = {
+      id: nanoid(),
+      description: textAreaValue,
+      status: Status.LISTED,
+    };
     if (
       allTasks.listedTasks?.find((obj) => obj.description === textAreaValue)
     ) {
@@ -47,8 +52,8 @@ const Home = () => {
     }
   };
 
-  const makeTaskDone = (val: string) => {
-    dispatch(finishTask(val));
+  const makeTaskDone = (obj: Task) => {
+    dispatch(finishTask(obj));
   };
 
   const deleteTask = (val: Task) => {
@@ -99,6 +104,7 @@ const Home = () => {
               <>
                 {allTasks.listedTasks?.map((obj, index) => (
                   <TodoBlock
+                    id={obj.id}
                     key={obj.description}
                     description={obj.description}
                     status={obj.status}
@@ -115,6 +121,7 @@ const Home = () => {
             <div className={styles.allTodos}>
               {allTasks.doneTasks?.map((obj, index) => (
                 <TodoBlock
+                  id={obj.id}
                   done
                   key={obj.description}
                   description={obj.description}
