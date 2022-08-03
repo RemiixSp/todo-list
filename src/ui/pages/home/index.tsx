@@ -27,7 +27,7 @@ const Home = () => {
     setTextAreaValue(event.target.value);
 
   const addTaskAction = () => {
-    const newTodo: Task = {
+    const newTodo = {
       id: nanoid(),
       description: textAreaValue,
       status: Status.LISTED,
@@ -43,10 +43,9 @@ const Home = () => {
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (window.confirm('Add this task to your list?')) {
-      addTaskAction();
-      setTextAreaValue('');
-    }
+
+    addTaskAction();
+    setTextAreaValue('');
   };
 
   const makeTaskDone = (obj: Task) => {
@@ -54,8 +53,7 @@ const Home = () => {
   };
 
   const deleteTask = (val: Task) => {
-    if (window.confirm('Do you really want to delete this task?'))
-      dispatch(deleteTaskFromStorage(val));
+    dispatch(deleteTaskFromStorage(val));
   };
 
   const makeTaskPinned = (val: Task) => {
