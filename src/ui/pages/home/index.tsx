@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Header from '../../components/header';
 import TodoBlock from '../../components/todoBlock';
 import styles from './home.module.scss';
@@ -15,19 +15,16 @@ import { nanoid } from '@reduxjs/toolkit';
 import { Task, Status } from '../../../core/store/todo/types';
 
 const Home = () => {
-  const dispatch = useDispatch();
-
   const [textAreaValue, setTextAreaValue] = useState('');
 
   const componentDidMount = useRef(false);
 
-  const onChangeTextAreaVal = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setTextAreaValue(event.target.value);
-  };
+  const allTasks = useSelector((state: RootState) => state.todo);
 
-  const allTasks = useSelector((state: RootState) => state.todoReducer);
+  const dispatch = useDispatch();
+
+  const onChangeTextAreaVal = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
+    setTextAreaValue(event.target.value);
 
   const addTaskAction = () => {
     const newTodo: Task = {
@@ -65,7 +62,7 @@ const Home = () => {
     dispatch(pinTask(val));
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (componentDidMount.current) {
       const json = JSON.stringify(allTasks);
       localStorage.setItem('todos', json);

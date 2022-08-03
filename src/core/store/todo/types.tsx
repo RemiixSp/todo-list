@@ -4,11 +4,11 @@ export enum Status {
   DONE = 'deleted',
 }
 
-export type Task = {
+export interface Task {
   id: string;
   description: string;
   status: Status;
-};
+}
 
 export interface TodoState {
   listedTasks: Task[];

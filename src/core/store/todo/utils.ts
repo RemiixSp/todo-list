@@ -1,5 +1,8 @@
-import { Status, Task } from '../store/todo/types';
-import { getFilteredTask } from './getFiltered';
+import { Task, Status } from './types';
+
+export const getFilteredTask = (state: Task[], task: Task) =>
+  state.filter((obj) => obj.id !== task.id);
+
 export const getPinOrUnpinTask = (state: Task[], action: Task) => {
   if (action.status === Status.LISTED) {
     const newPinObj = {

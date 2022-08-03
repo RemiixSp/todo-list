@@ -1,9 +1,6 @@
-export const getListedTasksFromLS = () => {
+export const getTasksFromLS = () => {
   const data = localStorage.getItem('todos');
-  return data ? JSON.parse(data)['listedTasks'] : [];
-};
-
-export const getDoneTasksFromLS = () => {
-  const data = localStorage.getItem('todos');
-  return data ? JSON.parse(data)['doneTasks'] : [];
+  const listedData = data ? JSON.parse(data)?.listedTasks : [];
+  const doneData = data ? JSON.parse(data)?.doneTasks : [];
+  return { listedData, doneData };
 };
