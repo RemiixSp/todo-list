@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { TodoState, Task } from './types';
+import { TodoState, Task, Status } from './types';
 import { getTasksFromLS } from '../../utils/getTasksFromLS';
 import { getPinOrUnpinTask, getFilteredTask } from './utils';
 
@@ -28,7 +28,8 @@ export const todoSlice = createSlice({
 
     finishTask: (state, action: PayloadAction<Task>) => {
       const listedTasks = getFilteredTask(state.listedTasks, action.payload);
-      const doneTasks = [...state.doneTasks, action.payload];
+      const doneObj = { ...action.payload, status: Status.DONE };
+      const doneTasks = [...state.doneTasks, doneObj];
       return {
         ...state,
         listedTasks,

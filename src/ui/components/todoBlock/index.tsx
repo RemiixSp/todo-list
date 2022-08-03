@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import pin from '../../../media/images/pin.svg';
 import doneImg from '../../../media/images/done.svg';
 import deleteImg from '../../../media/images/delete.svg';
@@ -7,6 +7,9 @@ import cn from 'classnames';
 import { Status, Task } from '../../../core/store/todo/types';
 import { useDispatch } from 'react-redux';
 import { inizialization } from '../../../core/store/todo/index';
+import { ReactComponent as DoneIcon } from '../../../media/images/done.svg';
+import { ReactComponent as PinIcon } from '../../../media/images/pin.svg';
+import { ReactComponent as DeleteIcon } from '../../../media/images/delete.svg';
 
 interface TodoProps {
   id: string;
@@ -44,27 +47,22 @@ const TodoBlock: React.FC<TodoProps> = ({
     >
       <p className={styles.pinnedIdentifier}>pinned</p>
       <p className={cn({ [styles.doneDescription]: done })}>{description}</p>
-      <img
+
+      <PinIcon
         onClick={() => onPinClick?.(todoTask)}
         className={cn(styles.todoImg, styles.todoPin, {
           [styles.imgWhenDone]: done,
         })}
-        src={pin}
-        alt='Pin'
       />
-      <img
+      <DoneIcon
         onClick={() => onDoneClick?.(todoTask)}
         className={cn(styles.todoImg, styles.todoDone, {
           [styles.imgWhenDone]: done,
         })}
-        src={doneImg}
-        alt='Done'
       />
-      <img
+      <DeleteIcon
         onClick={() => onDeleteClick(todoTask)}
         className={cn(styles.todoImg, styles.todoDelete)}
-        src={deleteImg}
-        alt='Delete'
       />
     </div>
   );
