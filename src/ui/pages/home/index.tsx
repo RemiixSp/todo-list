@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/header';
 import TodoBlock from '../../components/todoBlock';
 import styles from './home.module.scss';
@@ -13,11 +13,10 @@ import {
 } from '../../../core/store/todo';
 import { nanoid } from '@reduxjs/toolkit';
 import { Task, Status } from '../../../core/store/todo/types';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 const Home = () => {
   const [textAreaValue, setTextAreaValue] = useState('');
-
-  const componentDidMount = useRef(false);
 
   const allTasks = useSelector((state: RootState) => state.todo);
 
@@ -39,6 +38,7 @@ const Home = () => {
     } else {
       dispatch(addTask(newTodo));
     }
+    console.log(localStorage.getItem('todos') + '1');
   };
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -60,13 +60,7 @@ const Home = () => {
     dispatch(pinTask(val));
   };
 
-  useEffect(() => {
-    if (componentDidMount.current) {
-      const json = JSON.stringify(allTasks);
-      localStorage.setItem('todos', json);
-    }
-    componentDidMount.current = true;
-  }, [allTasks]);
+  useLocalStorage(allTasks);
 
   return (
     <div className={styles.container}>

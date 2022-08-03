@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import pin from '../../../media/images/pin.svg';
 import doneImg from '../../../media/images/done.svg';
 import deleteImg from '../../../media/images/delete.svg';
 import styles from './todo.module.scss';
 import cn from 'classnames';
 import { Status, Task } from '../../../core/store/todo/types';
+import { useDispatch } from 'react-redux';
+import { inizialization } from '../../../core/store/todo/index';
 
 interface TodoProps {
   id: string;
@@ -25,7 +27,15 @@ const TodoBlock: React.FC<TodoProps> = ({
   status,
   id,
 }) => {
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(inizialization());
+  //   console.log(localStorage.getItem('todos') + '3');
+  // }, []);
+
   const todoTask = { id: id, description: description, status: status };
+
   return (
     <div
       className={cn(styles.todo, {
