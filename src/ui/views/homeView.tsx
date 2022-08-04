@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../pages/home/home.module.scss';
 import TextArea from '../common/textArea';
 import TodoBlock from '../components/todoBlock';
@@ -38,7 +38,6 @@ const HomeView = () => {
     } else {
       dispatch(addTask(newTodo));
     }
-    console.log(localStorage.getItem('todos') + 'add to ls');
   };
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -60,11 +59,15 @@ const HomeView = () => {
     dispatch(pinTask(val));
   };
 
+  useEffect(() => {
+    dispatch(inizialization());
+  }, []);
+
   useUpdateEffect(() => {
     const json = JSON.stringify(allTasks);
     localStorage.setItem('todos', json);
-    console.log('save to ls');
   }, allTasks);
+
   return (
     <div className={styles.todoBlock}>
       <div className={styles.addContainer}>

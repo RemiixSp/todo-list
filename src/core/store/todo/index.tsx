@@ -5,8 +5,8 @@ import { getTasksFromLS } from '../../utils/getTasksFromLS';
 import { getPinOrUnpinTask, getFilteredTask, findById } from './utils';
 
 const initialState: TodoState = {
-  listedTasks: getTasksFromLS().listedTasks,
-  doneTasks: getTasksFromLS().doneTasks,
+  listedTasks: [],
+  doneTasks: [],
 };
 
 export const todoSlice = createSlice({
