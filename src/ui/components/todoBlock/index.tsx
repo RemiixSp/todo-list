@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import styles from './todo.module.scss';
 import cn from 'classnames';
-import { Status, Task } from '../../../core/store/todo/types';
+import { Status } from '../../../core/store/todo/types';
 import { useDispatch } from 'react-redux';
 import { inizialization } from '../../../core/store/todo/index';
 import { ReactComponent as DoneIcon } from '../../../media/images/done.svg';
 import { ReactComponent as PinIcon } from '../../../media/images/pin.svg';
 import { ReactComponent as DeleteIcon } from '../../../media/images/delete.svg';
+import useUpdateEffect from '../../hooks/useUpdateEffect';
 
 interface TodoProps {
   id: string;
@@ -29,10 +30,10 @@ const TodoBlock: React.FC<TodoProps> = ({
 }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(inizialization());
-    console.log(localStorage.getItem('todos') + '3');
-  }, []);
+  // useEffect(() => {
+  //   dispatch(inizialization());
+  //   console.log(localStorage.getItem('todos') + 'inizialization');
+  // }, []);
 
   return (
     <div

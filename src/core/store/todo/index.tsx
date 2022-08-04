@@ -14,12 +14,12 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     inizialization: (state) => {
-      // const { listedTasks, doneTasks } = getTasksFromLS();
-      // return {
-      //   ...state,
-      //   listedTasks,
-      //   doneTasks,
-      // };
+      const { listedTasks, doneTasks } = getTasksFromLS();
+      return {
+        ...state,
+        listedTasks,
+        doneTasks,
+      };
     },
     addTask: (state, action: PayloadAction<Task>) => {
       state.listedTasks.push(action.payload);

@@ -11,6 +11,7 @@ import {
   finishTask,
   deleteTaskFromStorage,
   pinTask,
+  inizialization,
 } from '../../core/store/todo';
 import useUpdateEffect from '../hooks/useUpdateEffect';
 
@@ -37,7 +38,7 @@ const HomeView = () => {
     } else {
       dispatch(addTask(newTodo));
     }
-    console.log(localStorage.getItem('todos') + '1');
+    console.log(localStorage.getItem('todos') + 'add to ls');
   };
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -62,6 +63,7 @@ const HomeView = () => {
   useUpdateEffect(() => {
     const json = JSON.stringify(allTasks);
     localStorage.setItem('todos', json);
+    console.log('save to ls');
   }, allTasks);
   return (
     <div className={styles.todoBlock}>
