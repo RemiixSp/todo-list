@@ -1,7 +1,4 @@
 import React, { useEffect } from 'react';
-import pin from '../../../media/images/pin.svg';
-import doneImg from '../../../media/images/done.svg';
-import deleteImg from '../../../media/images/delete.svg';
 import styles from './todo.module.scss';
 import cn from 'classnames';
 import { Status, Task } from '../../../core/store/todo/types';
@@ -32,10 +29,10 @@ const TodoBlock: React.FC<TodoProps> = ({
 }) => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(inizialization());
-  //   console.log(localStorage.getItem('todos') + '3');
-  // }, []);
+  useEffect(() => {
+    dispatch(inizialization());
+    console.log(localStorage.getItem('todos') + '3');
+  }, []);
 
   const todoTask = { id: id, description: description, status: status };
 

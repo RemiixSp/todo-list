@@ -5,8 +5,8 @@ import { getTasksFromLS } from '../../utils/getTasksFromLS';
 import { getPinOrUnpinTask, getFilteredTask } from './utils';
 
 const initialState: TodoState = {
-  listedTasks: getTasksFromLS().listedData,
-  doneTasks: getTasksFromLS().doneData,
+  listedTasks: [],
+  doneTasks: [],
 };
 
 export const todoSlice = createSlice({
@@ -14,13 +14,13 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     inizialization: (state) => {
-      // const listedTasks = getTasksFromLS().listedData;
-      // const doneTasks = getTasksFromLS().doneData;
-      // return {
-      //   ...state,
-      //   listedTasks,
-      //   doneTasks,
-      // };
+      const listedTasks = getTasksFromLS().listedData;
+      const doneTasks = getTasksFromLS().doneData;
+      return {
+        ...state,
+        listedTasks,
+        doneTasks,
+      };
     },
     addTask: (state, action: PayloadAction<Task>) => {
       state.listedTasks.push(action.payload);
