@@ -44,23 +44,28 @@ const TodoBlock: React.FC<TodoProps> = ({
     >
       <p className={styles.pinnedIdentifier}>pinned</p>
       <p className={cn({ [styles.doneDescription]: done })}>{description}</p>
-
-      <PinIcon
-        onClick={() => onPinClick?.(todoTask)}
+      <button
         className={cn(styles.todoImg, styles.todoPin, {
           [styles.imgWhenDone]: done,
         })}
-      />
-      <DoneIcon
-        onClick={() => onDoneClick?.(todoTask)}
+        onClick={() => onPinClick?.(todoTask)}
+      >
+        <PinIcon />
+      </button>
+      <button
         className={cn(styles.todoImg, styles.todoDone, {
           [styles.imgWhenDone]: done,
         })}
-      />
-      <DeleteIcon
-        onClick={() => onDeleteClick(todoTask)}
+        onClick={() => onDoneClick?.(todoTask)}
+      >
+        <DoneIcon />
+      </button>
+      <button
         className={cn(styles.todoImg, styles.todoDelete)}
-      />
+        onClick={() => onDeleteClick(todoTask)}
+      >
+        <DeleteIcon />
+      </button>
     </div>
   );
 };
