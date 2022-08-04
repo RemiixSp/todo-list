@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { TodoState, Task, Status } from './types';
 import { getTasksFromLS } from '../../utils/getTasksFromLS';
-import { getPinOrUnpinTask, getFilteredTask } from './utils';
+import { getPinOrUnpinTask, getFilteredTask, findById } from './utils';
 
 const initialState: TodoState = {
   listedTasks: getTasksFromLS().listedTasks,
@@ -25,9 +25,10 @@ export const todoSlice = createSlice({
       state.listedTasks.push(action.payload);
     },
 
-    finishTask: (state, action: PayloadAction<Task>) => {
+    finishTask: (state, action: PayloadAction<string>) => {
       const listedTasks = getFilteredTask(state.listedTasks, action.payload);
-      const doneObj = { ...action.payload, status: Status.DONE };
+      const neededObj = findById(state.listedTasks, action.payload);
+      const doneObj = { ...neededObj, status: Status.DONE };
       const doneTasks = [...state.doneTasks, doneObj];
       return {
         ...state,
@@ -36,7 +37,7 @@ export const todoSlice = createSlice({
       };
     },
 
-    deleteTaskFromStorage: (state, action: PayloadAction<Task>) => {
+    deleteTaskFromStorage: (state, action: PayloadAction<string>) => {
       const listedTasks = getFilteredTask(state.listedTasks, action.payload);
       const doneTasks = getFilteredTask(state.doneTasks, action.payload);
       return {
@@ -46,7 +47,7 @@ export const todoSlice = createSlice({
       };
     },
 
-    pinTask: (state, action: PayloadAction<Task>) => {
+    pinTask: (state, action: PayloadAction<string>) => {
       let listedTasks = getPinOrUnpinTask(state.listedTasks, action.payload);
       return {
         ...state,

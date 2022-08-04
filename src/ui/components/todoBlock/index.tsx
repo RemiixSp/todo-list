@@ -13,9 +13,9 @@ interface TodoProps {
   description: string;
   status: Status;
   done?: boolean;
-  onDoneClick?: (obj: Task) => void;
-  onPinClick?: (val: Task) => void;
-  onDeleteClick: (val: Task) => void;
+  onDoneClick?: (id: string) => void;
+  onPinClick?: (id: string) => void;
+  onDeleteClick: (id: string) => void;
 }
 
 const TodoBlock: React.FC<TodoProps> = ({
@@ -34,8 +34,6 @@ const TodoBlock: React.FC<TodoProps> = ({
     console.log(localStorage.getItem('todos') + '3');
   }, []);
 
-  const todoTask = { id: id, description: description, status: status };
-
   return (
     <div
       className={cn(styles.todo, {
@@ -48,7 +46,7 @@ const TodoBlock: React.FC<TodoProps> = ({
         className={cn(styles.todoImg, styles.todoPin, {
           [styles.imgWhenDone]: done,
         })}
-        onClick={() => onPinClick?.(todoTask)}
+        onClick={() => onPinClick?.(id)}
       >
         <PinIcon />
       </button>
@@ -56,13 +54,13 @@ const TodoBlock: React.FC<TodoProps> = ({
         className={cn(styles.todoImg, styles.todoDone, {
           [styles.imgWhenDone]: done,
         })}
-        onClick={() => onDoneClick?.(todoTask)}
+        onClick={() => onDoneClick?.(id)}
       >
         <DoneIcon />
       </button>
       <button
         className={cn(styles.todoImg, styles.todoDelete)}
-        onClick={() => onDeleteClick(todoTask)}
+        onClick={() => onDeleteClick(id)}
       >
         <DeleteIcon />
       </button>

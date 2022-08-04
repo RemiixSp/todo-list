@@ -1,24 +1,28 @@
 import { Task, Status } from './types';
 
-export const getFilteredTask = (state: Task[], task: Task) =>
-  state.filter((obj) => obj.id !== task.id);
+export const findById = (state: Task[], action: string) =>
+  state.find((obj) => obj.id === action) as unknown as Task;
 
-export const getPinOrUnpinTask = (state: Task[], action: Task) => {
-  if (action.status === Status.LISTED) {
+export const getFilteredTask = (state: Task[], action: string) =>
+  state.filter((obj) => obj.id !== action);
+
+export const getPinOrUnpinTask = (state: Task[], id: string) => {
+  const neededObj = findById(state, id);
+
+  if (neededObj.status === Status.LISTED) {
     const newPinObj = {
-      id: action.id,
-      description: action.description,
+      ...neededObj,
       status: Status.PINNED,
     };
-    const listedTasks = [newPinObj, ...getFilteredTask(state, action)];
+
+    const listedTasks = [newPinObj, ...getFilteredTask(state, id)];
     return listedTasks;
   } else {
     const newUnpinObj = {
-      id: action.id,
-      description: action.description,
+      ...neededObj,
       status: Status.LISTED,
     };
-    const listedTasks = [...getFilteredTask(state, action), newUnpinObj];
+    const listedTasks = [...getFilteredTask(state, id), newUnpinObj];
 
     return listedTasks;
   }

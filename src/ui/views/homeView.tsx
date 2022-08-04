@@ -47,15 +47,15 @@ const HomeView = () => {
     setTextAreaValue('');
   };
 
-  const makeTaskDone = (obj: Task) => {
+  const makeTaskDone = (obj: string) => {
     dispatch(finishTask(obj));
   };
 
-  const deleteTask = (val: Task) => {
+  const deleteTask = (val: string) => {
     dispatch(deleteTaskFromStorage(val));
   };
 
-  const makeTaskPinned = (val: Task) => {
+  const makeTaskPinned = (val: string) => {
     dispatch(pinTask(val));
   };
 
