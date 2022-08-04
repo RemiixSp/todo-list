@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import TodoBlock from '../../components/todoBlock';
 import styles from './home.module.scss';
@@ -13,7 +13,7 @@ import {
 } from '../../../core/store/todo';
 import { nanoid } from '@reduxjs/toolkit';
 import { Task, Status } from '../../../core/store/todo/types';
-import useLocalStorage from '../../hooks/useLocalStorage';
+import useUpdateEffect from '../../hooks/useUpdateEffect';
 
 const Home = () => {
   const [textAreaValue, setTextAreaValue] = useState('');
@@ -60,7 +60,10 @@ const Home = () => {
     dispatch(pinTask(val));
   };
 
-  useLocalStorage(allTasks);
+  useUpdateEffect(() => {
+    const json = JSON.stringify(allTasks);
+    localStorage.setItem('todos', json);
+  }, allTasks);
 
   return (
     <div className={styles.container}>
