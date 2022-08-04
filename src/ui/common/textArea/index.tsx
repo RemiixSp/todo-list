@@ -1,8 +1,8 @@
 import React from 'react';
 
 interface TextAreaProps {
-  cols: number;
-  rows: number;
+  cols?: number;
+  rows?: number;
   className: string;
   placeholder: string;
   value: string;

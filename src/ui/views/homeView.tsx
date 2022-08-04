@@ -4,7 +4,7 @@ import TextArea from '../common/textArea';
 import TodoBlock from '../components/todoBlock';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../core/store/store';
-import { Status, Task } from '../../core/store/todo/types';
+import { Status } from '../../core/store/todo/types';
 import { nanoid } from '@reduxjs/toolkit';
 import {
   addTask,
@@ -71,8 +71,6 @@ const HomeView = () => {
           <TextArea
             onChange={onChangeTextAreaVal}
             value={textAreaValue}
-            cols={30}
-            rows={10}
             className={styles.todoDescription}
             placeholder='Enter to-do you want to add'
           />
