@@ -15,12 +15,14 @@ export const todoSlice = createSlice({
   reducers: {
     inizialization: (state) => {
       const { listedTasks, doneTasks } = getTasksFromLS();
+
       return {
         ...state,
         listedTasks,
         doneTasks,
       };
     },
+
     addTask: (state, action: PayloadAction<Task>) => {
       state.listedTasks.push(action.payload);
     },
@@ -30,6 +32,7 @@ export const todoSlice = createSlice({
       const neededObj = findById(state.listedTasks, action.payload);
       const doneObj = { ...neededObj, status: Status.DONE };
       const doneTasks = [...state.doneTasks, doneObj];
+
       return {
         ...state,
         listedTasks,
@@ -40,6 +43,7 @@ export const todoSlice = createSlice({
     deleteTaskFromStorage: (state, action: PayloadAction<string>) => {
       const listedTasks = getFilteredTask(state.listedTasks, action.payload);
       const doneTasks = getFilteredTask(state.doneTasks, action.payload);
+
       return {
         ...state,
         listedTasks,
@@ -49,6 +53,7 @@ export const todoSlice = createSlice({
 
     pinTask: (state, action: PayloadAction<string>) => {
       let listedTasks = getPinOrUnpinTask(state.listedTasks, action.payload);
+
       return {
         ...state,
         listedTasks,

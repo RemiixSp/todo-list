@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../pages/home/home.module.scss';
-import TextArea from '../common/textArea';
-import TodoBlock from '../components/todoBlock';
+import styles from '../../pages/home/home.module.scss';
+
+import TextArea from '../../common/textArea';
+import TodoBlock from '../../components/todoBlock';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../core/store/store';
-import { Status } from '../../core/store/todo/types';
+import { RootState } from '../../../core/store/store';
+import { Status } from '../../../core/store/todo/types';
 import { nanoid } from '@reduxjs/toolkit';
 import {
   addTask,
@@ -12,8 +13,8 @@ import {
   deleteTaskFromStorage,
   pinTask,
   inizialization,
-} from '../../core/store/todo';
-import useUpdateEffect from '../hooks/useUpdateEffect';
+} from '../../../core/store/todo';
+import useUpdateEffect from '../../hooks/useUpdateEffect';
 
 const HomeView = () => {
   const [textAreaValue, setTextAreaValue] = useState('');
