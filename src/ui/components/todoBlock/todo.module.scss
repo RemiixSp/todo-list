@@ -2,16 +2,28 @@
   position: relative;
   width: 48%;
   padding: 10px;
-  padding-right: 22px;
+  padding-right: 35px;
   margin: 10px 0;
   border-radius: 15px;
+  min-height: 140px;
   background-color: #18b5a4;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  word-wrap: break-word;
+  @media (max-width: 500px) {
+    width: 90%;
+  }
 
   p {
     color: white;
   }
+  .pinnedIdentifier {
+    position: absolute;
+    top: 10px;
+    left: 75%;
+    visibility: hidden;
+  }
   .todoImg {
+    all: unset;
     position: absolute;
     top: 10px;
     left: 90%;
@@ -29,5 +41,24 @@
   }
   .todoDelete {
     top: 50px;
+  }
+  .imgWhenDone {
+    visibility: hidden;
+  }
+  .doneDescription {
+    text-decoration: line-through;
+  }
+}
+
+.todoPinned {
+  background-color: #68d988;
+  padding-right: 80px;
+  p {
+    color: black;
+  }
+  .pinnedIdentifier {
+    visibility: visible;
+    color: gray;
+    font-size: 12px;
   }
 }

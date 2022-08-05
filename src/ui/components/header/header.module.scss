@@ -4,12 +4,14 @@
 
   .container {
     display: flex;
+
     align-items: center;
     width: 100%;
     justify-content: space-between;
   }
   .logo {
     display: flex;
+    flex-shrink: 0;
 
     img {
       margin-right: 15px;
