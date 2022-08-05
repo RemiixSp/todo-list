@@ -30,14 +30,16 @@ export const todoSlice = createSlice({
     finishTask: (state, action: PayloadAction<string>) => {
       const listedTasks = getFilteredTask(state.listedTasks, action.payload);
       const neededObj = findById(state.listedTasks, action.payload);
-      const doneObj = { ...neededObj, status: Status.DONE };
-      const doneTasks = [...state.doneTasks, doneObj];
+      if (neededObj) {
+        const doneObj = { ...neededObj, status: Status.DONE };
+        const doneTasks = [...state.doneTasks, doneObj];
 
-      return {
-        ...state,
-        listedTasks,
-        doneTasks,
-      };
+        return {
+          ...state,
+          listedTasks,
+          doneTasks,
+        };
+      }
     },
 
     deleteTaskFromStorage: (state, action: PayloadAction<string>) => {
