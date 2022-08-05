@@ -66,7 +66,7 @@ const HomeView = () => {
   useUpdateEffect(() => {
     const json = JSON.stringify(allTasks);
     localStorage.setItem('todos', json);
-  }, allTasks);
+  }, [allTasks]);
 
   return (
     <div className={styles.todoBlock}>

@@ -1,13 +1,13 @@
-import { useEffect, useRef } from 'react';
-import { TodoState } from '../../core/store/todo/types';
+import { DependencyList, useEffect, useRef } from 'react';
 
-const useUpdateEffect = (func: Function, tasks: TodoState) => {
+const useUpdateEffect = (func: Function, dependency: DependencyList) => {
   const didMount = useRef(false);
   useEffect(() => {
     if (didMount.current) {
       func();
     }
+
     didMount.current = true;
-  }, [tasks]);
+  }, dependency);
 };
 export default useUpdateEffect;
