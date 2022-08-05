@@ -5,10 +5,12 @@ $borderViolet: #8c82fc;
   margin: 0 auto;
 
   .home {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
     .todoBlock {
       max-width: 650px;
       min-height: 200px;
-      margin-top: 30px;
 
       .addContainer {
         height: 300px;
@@ -70,6 +72,14 @@ $borderViolet: #8c82fc;
         .noTask {
           margin: auto 30px;
         }
+      }
+    }
+
+    .widgetsBlock {
+      width: 47%;
+
+      .widgetsHeader {
+        margin-bottom: 10px;
       }
     }
   }
