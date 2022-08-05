@@ -8,9 +8,11 @@ $borderViolet: #8c82fc;
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+
     .todoBlock {
       max-width: 650px;
       min-height: 200px;
+      flex-grow: 1;
 
       .addContainer {
         height: 300px;
@@ -76,10 +78,17 @@ $borderViolet: #8c82fc;
     }
 
     .widgetsBlock {
-      width: 47%;
+      max-width: 650px;
 
+      flex-grow: 1;
       .widgetsHeader {
         margin-bottom: 10px;
+      }
+      .allWidgets {
+        min-height: 690px;
+        border-radius: 10px;
+        border: solid 2px $borderViolet;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
     }
   }
