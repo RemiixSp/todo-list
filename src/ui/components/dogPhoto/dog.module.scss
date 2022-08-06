@@ -1,6 +1,8 @@
+$borderViolet: #8c82fc;
+
 .dogWidget {
   width: 47%;
-  border: solid 2px black;
+  border: solid 2px $borderViolet;
   margin-bottom: 12px;
   border-radius: 10px;
 
@@ -16,7 +18,6 @@
     object-fit: cover;
     margin-top: 10px;
     margin: 0 10px;
-    border: solid 1px black;
 
     img {
       position: absolute;
