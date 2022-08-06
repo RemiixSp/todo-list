@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../pages/home/home.module.scss';
-
 import TextArea from '../../common/textArea';
 import TodoBlock from '../../components/todoBlock';
+import DogPhoto from '../../components/dogPhoto';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../core/store/store';
 import { Status } from '../../../core/store/todo/types';
@@ -125,7 +125,9 @@ const HomeView = () => {
       </div>
       <div className={styles.widgetsBlock}>
         <h2 className={styles.widgetsHeader}>Here are available widgets</h2>
-        <div className={styles.allWidgets}></div>
+        <div className={styles.allWidgets}>
+          <DogPhoto />
+        </div>
       </div>
     </div>
   );

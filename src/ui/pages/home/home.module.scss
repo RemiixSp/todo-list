@@ -85,10 +85,13 @@ $borderViolet: #8c82fc;
         margin-bottom: 10px;
       }
       .allWidgets {
-        min-height: 690px;
         border-radius: 10px;
         border: solid 2px $borderViolet;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding-top: 12px;
       }
     }
   }
