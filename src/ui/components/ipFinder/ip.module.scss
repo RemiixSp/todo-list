@@ -5,4 +5,39 @@
   border: solid 2px variables.$borderViolet;
   margin-bottom: 12px;
   border-radius: 10px;
+
+  .ipHeader {
+    margin: 0 33%;
+  }
+
+  .foundInfo {
+    height: 220px;
+    border: solid 2px variables.$borderViolet;
+  }
+  .getIpContainer {
+    margin: 10px 5%;
+
+    .getIpField {
+      height: 30px;
+      padding-left: 8px;
+      border-radius: 10px;
+    }
+
+    .submitIp {
+      width: 100px;
+      height: 30px;
+      margin-left: 10px;
+      box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+      transition: 0.4s;
+      color: white;
+      background-color: rgba(104, 85, 224, 1);
+      border-radius: 10px;
+      border: none;
+      &:hover {
+        color: white;
+        box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+      }
+      cursor: pointer;
+    }
+  }
 }
