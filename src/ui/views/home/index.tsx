@@ -3,6 +3,7 @@ import styles from '../../pages/home/home.module.scss';
 import TextArea from '../../common/textArea';
 import TodoBlock from '../../components/todoBlock';
 import DogPhoto from '../../components/dogPhoto';
+import IpFinder from '../../components/ipFinder';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../core/store/store';
 import { Status } from '../../../core/store/todo/types';
@@ -127,6 +128,7 @@ const HomeView = () => {
         <h2 className={styles.widgetsHeader}>Here are available widgets</h2>
         <div className={styles.allWidgets}>
           <DogPhoto />
+          <IpFinder />
         </div>
       </div>
     </div>

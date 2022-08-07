@@ -1,8 +1,8 @@
-$borderViolet: #8c82fc;
+@use '../../style/variables';
 
 .dogWidget {
   width: 47%;
-  border: solid 2px $borderViolet;
+  border: solid 2px variables.$borderViolet;
   margin-bottom: 12px;
   border-radius: 10px;
 

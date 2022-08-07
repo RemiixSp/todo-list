@@ -1,0 +1,8 @@
+@use '../../style/variables';
+
+.apiWidget {
+  width: 47%;
+  border: solid 2px variables.$borderViolet;
+  margin-bottom: 12px;
+  border-radius: 10px;
+}
