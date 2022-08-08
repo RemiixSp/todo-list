@@ -1,8 +1,4 @@
-export enum Status {
-  LOADING = 'loading',
-  SUCCESS = 'success',
-  FAILURE = 'error',
-}
+import { Status } from '../types';
 
 export interface fetcgDogType {
   message: string;

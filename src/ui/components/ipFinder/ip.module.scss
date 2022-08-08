@@ -11,33 +11,51 @@
   }
 
   .foundInfo {
-    height: 220px;
-    border: solid 2px variables.$borderViolet;
-  }
-  .getIpContainer {
-    margin: 10px 5%;
+    height: 250px;
 
-    .getIpField {
-      height: 30px;
-      padding-left: 8px;
-      border-radius: 10px;
-    }
-
-    .submitIp {
-      width: 100px;
-      height: 30px;
-      margin-left: 10px;
-      box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
-      transition: 0.4s;
-      color: white;
-      background-color: rgba(104, 85, 224, 1);
-      border-radius: 10px;
-      border: none;
-      &:hover {
-        color: white;
-        box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    .allInfo {
+      display: flex;
+      flex-wrap: wrap;
+      .infoObj {
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px;
+        background-color: aqua;
       }
-      cursor: pointer;
+    }
+  }
+  .noIp {
+    padding: 30% 25%;
+  }
+  .ipBottom {
+    .enterIpText {
+      margin: 5px 35px;
+    }
+    .getIpContainer {
+      margin: 10px 5%;
+      display: flex;
+      .getIpField {
+        height: 30px;
+        padding-left: 8px;
+        border-radius: 10px;
+        width: 70%;
+      }
+
+      .submitIp {
+        width: 100px;
+        height: 30px;
+        margin-left: 10px;
+        box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+        transition: 0.4s;
+        color: white;
+        background-color: rgba(104, 85, 224, 1);
+        border-radius: 10px;
+        border: none;
+        &:hover {
+          box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+        }
+        cursor: pointer;
+      }
     }
   }
 }

@@ -4,14 +4,14 @@ import Button from '../../common/button';
 import { RootState, useAppDispatch } from '../../../core/store/store';
 import { fetchDog } from '../../../core/store/dog/asyncAction';
 import { useSelector } from 'react-redux';
-import { Status } from '../../../core/store/dog/types';
+import { Status } from '../../../core/store/types';
 
 const DogPhoto = () => {
   const dispatch = useAppDispatch();
 
   const dog = useSelector((state: RootState) => state.dog);
 
-  const getPizzas = async () => {
+  const getDogs = async () => {
     try {
       dispatch(fetchDog());
     } catch (error) {
@@ -29,7 +29,7 @@ const DogPhoto = () => {
           <h3 className={styles.noDog}>Here will be your dog photo</h3>
         )}
       </div>
-      <Button className={styles.randomize} onClick={getPizzas}>
+      <Button className={styles.randomize} onClick={getDogs}>
         Get new dog
       </Button>
     </div>
