@@ -3,6 +3,7 @@ import todoReducer from './todo';
 import dogReducer from './dog';
 import ipReducer from './ipFinder';
 import factReducer from './facts';
+import weatherReducer from './weather';
 import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
     dog: dogReducer,
     ip: ipReducer,
     fact: factReducer,
+    weather: weatherReducer,
   },
 });
 

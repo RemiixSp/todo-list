@@ -1,0 +1,49 @@
+@use '../../style/variables';
+$darkBlue: #4d98b5;
+
+.weatherWidget {
+  width: 90%;
+  border: 2px solid variables.$borderViolet;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  .weatherHeader {
+    padding: 10px 30%;
+  }
+
+  .weatherInfo {
+    .mainInfo {
+      padding: 0 5%;
+      margin-bottom: 30px;
+      .listOfWeather {
+        display: flex;
+        flex-wrap: wrap;
+
+        .eachWeatherProp {
+          padding: 5px 5px;
+          margin-right: 10px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          background-color: $darkBlue;
+          border-radius: 5px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+      }
+    }
+
+    .windInfo {
+      padding: 0 5%;
+      margin-bottom: 20px;
+      ul {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        li {
+          background-color: $darkBlue;
+          padding: 15px 35px;
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+      }
+    }
+  }
+}

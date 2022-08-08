@@ -49,7 +49,10 @@ const CatFacts = () => {
           {' '}
           <ul className={styles.breedList}>
             {fact.breeds.map((obj) => (
-              <li className={styles.eachBreed}>
+              <li
+                key={`${obj.breed}_${obj.coat}_${obj.origin}`}
+                className={styles.eachBreed}
+              >
                 {`Breed: ${obj.breed} Coat: ${obj.coat} Country: ${obj.country} Origin: ${obj.origin} Pattern: ${obj.pattern}`}
                 ``
               </li>
