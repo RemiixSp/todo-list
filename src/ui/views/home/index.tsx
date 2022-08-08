@@ -4,6 +4,7 @@ import TextArea from '../../common/textArea';
 import TodoBlock from '../../components/todoBlock';
 import DogPhoto from '../../components/dogPhoto';
 import IpFinder from '../../components/ipFinder';
+import CatFacts from '../../components/catFacts';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../core/store/store';
 import { Status } from '../../../core/store/todo/types';
@@ -129,6 +130,7 @@ const HomeView = () => {
         <div className={styles.allWidgets}>
           <DogPhoto />
           <IpFinder />
+          <CatFacts />
         </div>
       </div>
     </div>

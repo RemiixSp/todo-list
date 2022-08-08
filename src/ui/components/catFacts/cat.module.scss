@@ -1,0 +1,25 @@
+@use '../../style/variables';
+
+.factsWidget {
+  width: 90%;
+
+  border: 2px solid variables.$borderViolet;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  .catFacts {
+    margin: 10px;
+    padding: 10px;
+    height: 230px;
+    width: 40%;
+    border: 1px solid variables.$borderViolet;
+    border-radius: 5px;
+
+    .randomFact {
+      background-color: aqua;
+      padding: 5px;
+      border-radius: 5px;
+      margin-top: 10px;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+  }
+}
