@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './cat.module.scss';
-import { fetchFact } from '../../../core/store/facts/asyncAction';
+import { fetchBreeds, fetchFact } from '../../../core/store/facts/asyncAction';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../../core/store/store';
 import { useUpdateTimeIntervals } from '../../hooks/useUpdateTimeIntervals';
@@ -9,6 +9,18 @@ const CatFacts = () => {
   const fact = useSelector((state: RootState) => state.fact);
 
   const dispatch = useAppDispatch();
+
+  const getBreeds = async () => {
+    try {
+      dispatch(fetchBreeds());
+    } catch (error) {
+      alert('Error while getting facts');
+    }
+  };
+
+  useEffect(() => {
+    getBreeds();
+  }, []);
 
   useUpdateTimeIntervals(
     5000,
@@ -31,7 +43,20 @@ const CatFacts = () => {
         <h3>Here you'll get a random cat fact every 5 seconds</h3>
         <p className={styles.randomFact}>{fact.randomCatFact}</p>
       </div>
-      <div></div>
+      <div className={styles.breedTypes}>
+        <h3>Info about different breeds</h3>
+        <div className={styles.allBreeds}>
+          {' '}
+          <ul className={styles.breedList}>
+            {fact.breeds.map((obj) => (
+              <li className={styles.eachBreed}>
+                {`Breed: ${obj.breed} Coat: ${obj.coat} Country: ${obj.country} Origin: ${obj.origin} Pattern: ${obj.pattern}`}
+                ``
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
