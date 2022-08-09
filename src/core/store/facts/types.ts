@@ -14,12 +14,6 @@ export interface factProps {
   status: Status;
 }
 
-export const initialState: factProps = {
-  randomCatFact: '',
-  breeds: [],
-  status: Status.LOADING,
-};
-
 export interface FetchFactType {
   fact: string;
   length: number;

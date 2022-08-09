@@ -15,19 +15,6 @@ export interface ipState {
   status: Status;
 }
 
-export const initialState: ipState = {
-  ipInfo: {
-    status: '',
-    country: '',
-    countryCode: '',
-    region: '',
-    regionName: '',
-    city: '',
-    zip: '',
-  },
-  status: Status.LOADING,
-};
-
 export type getIpParams = {
   ip: string;
 };

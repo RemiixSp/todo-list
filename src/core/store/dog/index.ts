@@ -1,8 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { FetcgDogType, initialState } from './types';
+import { dogState, FetcgDogType } from './types';
 import { fetchDog } from './asyncAction';
 import { Status } from '../types';
+
+export const initialState: dogState = {
+  dogUrl: '',
+  status: Status.LOADING,
+};
 
 export const dogSlice = createSlice({
   name: 'doggy',

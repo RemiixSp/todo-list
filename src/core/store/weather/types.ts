@@ -1,3 +1,5 @@
+import { Status } from '../types';
+
 export interface weatherLocationParams {
   lat: number;
   lon: number;
@@ -19,16 +21,5 @@ export interface WindType {
 export interface FetchWeatherType {
   main: MainType;
   wind: WindType;
+  status: Status;
 }
-
-export const initialState: FetchWeatherType = {
-  main: {
-    temp: 0,
-    feels_like: 0,
-    temp_min: 0,
-    temp_max: 0,
-    pressure: 0,
-    humidity: 0,
-  },
-  wind: { speed: 0, deg: 0 },
-};

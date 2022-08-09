@@ -1,8 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { Status } from '../types';
-import { BreedType, FetchFactType, initialState } from './types';
+import { BreedType, factProps, FetchFactType } from './types';
 import { fetchFact, fetchBreeds } from './asyncAction';
+
+export const initialState: factProps = {
+  randomCatFact: '',
+  breeds: [],
+  status: Status.LOADING,
+};
 
 export const factSlice = createSlice({
   name: 'facts',

@@ -9,8 +9,3 @@ export interface dogState {
   dogUrl: string;
   status: Status;
 }
-
-export const initialState: dogState = {
-  dogUrl: '',
-  status: Status.LOADING,
-};

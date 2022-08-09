@@ -1,9 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { initialState, IpType } from './types';
+import { ipState, IpType } from './types';
 import { fetchIp } from './asyncAction';
 import { Status } from '../types';
 import { returnNewIp } from './utils';
+
+export const initialState: ipState = {
+  ipInfo: {
+    status: '',
+    country: '',
+    countryCode: '',
+    region: '',
+    regionName: '',
+    city: '',
+    zip: '',
+  },
+  status: Status.LOADING,
+};
 
 export const ipSlice = createSlice({
   name: 'ip',
