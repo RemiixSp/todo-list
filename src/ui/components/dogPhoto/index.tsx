@@ -7,9 +7,9 @@ import { useSelector } from 'react-redux';
 import { Status } from '../../../core/store/types';
 
 const DogPhoto = () => {
-  const dispatch = useAppDispatch();
-
   const dog = useSelector((state: RootState) => state.dog);
+
+  const dispatch = useAppDispatch();
 
   const getDogs = async () => {
     try {

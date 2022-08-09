@@ -6,6 +6,7 @@ import { Status } from '../types';
 
 export const initialState: dogState = {
   dogUrl: '',
+  errorMsg: '',
   status: Status.LOADING,
 };
 
@@ -31,6 +32,7 @@ export const dogSlice = createSlice({
     builder.addCase(fetchDog.rejected, (state) => {
       state.dogUrl = '';
       state.status = Status.FAILURE;
+      state.errorMsg = 'Error happened while fetching dog image';
     });
   },
 });

@@ -8,4 +8,5 @@ export interface FetcgDogType {
 export interface dogState {
   dogUrl: string;
   status: Status;
+  errorMsg: string;
 }

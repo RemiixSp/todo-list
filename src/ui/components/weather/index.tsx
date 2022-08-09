@@ -34,7 +34,7 @@ const Weather = () => {
   }, []);
 
   useUpdateTimeIntervals(
-    43200000,
+    600000,
     () => {
       getForecast();
     },

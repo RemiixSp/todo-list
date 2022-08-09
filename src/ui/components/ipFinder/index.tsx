@@ -48,7 +48,6 @@ const IpFinder: React.FC = () => {
         <div className={styles.getIpContainer}>
           <Input
             className={styles.getIpField}
-            type='text'
             value={inputVal}
             onChange={onChangeInputVal}
             placeholder='Enter ip here'

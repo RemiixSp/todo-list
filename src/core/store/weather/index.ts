@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchWeather } from './asyncAction';
-import { FetchWeatherType } from './types';
+import { FetchWeatherType, weatherInitialState } from './types';
 import { Status } from '../types';
 
-export const initialState: FetchWeatherType = {
+export const initialState: weatherInitialState = {
   main: {
     temp: 0,
     feels_like: 0,
@@ -16,6 +16,7 @@ export const initialState: FetchWeatherType = {
   },
   wind: { speed: 0, deg: 0 },
   status: Status.LOADING,
+  errorMsg: '',
 };
 
 export const weatherSlice = createSlice({
@@ -36,6 +37,7 @@ export const weatherSlice = createSlice({
     });
     builder.addCase(fetchWeather.rejected, (state) => {
       state.status = Status.FAILURE;
+      state.errorMsg = 'Error when trying get weather info';
     });
   },
 });

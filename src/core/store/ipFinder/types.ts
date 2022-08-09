@@ -13,6 +13,7 @@ export interface IpType {
 export interface ipState {
   ipInfo: IpType;
   status: Status;
+  errorMsg: string;
 }
 
 export type getIpParams = {

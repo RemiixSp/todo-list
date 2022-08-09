@@ -16,6 +16,7 @@ export const initialState: ipState = {
     zip: '',
   },
   status: Status.LOADING,
+  errorMsg: '',
 };
 
 export const ipSlice = createSlice({
@@ -38,6 +39,7 @@ export const ipSlice = createSlice({
 
     builder.addCase(fetchIp.rejected, (state) => {
       state.status = Status.FAILURE;
+      state.errorMsg = 'Error happend when trying get this ip info';
     });
   },
 });

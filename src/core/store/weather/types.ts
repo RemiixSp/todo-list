@@ -21,5 +21,11 @@ export interface WindType {
 export interface FetchWeatherType {
   main: MainType;
   wind: WindType;
+}
+
+export interface weatherInitialState {
+  main: MainType;
+  wind: WindType;
   status: Status;
+  errorMsg: string;
 }
