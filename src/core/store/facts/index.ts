@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { Status } from '../types';
-import { breedType, fetchFactType, initialState } from './types';
+import { BreedType, FetchFactType, initialState } from './types';
 import { fetchFact, fetchBreeds } from './asyncAction';
 
 export const factSlice = createSlice({
@@ -17,7 +17,7 @@ export const factSlice = createSlice({
 
     builder.addCase(
       fetchFact.fulfilled,
-      (state, action: PayloadAction<fetchFactType>) => {
+      (state, action: PayloadAction<FetchFactType>) => {
         state.randomCatFact = action.payload.fact;
         state.status = Status.SUCCESS;
       }
@@ -30,7 +30,7 @@ export const factSlice = createSlice({
 
     builder.addCase(
       fetchBreeds.fulfilled,
-      (state, action: PayloadAction<breedType[]>) => {
+      (state, action: PayloadAction<BreedType[]>) => {
         state.breeds = action.payload;
       }
     );

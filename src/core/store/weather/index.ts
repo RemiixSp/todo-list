@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { Status } from '../types';
+
 import { fetchWeather } from './asyncAction';
-import { fetchWeatherType, initialState } from './types';
+import { FetchWeatherType, initialState } from './types';
 
 export const weatherSlice = createSlice({
   name: 'weather',
@@ -10,17 +10,13 @@ export const weatherSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
-    builder.addCase(fetchWeather.pending, (state) => {});
-
     builder.addCase(
       fetchWeather.fulfilled,
-      (state, action: PayloadAction<fetchWeatherType>) => {
+      (state, action: PayloadAction<FetchWeatherType>) => {
         state.main = action.payload.main;
         state.wind = action.payload.wind;
       }
     );
-
-    builder.addCase(fetchWeather.rejected, (state) => {});
   },
 });
 

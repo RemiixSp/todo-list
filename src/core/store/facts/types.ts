@@ -1,6 +1,6 @@
 import { Status } from '../types';
 
-export interface breedType {
+export interface BreedType {
   breed: string;
   country: string;
   origin: string;
@@ -10,7 +10,7 @@ export interface breedType {
 
 export interface factProps {
   randomCatFact: string;
-  breeds: breedType[];
+  breeds: BreedType[];
   status: Status;
 }
 
@@ -20,7 +20,7 @@ export const initialState: factProps = {
   status: Status.LOADING,
 };
 
-export interface fetchFactType {
+export interface FetchFactType {
   fact: string;
   length: number;
 }

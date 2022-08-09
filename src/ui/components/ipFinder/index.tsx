@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { fetchIp } from '../../../core/store/ipFinder/asyncAction';
-import { ipType } from '../../../core/store/ipFinder/types';
+import { IpType } from '../../../core/store/ipFinder/types';
 import { RootState, useAppDispatch } from '../../../core/store/store';
 import { Status } from '../../../core/store/types';
 import Button from '../../common/button';
@@ -36,7 +36,7 @@ const IpFinder: React.FC = () => {
           <ul className={styles.allInfo}>
             {ipProps.map((value, index) => (
               <li key={value} className={styles.infoObj}>
-                {`${value}: ${ip.ipInfo[value as keyof ipType]}`}
+                {`${value}: ${ip.ipInfo[value as keyof IpType]}`}
               </li>
             ))}
           </ul>

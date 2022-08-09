@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { getIpParams, ipType } from './types';
+import { getIpParams, IpType } from './types';
 
-export const fetchIp = createAsyncThunk<ipType, getIpParams>(
+export const fetchIp = createAsyncThunk<IpType, getIpParams>(
   'ip/fetchIp',
   async (params) => {
     const { ip } = params;
 
-    const { data } = await axios.get<ipType>(
+    const { data } = await axios.get<IpType>(
       `http://ip-api.com/json/${ip}?fields=16447`
     );
 

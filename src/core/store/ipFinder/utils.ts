@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { ipType } from './types';
+import { IpType } from './types';
 
-export const returnNewIp = (action: PayloadAction<ipType>) => {
+export const returnNewIp = (action: PayloadAction<IpType>) => {
   return {
     city: action.payload.city,
     country: action.payload.country,

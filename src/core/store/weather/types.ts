@@ -3,7 +3,7 @@ export interface weatherLocationParams {
   lon: number;
 }
 
-export interface main {
+export interface MainType {
   temp: number;
   feels_like: number;
   temp_min: number;
@@ -11,17 +11,17 @@ export interface main {
   pressure: number;
   humidity: number;
 }
-export interface wind {
+export interface WindType {
   speed: number;
   deg: number;
 }
 
-export interface fetchWeatherType {
-  main: main;
-  wind: wind;
+export interface FetchWeatherType {
+  main: MainType;
+  wind: WindType;
 }
 
-export const initialState: fetchWeatherType = {
+export const initialState: FetchWeatherType = {
   main: {
     temp: 0,
     feels_like: 0,

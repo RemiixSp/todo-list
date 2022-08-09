@@ -1,6 +1,6 @@
 import { Status } from '../types';
 
-export interface ipType {
+export interface IpType {
   status: string;
   country: string;
   countryCode: string;
@@ -11,7 +11,7 @@ export interface ipType {
 }
 
 export interface ipState {
-  ipInfo: ipType;
+  ipInfo: IpType;
   status: Status;
 }
 

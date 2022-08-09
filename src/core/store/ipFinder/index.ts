@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { initialState, ipType } from './types';
+import { initialState, IpType } from './types';
 import { fetchIp } from './asyncAction';
 import { Status } from '../types';
 import { returnNewIp } from './utils';
@@ -17,7 +17,7 @@ export const ipSlice = createSlice({
 
     builder.addCase(
       fetchIp.fulfilled,
-      (state, action: PayloadAction<ipType>) => {
+      (state, action: PayloadAction<IpType>) => {
         state.ipInfo = returnNewIp(action);
         state.status = Status.SUCCESS;
       }

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { fetcgDogType, initialState } from './types';
+import { FetcgDogType, initialState } from './types';
 import { fetchDog } from './asyncAction';
 import { Status } from '../types';
 
@@ -17,7 +17,7 @@ export const dogSlice = createSlice({
 
     builder.addCase(
       fetchDog.fulfilled,
-      (state, action: PayloadAction<fetcgDogType>) => {
+      (state, action: PayloadAction<FetcgDogType>) => {
         state.dogUrl = action.payload.message;
         state.status = Status.SUCCESS;
       }

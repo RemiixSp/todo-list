@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from '../../../core/store/store';
 import { fetchWeather } from '../../../core/store/weather/asyncAction';
-import { main, wind } from '../../../core/store/weather/types';
+import { MainType, WindType } from '../../../core/store/weather/types';
 import { useUpdateTimeIntervals } from '../../hooks/useUpdateTimeIntervals';
 import styles from './weather.module.scss';
 
@@ -29,17 +29,17 @@ const Weather = () => {
     });
   };
 
-  //   useEffect(() => {
-  //     getForecast();
-  //   }, []);
+  useEffect(() => {
+    getForecast();
+  }, []);
 
-  //   useUpdateTimeIntervals(
-  //     43200000,
-  //     () => {
-  //       getForecast();
-  //     },
-  //     [weather]
-  //   );
+  useUpdateTimeIntervals(
+    43200000,
+    () => {
+      getForecast();
+    },
+    [weather]
+  );
 
   const mainKeys = Object.keys(weather.main);
   const windKeys = Object.keys(weather.wind);
@@ -53,7 +53,7 @@ const Weather = () => {
           <ul className={styles.listOfWeather}>
             {mainKeys.map((key) => (
               <li key={key} className={styles.eachWeatherProp}>{`${key}: ${
-                weather.main[key as keyof main]
+                weather.main[key as keyof MainType]
               }`}</li>
             ))}
           </ul>
@@ -62,7 +62,9 @@ const Weather = () => {
           <h4>Wind information</h4>
           <ul>
             {windKeys.map((key) => (
-              <li key={key}>{`${key}: ${weather.wind[key as keyof wind]}`}</li>
+              <li key={key}>{`${key}: ${
+                weather.wind[key as keyof WindType]
+              }`}</li>
             ))}
           </ul>
         </div>

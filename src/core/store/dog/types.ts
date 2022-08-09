@@ -1,6 +1,6 @@
 import { Status } from '../types';
 
-export interface fetcgDogType {
+export interface FetcgDogType {
   message: string;
   status: string;
 }

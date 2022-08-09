@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { breedType, fetchFactType } from './types';
+import { BreedType, FetchFactType } from './types';
 
-export const fetchFact = createAsyncThunk<fetchFactType>(
+export const fetchFact = createAsyncThunk<FetchFactType>(
   'facts/fetchFacts',
   async () => {
-    const { data } = await axios.get<fetchFactType>(
+    const { data } = await axios.get<FetchFactType>(
       'https://catfact.ninja/fact?max_length=100'
     );
 
@@ -13,11 +13,11 @@ export const fetchFact = createAsyncThunk<fetchFactType>(
   }
 );
 
-export const fetchBreeds = createAsyncThunk<breedType[]>(
+export const fetchBreeds = createAsyncThunk<BreedType[]>(
   'facts/fetchBreeds',
   async () => {
     const { data } = await axios.get('https://catfact.ninja/breeds?limit=5');
-    const breeds: breedType[] = data['data'];
+    const breeds: BreedType[] = data['data'];
 
     return breeds;
   }
