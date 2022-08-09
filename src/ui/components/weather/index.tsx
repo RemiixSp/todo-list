@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { fetchWeather } from '../../../core/store/weather/asyncAction';
-import { MainType, WindType } from '../../../core/store/weather/types';
+import cn from 'classnames';
 import { useDebounce } from '../../hooks/useDebounce';
 import styles from './weather.module.scss';
 import { ToastContainer, toast } from 'react-toastify';
@@ -42,31 +42,41 @@ const Weather = () => {
     [weather]
   );
 
-  const mainKeys = Object.keys(weather.main);
-  const windKeys = Object.keys(weather.wind);
-
   return (
     <div className={styles.weatherWidget}>
-      <h3 className={styles.weatherHeader}>Weather in your location</h3>
+      <h3 className={styles.weatherHeader}>Weather in {weather.name}</h3>
       <div className={styles.weatherInfo}>
         <div className={styles.mainInfo}>
-          <h4>Main info</h4>
+          <h4>Temperature</h4>
           <ul className={styles.listOfWeather}>
-            {mainKeys.map((key) => (
-              <li key={key} className={styles.eachWeatherProp}>{`${key}: ${
-                weather.main[key as keyof MainType]
-              }`}</li>
-            ))}
+            <li className={styles.mainTemp}>{weather.main.temp} °C</li>
+            <div className={styles.additionalInfo}>
+              <li className={styles.eachAdditionalProp}>
+                Feels like {weather.main.feels_like} °C
+              </li>
+              <li className={styles.eachAdditionalProp}>
+                Max today {weather.main.temp_max} °C
+              </li>
+              <li className={styles.eachAdditionalProp}>
+                Min today {weather.main.temp_min} °C
+              </li>
+            </div>
+            <h4>Humidity and preassure</h4>
+            <div className={styles.additionalInfo}>
+              <li className={cn(styles.eachAdditionalProp, styles.humidity)}>
+                Today humidity is {weather.main.humidity} RH
+              </li>
+              <li className={cn(styles.eachAdditionalProp, styles.humidity)}>
+                And the pressure is {weather.main.pressure} f/a
+              </li>
+            </div>
           </ul>
         </div>
         <div className={styles.windInfo}>
           <h4>Wind information</h4>
           <ul>
-            {windKeys.map((key) => (
-              <li key={key}>{`${key}: ${
-                weather.wind[key as keyof WindType]
-              }`}</li>
-            ))}
+            <li>Wind speed {weather.wind.speed} m/s</li>
+            <li>Wind direction {weather.wind.deg} degrees</li>
           </ul>
         </div>
       </div>

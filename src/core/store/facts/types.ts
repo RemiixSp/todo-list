@@ -15,6 +15,10 @@ export interface factProps {
   errorMsg: string;
 }
 
+export interface FetchBreedsType {
+  data: BreedType[];
+}
+
 export interface FetchFactType {
   fact: string;
   length: number;

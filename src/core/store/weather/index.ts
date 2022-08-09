@@ -16,6 +16,7 @@ export const initialState: weatherInitialState = {
   },
   wind: { speed: 0, deg: 0 },
   status: Status.LOADING,
+  name: '',
   errorMsg: '',
 };
 
@@ -30,6 +31,7 @@ export const weatherSlice = createSlice({
       (state, action: PayloadAction<FetchWeatherType>) => {
         state.main = action.payload.main;
         state.wind = action.payload.wind;
+        state.name = action.payload.name;
       }
     );
     builder.addCase(fetchWeather.pending, (state) => {

@@ -1,5 +1,4 @@
 @use '../../style/variables';
-$greenAqua: #1ff3e8;
 
 .factsWidget {
   width: 90%;
@@ -18,7 +17,7 @@ $greenAqua: #1ff3e8;
     border-radius: 5px;
 
     .randomFact {
-      background-color: $greenAqua;
+      background-color: variables.$greenAqua;
       padding: 5px;
       border-radius: 5px;
       margin-top: 10px;
@@ -40,7 +39,7 @@ $greenAqua: #1ff3e8;
       margin-top: 10px;
       .breedList {
         .eachBreed {
-          background-color: $greenAqua;
+          background-color: variables.$greenAqua;
           box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
           border-radius: 7px;
           margin-bottom: 5px;

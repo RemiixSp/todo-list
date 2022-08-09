@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { Status } from '../types';
-import { BreedType, factProps, FetchFactType } from './types';
+import { factProps, FetchBreedsType, FetchFactType } from './types';
 import { fetchFact, fetchBreeds } from './asyncAction';
 
 export const initialState: factProps = {
@@ -38,8 +38,8 @@ export const factSlice = createSlice({
 
     builder.addCase(
       fetchBreeds.fulfilled,
-      (state, action: PayloadAction<BreedType[]>) => {
-        state.breeds = action.payload;
+      (state, action: PayloadAction<FetchBreedsType>) => {
+        state.breeds = action.payload.data;
       }
     );
 
