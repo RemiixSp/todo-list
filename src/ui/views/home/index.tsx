@@ -6,8 +6,8 @@ import DogPhoto from '../../components/dogPhoto';
 import IpFinder from '../../components/ipFinder';
 import CatFacts from '../../components/catFacts';
 import Weather from '../../components/weather';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../core/store/store';
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from '../../../core/store/store';
 import { Status } from '../../../core/store/todo/types';
 import { nanoid } from '@reduxjs/toolkit';
 import {
@@ -22,7 +22,7 @@ import useUpdateEffect from '../../hooks/useUpdateEffect';
 const HomeView = () => {
   const [textAreaValue, setTextAreaValue] = useState('');
 
-  const allTasks = useSelector((state: RootState) => state.todo);
+  const allTasks = useAppSelector((state) => state.todo);
 
   const dispatch = useDispatch();
 

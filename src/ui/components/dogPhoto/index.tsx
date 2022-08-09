@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './dog.module.scss';
 import Button from '../../common/button';
-import { RootState, useAppDispatch } from '../../../core/store/store';
+import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { fetchDog } from '../../../core/store/dog/asyncAction';
-import { useSelector } from 'react-redux';
 import { Status } from '../../../core/store/types';
 
 const DogPhoto = () => {
-  const dog = useSelector((state: RootState) => state.dog);
+  const dog = useAppSelector((state) => state.dog);
 
   const dispatch = useAppDispatch();
 

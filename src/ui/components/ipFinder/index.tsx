@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { fetchIp } from '../../../core/store/ipFinder/asyncAction';
 import { IpType } from '../../../core/store/ipFinder/types';
-import { RootState, useAppDispatch } from '../../../core/store/store';
+import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { Status } from '../../../core/store/types';
 import Button from '../../common/button';
 import Input from '../../common/input';
@@ -11,7 +10,7 @@ import styles from './ip.module.scss';
 const IpFinder: React.FC = () => {
   const [inputVal, setInputVal] = useState('');
 
-  const ip = useSelector((state: RootState) => state.ip);
+  const ip = useAppSelector((state) => state.ip);
 
   const dispatch = useAppDispatch();
 

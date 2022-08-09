@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../../core/store/store';
+import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { fetchWeather } from '../../../core/store/weather/asyncAction';
 import { MainType, WindType } from '../../../core/store/weather/types';
 import { useUpdateTimeIntervals } from '../../hooks/useUpdateTimeIntervals';
 import styles from './weather.module.scss';
 
 const Weather = () => {
-  const weather = useSelector((state: RootState) => state.weather);
+  const weather = useAppSelector((state) => state.weather);
 
   const dispatch = useAppDispatch();
 

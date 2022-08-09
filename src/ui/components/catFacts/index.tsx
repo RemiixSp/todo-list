@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import styles from './cat.module.scss';
 import { fetchBreeds, fetchFact } from '../../../core/store/facts/asyncAction';
-import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../../core/store/store';
+import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { useUpdateTimeIntervals } from '../../hooks/useUpdateTimeIntervals';
 
 const CatFacts = () => {
-  const fact = useSelector((state: RootState) => state.fact);
+  const fact = useAppSelector((state) => state.fact);
 
   const dispatch = useAppDispatch();
 
