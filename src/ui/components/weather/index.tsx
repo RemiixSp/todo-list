@@ -4,6 +4,8 @@ import { fetchWeather } from '../../../core/store/weather/asyncAction';
 import { MainType, WindType } from '../../../core/store/weather/types';
 import { useUpdateTimeIntervals } from '../../hooks/useUpdateTimeIntervals';
 import styles from './weather.module.scss';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Weather = () => {
   const weather = useAppSelector((state) => state.weather);
@@ -21,7 +23,7 @@ const Weather = () => {
             })
           );
         } catch (error) {
-          alert('Error while getting facts');
+          toast.error('Error while getting forecast');
         }
       };
       getWeather();
@@ -68,6 +70,7 @@ const Weather = () => {
           </ul>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

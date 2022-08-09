@@ -6,6 +6,8 @@ import { Status } from '../../../core/store/types';
 import Button from '../../common/button';
 import Input from '../../common/input';
 import styles from './ip.module.scss';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const IpFinder: React.FC = () => {
   const [inputVal, setInputVal] = useState('');
@@ -18,7 +20,7 @@ const IpFinder: React.FC = () => {
     try {
       dispatch(fetchIp({ ip: inputVal }));
     } catch (error) {
-      alert('Error while getting ip');
+      toast.error('Error while getting ip');
     }
   };
 
@@ -56,6 +58,7 @@ const IpFinder: React.FC = () => {
           </Button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

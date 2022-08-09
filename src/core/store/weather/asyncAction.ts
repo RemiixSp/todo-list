@@ -12,9 +12,14 @@ export const fetchWeather = createAsyncThunk<
   const { data } = await axios.get<FetchWeatherType>(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=a82b9cf0093d3518f69744e22d3a4e54`
   );
-  data.main.feels_like = kelvinToCelsium(data.main.feels_like);
-  data.main.temp = kelvinToCelsium(data.main.temp);
-  data.main.temp_max = kelvinToCelsium(data.main.temp_max);
-  data.main.temp_min = kelvinToCelsium(data.main.temp_min);
-  return data;
+  return {
+    ...data,
+    main: {
+      ...data.main,
+      feels_like: kelvinToCelsium(data.main.feels_like),
+      temp: kelvinToCelsium(data.main.temp),
+      temp_max: kelvinToCelsium(data.main.temp_max),
+      temp_min: kelvinToCelsium(data.main.temp_min),
+    },
+  };
 });

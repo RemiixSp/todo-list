@@ -36,10 +36,8 @@ const HomeView = () => {
       status: Status.LISTED,
     };
     if (
-      allTasks.listedTasks?.find((obj) => obj.description === textAreaValue)
+      !allTasks.listedTasks?.find((obj) => obj.description === textAreaValue)
     ) {
-      alert('this task is already added');
-    } else {
       dispatch(addTask(newTodo));
     }
   };

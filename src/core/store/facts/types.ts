@@ -12,6 +12,7 @@ export interface factProps {
   randomCatFact: string;
   breeds: BreedType[];
   status: Status;
+  errorMsg: string;
 }
 
 export interface FetchFactType {

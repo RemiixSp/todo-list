@@ -4,6 +4,8 @@ import Button from '../../common/button';
 import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { fetchDog } from '../../../core/store/dog/asyncAction';
 import { Status } from '../../../core/store/types';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DogPhoto = () => {
   const dog = useAppSelector((state) => state.dog);
@@ -14,7 +16,7 @@ const DogPhoto = () => {
     try {
       dispatch(fetchDog());
     } catch (error) {
-      alert('Error while getting pizzas');
+      toast.error('Error while getting pizzas');
     }
   };
 
@@ -23,7 +25,7 @@ const DogPhoto = () => {
       <h3 className={styles.dogHeader}>Random dog generator</h3>
       <div className={styles.randomImgContainer}>
         {dog.status === Status.SUCCESS ? (
-          <img src={dog.dogUrl} alt='Random dog' />
+          <img className={styles.dogUrl} src={dog.dogUrl} alt='Random dog' />
         ) : (
           <h3 className={styles.noDog}>Here will be your dog photo</h3>
         )}
@@ -31,6 +33,7 @@ const DogPhoto = () => {
       <Button className={styles.randomize} onClick={getDogs}>
         Get new dog
       </Button>
+      <ToastContainer />
     </div>
   );
 };

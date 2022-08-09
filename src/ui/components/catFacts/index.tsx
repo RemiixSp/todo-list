@@ -3,6 +3,8 @@ import styles from './cat.module.scss';
 import { fetchBreeds, fetchFact } from '../../../core/store/facts/asyncAction';
 import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { useUpdateTimeIntervals } from '../../hooks/useUpdateTimeIntervals';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CatFacts = () => {
   const fact = useAppSelector((state) => state.fact);
@@ -13,7 +15,7 @@ const CatFacts = () => {
     try {
       dispatch(fetchBreeds());
     } catch (error) {
-      alert('Error while getting facts');
+      toast.error('Error while getting breeds');
     }
   };
 
@@ -28,7 +30,7 @@ const CatFacts = () => {
         try {
           dispatch(fetchFact());
         } catch (error) {
-          alert('Error while getting facts');
+          toast.error('Error while getting facts');
         }
       };
       getFact();
@@ -59,6 +61,7 @@ const CatFacts = () => {
           </ul>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

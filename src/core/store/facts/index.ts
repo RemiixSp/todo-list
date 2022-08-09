@@ -8,6 +8,7 @@ export const initialState: factProps = {
   randomCatFact: '',
   breeds: [],
   status: Status.LOADING,
+  errorMsg: '',
 };
 
 export const factSlice = createSlice({
@@ -32,6 +33,7 @@ export const factSlice = createSlice({
     builder.addCase(fetchFact.rejected, (state) => {
       state.randomCatFact = '';
       state.status = Status.FAILURE;
+      state.errorMsg = 'error while fetching cat fact';
     });
 
     builder.addCase(
@@ -40,6 +42,15 @@ export const factSlice = createSlice({
         state.breeds = action.payload;
       }
     );
+
+    builder.addCase(fetchBreeds.rejected, (state) => {
+      state.status = Status.FAILURE;
+      state.errorMsg = 'error while fetching breeds';
+    });
+
+    builder.addCase(fetchBreeds.pending, (state) => {
+      state.status = Status.LOADING;
+    });
   },
 });
 
