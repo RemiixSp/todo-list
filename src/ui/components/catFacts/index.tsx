@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './cat.module.scss';
 import { fetchBreeds, fetchFact } from '../../../core/store/facts/asyncAction';
 import { useAppDispatch, useAppSelector } from '../../../core/store/store';
-import { useUpdateTimeIntervals } from '../../hooks/useUpdateTimeIntervals';
+import { useDebounce } from '../../hooks/useDebounce';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -23,7 +23,7 @@ const CatFacts = () => {
     getBreeds();
   }, []);
 
-  useUpdateTimeIntervals(
+  useDebounce(
     5000,
     () => {
       const getFact = async () => {

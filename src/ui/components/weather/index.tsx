@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { fetchWeather } from '../../../core/store/weather/asyncAction';
 import { MainType, WindType } from '../../../core/store/weather/types';
-import { useUpdateTimeIntervals } from '../../hooks/useUpdateTimeIntervals';
+import { useDebounce } from '../../hooks/useDebounce';
 import styles from './weather.module.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -34,7 +34,7 @@ const Weather = () => {
     getForecast();
   }, []);
 
-  useUpdateTimeIntervals(
+  useDebounce(
     600000,
     () => {
       getForecast();
