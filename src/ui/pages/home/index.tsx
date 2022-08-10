@@ -4,10 +4,8 @@ import HomeView from '../../views/home';
 
 const Home = () => (
   <div className={styles.container}>
-    <div className={styles.home}>
-      <Header />
-      <HomeView />
-    </div>
+    <Header />
+    <HomeView />
   </div>
 );
 

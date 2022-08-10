@@ -1,14 +1,18 @@
-$borderViolet: #8c82fc;
+@use '../../style/variables';
 
 .container {
   width: 85%;
   margin: 0 auto;
 
   .home {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
     .todoBlock {
       max-width: 650px;
       min-height: 200px;
-      margin-top: 30px;
+      flex-grow: 1;
 
       .addContainer {
         height: 300px;
@@ -22,16 +26,16 @@ $borderViolet: #8c82fc;
           margin-top: 10px;
           width: 120px;
           height: 40px;
-          border: 3px solid $borderViolet;
+          border: 3px solid variables.$borderViolet;
           background: #fff;
-          color: $borderViolet;
+          color: variables.$borderViolet;
           border-radius: 40px;
           cursor: pointer;
           overflow: hidden;
           transition: all 0.45s;
 
           &:hover {
-            background: $borderViolet;
+            background: variables.$borderViolet;
             color: #fff;
           }
         }
@@ -43,11 +47,11 @@ $borderViolet: #8c82fc;
           border-radius: 10px;
           padding: 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-          border: 2px solid $borderViolet;
+          border: 2px solid variables.$borderViolet;
           font-size: 14px;
 
           &:focus {
-            border: 3px solid $borderViolet;
+            border: 3px solid variables.$borderViolet;
           }
         }
       }
@@ -61,7 +65,7 @@ $borderViolet: #8c82fc;
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        background-color: #ece89d;
+        background-color: variables.$light-yellow;
         border-radius: 15px;
         margin-top: 10px;
         margin-bottom: 15px;
@@ -70,6 +74,25 @@ $borderViolet: #8c82fc;
         .noTask {
           margin: auto 30px;
         }
+      }
+    }
+
+    .widgetsBlock {
+      max-width: 650px;
+      margin-bottom: 50px;
+
+      flex-grow: 1;
+      .widgetsHeader {
+        margin-bottom: 10px;
+      }
+      .allWidgets {
+        border-radius: 10px;
+        border: solid 2px variables.$borderViolet;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding-top: 12px;
       }
     }
   }

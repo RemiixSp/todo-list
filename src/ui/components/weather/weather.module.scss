@@ -1,0 +1,69 @@
+@use '../../style/variables';
+
+.weatherWidget {
+  width: 90%;
+  border: 2px solid variables.$borderViolet;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  .weatherHeader {
+    padding: 10px 30%;
+  }
+
+  .weatherInfo {
+    .mainInfo {
+      padding: 0 5%;
+      margin-bottom: 15px;
+      .listOfWeather {
+        flex-wrap: wrap;
+
+        .additionalInfo {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+
+        .mainTemp {
+          padding: 10px 20px;
+
+          max-width: 20%;
+          font-size: 20px;
+          font-weight: 600;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          border-radius: 10px;
+          background-color: variables.$darkBlue;
+        }
+
+        .eachAdditionalProp {
+          padding: 7px 5px;
+          margin-right: 10px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 30%;
+          background-color: variables.$darkBlue;
+          border-radius: 5px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        .humidity {
+          width: 47%;
+          background-color: variables.$greenAqua;
+        }
+      }
+    }
+
+    .windInfo {
+      padding: 0 5%;
+      margin-bottom: 20px;
+      ul {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        li {
+          background-color: #97ddfc;
+          padding: 10px 35px;
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../pages/home/home.module.scss';
-
 import TextArea from '../../common/textArea';
 import TodoBlock from '../../components/todoBlock';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../core/store/store';
+import DogPhoto from '../../components/dogPhoto';
+import IpFinder from '../../components/ipFinder';
+import CatFacts from '../../components/catFacts';
+import Weather from '../../components/weather';
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from '../../../core/store/store';
 import { Status } from '../../../core/store/todo/types';
 import { nanoid } from '@reduxjs/toolkit';
 import {
@@ -19,7 +22,7 @@ import useUpdateEffect from '../../hooks/useUpdateEffect';
 const HomeView = () => {
   const [textAreaValue, setTextAreaValue] = useState('');
 
-  const allTasks = useSelector((state: RootState) => state.todo);
+  const allTasks = useAppSelector((state) => state.todo);
 
   const dispatch = useDispatch();
 
@@ -33,10 +36,8 @@ const HomeView = () => {
       status: Status.LISTED,
     };
     if (
-      allTasks.listedTasks?.find((obj) => obj.description === textAreaValue)
+      !allTasks.listedTasks?.find((obj) => obj.description === textAreaValue)
     ) {
-      alert('this task is already added');
-    } else {
       dispatch(addTask(newTodo));
     }
   };
@@ -70,57 +71,68 @@ const HomeView = () => {
   }, [allTasks]);
 
   return (
-    <div className={styles.todoBlock}>
-      <div className={styles.addContainer}>
-        <h2>Add task</h2>
-        <form onSubmit={onFormSubmit}>
-          <TextArea
-            onChange={onChangeTextAreaVal}
-            value={textAreaValue}
-            className={styles.todoDescription}
-            placeholder='Enter to-do you want to add'
-          />
+    <div className={styles.home}>
+      <div className={styles.todoBlock}>
+        <div className={styles.addContainer}>
+          <h2>Add task</h2>
+          <form onSubmit={onFormSubmit}>
+            <TextArea
+              onChange={onChangeTextAreaVal}
+              value={textAreaValue}
+              className={styles.todoDescription}
+              placeholder='Enter to-do you want to add'
+            />
 
-          <button type='submit'>Submit</button>
-        </form>
-      </div>
-      <h2 className={styles.todoBlockHeader}>Here is your to-do list</h2>
-      <div className={styles.allTodos}>
-        {allTasks.listedTasks?.length === 0 ? (
-          <h3 className={styles.noTask}>
-            You havent added any task yet. Its never late to do it rigth now
-          </h3>
-        ) : (
-          <>
-            {allTasks.listedTasks?.map((obj, index) => (
+            <button type='submit'>Submit</button>
+          </form>
+        </div>
+        <h2 className={styles.todoBlockHeader}>Here is your to-do list</h2>
+        <div className={styles.allTodos}>
+          {allTasks.listedTasks?.length === 0 ? (
+            <h3 className={styles.noTask}>
+              You havent added any task yet. Its never late to do it rigth now
+            </h3>
+          ) : (
+            <>
+              {allTasks.listedTasks?.map((obj, index) => (
+                <TodoBlock
+                  id={obj.id}
+                  key={obj.description}
+                  description={obj.description}
+                  status={obj.status}
+                  onDoneClick={makeTaskDone}
+                  onPinClick={makeTaskPinned}
+                  onDeleteClick={deleteTask}
+                />
+              ))}
+            </>
+          )}
+        </div>
+        <h2 className={styles.todoBlockHeader}>Here is your done tasks</h2>
+        {allTasks.doneTasks?.length > 0 && (
+          <div className={styles.allTodos}>
+            {allTasks.doneTasks?.map((obj, index) => (
               <TodoBlock
                 id={obj.id}
+                done
                 key={obj.description}
                 description={obj.description}
                 status={obj.status}
-                onDoneClick={makeTaskDone}
-                onPinClick={makeTaskPinned}
                 onDeleteClick={deleteTask}
               />
             ))}
-          </>
+          </div>
         )}
       </div>
-      <h2 className={styles.todoBlockHeader}>Here is your done tasks</h2>
-      {allTasks.doneTasks?.length > 0 && (
-        <div className={styles.allTodos}>
-          {allTasks.doneTasks?.map((obj, index) => (
-            <TodoBlock
-              id={obj.id}
-              done
-              key={obj.description}
-              description={obj.description}
-              status={obj.status}
-              onDeleteClick={deleteTask}
-            />
-          ))}
+      <div className={styles.widgetsBlock}>
+        <h2 className={styles.widgetsHeader}>Here are available widgets</h2>
+        <div className={styles.allWidgets}>
+          <DogPhoto />
+          <IpFinder />
+          <CatFacts />
+          <Weather />
         </div>
-      )}
+      </div>
     </div>
   );
 };
