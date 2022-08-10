@@ -7,7 +7,6 @@ import Button from '../../common/button';
 import Input from '../../common/input';
 import styles from './ip.module.scss';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const IpFinder: React.FC = () => {
   const [inputVal, setInputVal] = useState('');

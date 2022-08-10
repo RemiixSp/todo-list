@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { fetchDog } from '../../../core/store/dog/asyncAction';
 import { Status } from '../../../core/store/types';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const DogPhoto = () => {
   const dog = useAppSelector((state) => state.dog);

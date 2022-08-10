@@ -5,7 +5,6 @@ import cn from 'classnames';
 import { useDebounce } from '../../hooks/useDebounce';
 import styles from './weather.module.scss';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Weather = () => {
   const weather = useAppSelector((state) => state.weather);

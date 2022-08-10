@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { BreedType, FetchBreedsType, FetchFactType } from './types';
+import { FetchBreedsType, FetchFactType } from './types';
 
 export const fetchFact = createAsyncThunk<FetchFactType>(
   'facts/fetchFacts',
