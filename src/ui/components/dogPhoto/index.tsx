@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './dog.module.scss';
 import Button from '../../common/button';
+import DogLoader from './skeleton';
 import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { fetchDog } from '../../../core/store/dog/asyncAction';
 import { Status } from '../../../core/store/types';
@@ -26,7 +27,7 @@ const DogPhoto = () => {
         {dog.status === Status.SUCCESS ? (
           <img className={styles.dogUrl} src={dog.dogUrl} alt='Random dog' />
         ) : (
-          <h3 className={styles.noDog}>Here will be your dog photo</h3>
+          <DogLoader />
         )}
       </div>
       <Button className={styles.randomize} onClick={getDogs}>

@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { Status } from '../../../core/store/types';
 import Button from '../../common/button';
 import Input from '../../common/input';
+import IpLoader from './skeleton';
 import styles from './ip.module.scss';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -18,6 +19,9 @@ const IpFinder: React.FC = () => {
   const getIpValue = async () => {
     try {
       dispatch(fetchIp({ ip: inputVal }));
+      if (ip.ipInfo.city === undefined) {
+        toast.error('Not correct ip andress');
+      }
     } catch (error) {
       toast.error('Error while getting ip');
     }
@@ -32,7 +36,7 @@ const IpFinder: React.FC = () => {
     <div className={styles.apiWidget}>
       <h3 className={styles.ipHeader}>Find by ip</h3>
       <div className={styles.foundInfo}>
-        {ip.status === Status.SUCCESS ? (
+        {ip.status === Status.SUCCESS && ip.ipInfo.city !== undefined ? (
           <ul className={styles.allInfo}>
             {ipProps.map((value, index) => (
               <li key={value} className={styles.infoObj}>
@@ -41,7 +45,7 @@ const IpFinder: React.FC = () => {
             ))}
           </ul>
         ) : (
-          <h3 className={styles.noIp}>Waiting for ip</h3>
+          <IpLoader />
         )}
       </div>
       <div className={styles.ipBottom}>
