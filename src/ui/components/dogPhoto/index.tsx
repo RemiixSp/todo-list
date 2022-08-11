@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './dog.module.scss';
 import Button from '../../common/button';
 import DogLoader from './skeleton';
@@ -19,6 +19,10 @@ const DogPhoto = () => {
       toast.error('Error while getting pizzas');
     }
   };
+
+  useEffect(() => {
+    getDogs();
+  }, []);
 
   return (
     <div className={styles.dogWidget}>
