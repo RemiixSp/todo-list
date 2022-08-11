@@ -22,7 +22,7 @@ const DogPhoto = () => {
 
   return (
     <div className={styles.dogWidget}>
-      <h3 className={styles.dogHeader}>Random dog generator</h3>
+      <h4 className={styles.dogHeader}>Dog generator</h4>
       <div className={styles.randomImgContainer}>
         {dog.status === Status.SUCCESS ? (
           <img className={styles.dogUrl} src={dog.dogUrl} alt='Random dog' />

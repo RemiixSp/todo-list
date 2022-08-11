@@ -89,9 +89,9 @@ const HomeView = () => {
         <h2 className={styles.todoBlockHeader}>Here is your to-do list</h2>
         <div className={styles.allTodos}>
           {allTasks.listedTasks?.length === 0 ? (
-            <h3 className={styles.noTask}>
+            <h4 className={styles.noTask}>
               You havent added any task yet. Its never late to do it rigth now
-            </h3>
+            </h4>
           ) : (
             <>
               {allTasks.listedTasks?.map((obj, index) => (

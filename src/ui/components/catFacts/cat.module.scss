@@ -1,7 +1,7 @@
 @use '../../style/variables';
 
 .factsWidget {
-  width: 90%;
+  width: 96%;
   display: flex;
   justify-content: space-evenly;
   border: 2px solid variables.$borderViolet;
@@ -47,8 +47,13 @@
       width: 95%;
     }
 
+    .breedsHeadere {
+      margin: 0 20%;
+    }
+
     .allBreeds {
       margin-top: 10px;
+
       .breedList {
         .eachBreed {
           background-color: variables.$greenAqua;

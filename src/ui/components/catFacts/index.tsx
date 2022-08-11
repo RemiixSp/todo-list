@@ -42,11 +42,11 @@ const CatFacts = () => {
   return (
     <div className={styles.factsWidget}>
       <div className={styles.catFacts}>
-        <h3>Here you'll get a random cat fact every 15 seconds</h3>
+        <h5>Here you'll get a random cat fact every 15 seconds</h5>
         <p className={styles.randomFact}>{fact.randomCatFact}</p>
       </div>
       <div className={styles.breedTypes}>
-        <h3>Info about different breeds</h3>
+        <h5 className={styles.breedsHeadere}>Info about breeds</h5>
         <div className={styles.allBreeds}>
           {' '}
           <ul className={styles.breedList}>

@@ -34,7 +34,7 @@ const IpFinder: React.FC = () => {
 
   return (
     <div className={styles.apiWidget}>
-      <h3 className={styles.ipHeader}>Find by ip</h3>
+      <h4 className={styles.ipHeader}>Find by ip</h4>
       <div className={styles.foundInfo}>
         {ip.status === Status.SUCCESS && ip.ipInfo.city !== undefined ? (
           <ul className={styles.allInfo}>
