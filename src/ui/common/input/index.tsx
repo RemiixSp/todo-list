@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 
 interface InputProps {
   className: string;
@@ -14,13 +15,16 @@ const Input: React.FC<InputProps> = ({
   value,
   onChange,
 }) => (
-  <input
-    placeholder={placeholder}
-    className={className}
-    value={value}
-    onChange={onChange}
-    type='text'
-  />
+  <div className='form-group'>
+    <input
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      type='text'
+      className={cn('form-control', className)}
+      id='usr'
+    />
+  </div>
 );
 
 export default Input;
