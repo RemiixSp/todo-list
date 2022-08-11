@@ -4,22 +4,21 @@
   width: 47%;
   border: solid 2px variables.$borderViolet;
   margin-bottom: 12px;
-  border-radius: 10px;
 
   @media (max-width: 680px) {
     width: 95%;
   }
 
   .ipHeader {
-    margin: 0 25%;
+    text-align: center;
   }
 
   .foundInfo {
-    height: 250px;
+    height: 280px;
     overflow: auto;
 
     @media (max-width: 680px) {
-      height: 150px;
+      height: 200px;
     }
 
     .allInfo {

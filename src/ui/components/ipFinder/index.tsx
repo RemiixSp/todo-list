@@ -8,6 +8,7 @@ import Input from '../../common/input';
 import IpLoader from './skeleton';
 import styles from './ip.module.scss';
 import { ToastContainer, toast } from 'react-toastify';
+import cn from 'classnames';
 
 const IpFinder: React.FC = () => {
   const [inputVal, setInputVal] = useState('');
@@ -33,7 +34,7 @@ const IpFinder: React.FC = () => {
     setInputVal(event.target.value);
 
   return (
-    <div className={styles.apiWidget}>
+    <div className={cn(styles.apiWidget, 'card')}>
       <h4 className={styles.ipHeader}>Find by ip</h4>
       <div className={styles.foundInfo}>
         {ip.status === Status.SUCCESS && ip.ipInfo.city !== undefined ? (

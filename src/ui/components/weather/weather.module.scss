@@ -3,10 +3,11 @@
 .weatherWidget {
   width: 96%;
   border: 2px solid variables.$borderViolet;
-  border-radius: 10px;
+
   margin-bottom: 15px;
   .weatherHeader {
-    padding: 10px 25%;
+    text-align: center;
+    padding-top: 15px;
   }
 
   .weatherInfo {
@@ -18,12 +19,13 @@
 
         .additionalInfo {
           display: flex;
+          flex-wrap: wrap;
           justify-content: space-between;
           margin-bottom: 10px;
         }
 
         .mainTemp {
-          padding: 10px 20px;
+          padding: 10px 2%;
 
           max-width: 20%;
           font-size: 20px;
@@ -42,6 +44,9 @@
           background-color: variables.$darkBlue;
           border-radius: 5px;
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          @media (max-width: 660px) {
+            width: 47%;
+          }
         }
         .humidity {
           width: 47%;
@@ -58,9 +63,9 @@
         display: flex;
         justify-content: space-between;
         li {
-          width: 45%;
+          width: 48%;
           background-color: #97ddfc;
-          padding: 10px 35px;
+          padding: 10px 20px;
           border-radius: 10px;
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         }

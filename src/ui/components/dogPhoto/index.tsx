@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { fetchDog } from '../../../core/store/dog/asyncAction';
 import { Status } from '../../../core/store/types';
 import { ToastContainer, toast } from 'react-toastify';
+import cn from 'classnames';
 
 const DogPhoto = () => {
   const dog = useAppSelector((state) => state.dog);
@@ -25,7 +26,7 @@ const DogPhoto = () => {
   }, []);
 
   return (
-    <div className={styles.dogWidget}>
+    <div className={cn(styles.dogWidget, 'card')}>
       <h4 className={styles.dogHeader}>Dog generator</h4>
       <div className={styles.randomImgContainer}>
         {dog.status === Status.SUCCESS ? (

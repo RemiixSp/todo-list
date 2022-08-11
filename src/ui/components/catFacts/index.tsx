@@ -4,6 +4,7 @@ import { fetchBreeds, fetchFact } from '../../../core/store/facts/asyncAction';
 import { useAppDispatch, useAppSelector } from '../../../core/store/store';
 import { useDebounce } from '../../hooks/useDebounce';
 import { ToastContainer, toast } from 'react-toastify';
+import cn from 'classnames';
 
 const CatFacts = () => {
   const fact = useAppSelector((state) => state.fact);
@@ -40,12 +41,12 @@ const CatFacts = () => {
   );
 
   return (
-    <div className={styles.factsWidget}>
-      <div className={styles.catFacts}>
+    <div className={cn(styles.factsWidget)}>
+      <div className={cn(styles.catFacts, 'card')}>
         <h5>Here you'll get a random cat fact every 15 seconds</h5>
         <p className={styles.randomFact}>{fact.randomCatFact}</p>
       </div>
-      <div className={styles.breedTypes}>
+      <div className={cn(styles.breedTypes, 'card')}>
         <h5 className={styles.breedsHeadere}>Info about breeds</h5>
         <div className={styles.allBreeds}>
           {' '}
