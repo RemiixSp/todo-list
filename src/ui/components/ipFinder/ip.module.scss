@@ -6,6 +6,10 @@
   margin-bottom: 12px;
   border-radius: 10px;
 
+  @media (max-width: 680px) {
+    width: 95%;
+  }
+
   .ipHeader {
     margin: 0 33%;
   }
@@ -13,6 +17,10 @@
   .foundInfo {
     height: 250px;
     overflow: auto;
+
+    @media (max-width: 680px) {
+      height: 150px;
+    }
 
     .allInfo {
       display: flex;

@@ -8,12 +8,16 @@
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-
+    @media (max-width: 1300px) {
+      flex-direction: column;
+    }
     .todoBlock {
-      max-width: 650px;
+      max-width: 48%;
       min-height: 200px;
       flex-grow: 1;
-
+      @media (max-width: 1300px) {
+        max-width: 100%;
+      }
       .addContainer {
         height: 300px;
 
@@ -78,9 +82,11 @@
     }
 
     .widgetsBlock {
-      max-width: 650px;
+      max-width: 48%;
       margin-bottom: 50px;
-
+      @media (max-width: 1300px) {
+        max-width: 100%;
+      }
       flex-grow: 1;
       .widgetsHeader {
         margin-bottom: 10px;
