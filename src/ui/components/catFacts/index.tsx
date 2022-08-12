@@ -43,7 +43,9 @@ const CatFacts = () => {
   return (
     <div className={cn(styles.factsWidget)}>
       <div className={cn(styles.catFacts, 'card')}>
-        <h5>Here you'll get a random cat fact every 15 seconds</h5>
+        <h5 className={styles.catHeader}>
+          Here you'll get a random cat fact every 15 seconds
+        </h5>
         <p className={styles.randomFact}>{fact.randomCatFact}</p>
       </div>
       <div className={cn(styles.breedTypes, 'card')}>

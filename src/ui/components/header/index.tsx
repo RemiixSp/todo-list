@@ -17,9 +17,6 @@ const Header = () => (
         <Button className={styles.login} onClick={() => {}}>
           Login
         </Button>
-        <Button className={styles.signUp} onClick={() => {}}>
-          Sign up
-        </Button>
       </div>
     </div>
   </div>
