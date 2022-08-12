@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../../media/images/logo.png';
 import styles from './header.module.scss';
 import Button from '../../common/button';
+import { Link } from 'react-router-dom';
 
 const Header = () => (
   <div className={styles.header}>
@@ -14,9 +15,11 @@ const Header = () => (
         </div>
       </div>
       <div className={styles.authorization}>
-        <Button className={styles.login} onClick={() => {}}>
-          Login
-        </Button>
+        <Link to='authorization'>
+          <Button className={styles.login} onClick={() => {}}>
+            Sign in
+          </Button>
+        </Link>
       </div>
     </div>
   </div>
