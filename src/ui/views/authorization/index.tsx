@@ -1,23 +1,13 @@
 import React from 'react';
 import styles from '../../pages/authorization/authorization.module.scss';
-import { Formik } from 'formik';
 import * as yup from 'yup';
 import cn from 'classnames';
 import { login } from '../../../core/store/authorization';
 import { useDispatch } from 'react-redux';
-import useUpdateEffect from '../../hooks/useUpdateEffect';
-import { useAppSelector } from '../../../core/store/store';
 import { useFormik } from 'formik';
 
 const AuthorizationView = () => {
-  const auth = useAppSelector((state) => state.login);
-
   const dispatch = useDispatch();
-
-  useUpdateEffect(() => {
-    const json = JSON.stringify(auth);
-    localStorage.setItem('user', json);
-  }, [auth]);
 
   const initialValues = {
     email: '',

@@ -16,6 +16,7 @@ const Header = () => {
 
   const onSignOutClick = () => {
     dispatch(signOut());
+    window.localStorage.removeItem('user');
   };
 
   return (

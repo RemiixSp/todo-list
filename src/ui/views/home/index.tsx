@@ -25,6 +25,8 @@ const HomeView = () => {
 
   const allTasks = useAppSelector((state) => state.todo);
 
+  const login = useAppSelector((state) => state.login);
+
   const dispatch = useDispatch();
 
   const onChangeTextAreaVal = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
@@ -65,6 +67,11 @@ const HomeView = () => {
   useEffect(() => {
     dispatch(inizialization());
   }, []);
+
+  useEffect(() => {
+    const json = JSON.stringify(login);
+    localStorage.setItem('user', json);
+  }, [login]);
 
   useUpdateEffect(() => {
     const json = JSON.stringify(allTasks);
