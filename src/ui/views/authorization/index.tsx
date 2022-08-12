@@ -26,10 +26,6 @@ const AuthorizationView = () => {
       .max(25, 'Password is too long'),
   });
 
-  const auth = () => {
-    dispatch(login());
-    navigate('/');
-  };
   return (
     <div className={styles.authorizationContainer}>
       <section className='vh-80'>
@@ -44,7 +40,8 @@ const AuthorizationView = () => {
                     validationSchema={validationScheme}
                     onSubmit={(values, { setSubmitting }) => {
                       setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
+                        dispatch(login());
+                        navigate('/');
                         setSubmitting(false);
                       }, 400);
                     }}
@@ -55,11 +52,11 @@ const AuthorizationView = () => {
                       touched,
                       handleChange,
                       handleBlur,
-
+                      handleSubmit,
                       isSubmitting,
                       /* and other goodies */
                     }) => (
-                      <form onSubmit={auth}>
+                      <form onSubmit={handleSubmit}>
                         <div
                           className={cn('form-outline mb-4', styles.authInput)}
                         >

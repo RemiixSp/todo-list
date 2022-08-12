@@ -77,7 +77,6 @@ const HomeView = () => {
     <div className={styles.home}>
       {isAuthorized ? (
         <>
-          {' '}
           <div className={styles.todoBlock}>
             <div className={styles.addContainer}>
               <h2>Add task</h2>
