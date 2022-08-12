@@ -31,7 +31,7 @@ const Header = () => {
           </div>
         </div>
         <div className={styles.authorization}>
-          {window.location.pathname === '/' ? (
+          {window.location.pathname !== '/authorization' ? (
             isAuthorized ? (
               <div className={styles.logOutContainer}>
                 <ProfilePhoto className={styles.profile} />
@@ -43,7 +43,7 @@ const Header = () => {
                 </Button>
               </div>
             ) : (
-              <Link to='authorization'>
+              <Link to='/authorization'>
                 <Button className={styles.login}>Sign in</Button>
               </Link>
             )

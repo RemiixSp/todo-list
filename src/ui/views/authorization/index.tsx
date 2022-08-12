@@ -56,7 +56,6 @@ const AuthorizationView = () => {
                     onSubmit={(values, { setSubmitting }) => {
                       setTimeout(() => {
                         dispatch(login(values.email));
-                        navigate('/');
 
                         setSubmitting(false);
                       }, 400);
