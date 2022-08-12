@@ -7,7 +7,7 @@ const initialState: AuthType = {
   userName: getUserFromLS().userName,
 };
 
-export const authorizationSlica = createSlice({
+export const authorizationSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
@@ -22,6 +22,6 @@ export const authorizationSlica = createSlice({
   },
 });
 
-export const { login, signOut } = authorizationSlica.actions;
+export const { login, signOut } = authorizationSlice.actions;
 
-export default authorizationSlica.reducer;
+export default authorizationSlice.reducer;
