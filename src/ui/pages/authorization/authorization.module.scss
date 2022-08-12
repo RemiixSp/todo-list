@@ -4,5 +4,20 @@
 
   .authorizationContainer {
     margin-top: 100px;
+
+    .authInput {
+      height: 120px;
+    }
+
+    .errorMsg {
+      height: 40px;
+      width: 50%;
+      margin: 0 auto;
+
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+    }
   }
 }

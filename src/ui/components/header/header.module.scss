@@ -57,10 +57,17 @@
       }
     }
 
-    .signOut {
-      width: 100px;
-      padding: 10px 0;
-      margin: 0 10px;
+    .logOutContainer {
+      display: flex;
+      .signOut {
+        width: 100px;
+        padding: 10px 0;
+        margin: 0 10px;
+      }
+
+      .profile {
+        height: 46px;
+      }
     }
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 interface ButtonProps {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   className: string;
   children: string;
 }

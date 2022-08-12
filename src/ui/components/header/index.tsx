@@ -4,10 +4,20 @@ import styles from './header.module.scss';
 import Button from '../../common/button';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
+import { useAppSelector } from '../../../core/store/store';
+import { useDispatch } from 'react-redux';
+import { signOut } from '../../../core/store/authorization';
+import { ReactComponent as ProfilePhoto } from '../../../media/images/profilePhoto.svg';
 
 const Header = () => {
-  //will be logic in future
-  const isAuthorized = false;
+  const isAuthorized = useAppSelector((state) => state.login.isAuthorized);
+
+  const dispatch = useDispatch();
+
+  const onSignOutClick = () => {
+    dispatch(signOut());
+  };
+
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -23,18 +33,19 @@ const Header = () => {
         <div className={styles.authorization}>
           {window.location.pathname === '/' ? (
             isAuthorized ? (
-              <Link to='authorization'>
-                <Button className={styles.login} onClick={() => {}}>
-                  Sign in
+              <div className={styles.logOutContainer}>
+                <ProfilePhoto className={styles.profile} />
+                <Button
+                  className={cn(styles.signOut, 'btn-outline-danger')}
+                  onClick={onSignOutClick}
+                >
+                  Log out
                 </Button>
-              </Link>
+              </div>
             ) : (
-              <Button
-                className={cn(styles.signOut, 'btn-outline-danger')}
-                onClick={() => {}}
-              >
-                Log out
-              </Button>
+              <Link to='authorization'>
+                <Button className={styles.login}>Sign in</Button>
+              </Link>
             )
           ) : (
             ''
