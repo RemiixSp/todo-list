@@ -3,6 +3,7 @@
 .container {
   width: 85%;
   margin: 0 auto;
+
   .fullPage {
     .home {
       display: flex;
@@ -48,6 +49,7 @@
           }
 
           .todoDescription {
+            color: #fff;
             height: 200px;
             resize: none;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -109,5 +111,36 @@
   }
 
   .darkMode {
+    background-color: variables.$extremeBlackTheme;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: white;
+    }
+
+    textArea::placeholder {
+      font-weight: bold;
+      opacity: 0.5;
+      color: #fff;
+    }
+
+    .todoBlock {
+      .addContainer {
+        .todoDescription {
+          background-color: variables.$secondBlackTheme;
+        }
+      }
+      .allTodos {
+        background-color: variables.$secondBlackTheme !important;
+      }
+    }
+
+    .widgetsBlock {
+      .allWidgets {
+        background-color: variables.$firstBlackTheme;
+      }
+    }
   }
 }

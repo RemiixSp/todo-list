@@ -11,6 +11,8 @@ import cn from 'classnames';
 const DogPhoto = () => {
   const dog = useAppSelector((state) => state.dog);
 
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+
   const dispatch = useAppDispatch();
 
   const getDogs = async () => {
@@ -26,7 +28,13 @@ const DogPhoto = () => {
   }, []);
 
   return (
-    <div className={cn(styles.dogWidget, 'card')}>
+    <div
+      className={cn(
+        styles.dogWidget,
+        { [styles.darkTheme]: darkTheme },
+        'card'
+      )}
+    >
       <h4 className={styles.dogHeader}>Dog generator</h4>
       <div className={styles.randomImgContainer}>
         {dog.status === Status.SUCCESS ? (

@@ -9,6 +9,8 @@ import cn from 'classnames';
 const CatFacts = () => {
   const fact = useAppSelector((state) => state.fact);
 
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+
   const dispatch = useAppDispatch();
 
   const getBreeds = async () => {
@@ -41,7 +43,7 @@ const CatFacts = () => {
   );
 
   return (
-    <div className={cn(styles.factsWidget)}>
+    <div className={cn(styles.factsWidget, { [styles.darkTheme]: darkTheme })}>
       <div className={cn(styles.catFacts, 'card')}>
         <h5 className={styles.catHeader}>
           Here you'll get a random cat fact every 15 seconds

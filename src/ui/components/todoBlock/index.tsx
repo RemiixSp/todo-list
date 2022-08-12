@@ -5,6 +5,7 @@ import { Status } from '../../../core/store/todo/types';
 import { ReactComponent as DoneIcon } from '../../../media/images/done.svg';
 import { ReactComponent as PinIcon } from '../../../media/images/pin.svg';
 import { ReactComponent as DeleteIcon } from '../../../media/images/delete.svg';
+import { useAppSelector } from '../../../core/store/store';
 
 interface TodoProps {
   id: string;
@@ -25,11 +26,18 @@ const TodoBlock: React.FC<TodoProps> = ({
   status,
   id,
 }) => {
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+
   return (
     <div
-      className={cn(styles.todo, 'card', {
-        [styles.todoPinned]: status === Status.PINNED,
-      })}
+      className={cn(
+        styles.todo,
+        'card',
+        {
+          [styles.todoPinned]: status === Status.PINNED,
+        },
+        { [styles.darkTheme]: darkTheme }
+      )}
     >
       <p className={styles.pinnedIdentifier}>pinned</p>
       <p className={cn({ [styles.doneDescription]: done })}>{description}</p>

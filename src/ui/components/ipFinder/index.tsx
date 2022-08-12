@@ -15,6 +15,8 @@ const IpFinder: React.FC = () => {
 
   const ip = useAppSelector((state) => state.ip);
 
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+
   const dispatch = useAppDispatch();
 
   const getIpValue = async () => {
@@ -34,14 +36,20 @@ const IpFinder: React.FC = () => {
     setInputVal(event.target.value);
 
   return (
-    <div className={cn(styles.apiWidget, 'card')}>
+    <div
+      className={cn(
+        styles.apiWidget,
+        { [styles.darkTheme]: darkTheme },
+        'card'
+      )}
+    >
       <h4 className={styles.ipHeader}>Find by ip</h4>
       <div className={styles.foundInfo}>
         {ip.status === Status.SUCCESS && ip.ipInfo.city !== undefined ? (
           <ul className={styles.allInfo}>
             {ipProps.map((value, index) => (
               <li key={value} className={styles.infoObj}>
-                {`${value}: ${ip.ipInfo[value as keyof IpType]}`}
+                <p> {`${value}: ${ip.ipInfo[value as keyof IpType]}`}</p>
               </li>
             ))}
           </ul>
