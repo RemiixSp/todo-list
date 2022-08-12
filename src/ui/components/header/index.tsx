@@ -3,10 +3,11 @@ import logo from '../../../media/images/logo.png';
 import styles from './header.module.scss';
 import Button from '../../common/button';
 import { Link } from 'react-router-dom';
+import cn from 'classnames';
 
 const Header = () => {
   //will be logic in future
-  const isAuthorized = true;
+  const isAuthorized = false;
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -28,7 +29,10 @@ const Header = () => {
                 </Button>
               </Link>
             ) : (
-              <Button className={styles.login} onClick={() => {}}>
+              <Button
+                className={cn(styles.signOut, 'btn-outline-danger')}
+                onClick={() => {}}
+              >
                 Log out
               </Button>
             )
