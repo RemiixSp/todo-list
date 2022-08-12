@@ -36,7 +36,8 @@ const TodoBlock: React.FC<TodoProps> = ({
         {
           [styles.todoPinned]: status === Status.PINNED,
         },
-        { [styles.darkTheme]: darkTheme }
+        { [styles.darkTheme]: darkTheme },
+        { [styles.darkThemePinned]: darkTheme && status === Status.PINNED }
       )}
     >
       <p className={styles.pinnedIdentifier}>pinned</p>

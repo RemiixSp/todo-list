@@ -74,9 +74,15 @@
     color: #fff;
     opacity: 0.6;
   }
-  .todoPinned {
-    background-color: variables.$firstBlackTheme;
-    height: 100%;
-    width: 100%;
+}
+
+.darkThemePinned {
+  background-color: variables.$firstBlackTheme;
+  p {
+    color: #fff;
+  }
+  .pinnedIdentifier {
+    color: #fff;
+    opacity: 0.6;
   }
 }
