@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../pages/home/home.module.scss';
+import cn from 'classnames';
 import TextArea from '../../common/textArea';
 import TodoBlock from '../../components/todoBlock';
 import DogPhoto from '../../components/dogPhoto';
@@ -26,6 +27,8 @@ const HomeView = () => {
   const allTasks = useAppSelector((state) => state.todo);
 
   const login = useAppSelector((state) => state.login);
+
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
 
   const dispatch = useDispatch();
 
@@ -79,7 +82,11 @@ const HomeView = () => {
   }, [allTasks]);
 
   return (
-    <div className={styles.fullPage}>
+    <div
+      className={cn(styles.fullPage, {
+        [styles.darkMode]: darkTheme === true,
+      })}
+    >
       <Toggle />
       <div className={styles.home}>
         <div className={styles.todoBlock}>

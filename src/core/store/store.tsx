@@ -5,6 +5,7 @@ import ipReducer from './ipFinder';
 import factReducer from './facts';
 import weatherReducer from './weather';
 import loginReducer from './authorization';
+import themeReducer from './theme';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 export const store = configureStore({
@@ -15,6 +16,7 @@ export const store = configureStore({
     fact: factReducer,
     weather: weatherReducer,
     login: loginReducer,
+    theme: themeReducer,
   },
 });
 

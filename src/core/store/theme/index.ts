@@ -9,7 +9,7 @@ export const authorizationSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    changeMode: (state, action: PayloadAction<string>) => {
+    changeMode: (state) => {
       state.darkMode = !state.darkMode;
     },
   },
