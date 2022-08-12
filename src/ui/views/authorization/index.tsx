@@ -6,17 +6,30 @@ import cn from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../../core/store/authorization';
 import { useDispatch } from 'react-redux';
+import useUpdateEffect from '../../hooks/useUpdateEffect';
+import { useAppSelector } from '../../../core/store/store';
 
 const AuthorizationView = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const auth = useAppSelector((state) => state.login);
 
   const dispatch = useDispatch();
 
-  const validationScheme = yup.object().shape({
+  useUpdateEffect(() => {
+    const json = JSON.stringify(auth);
+    localStorage.setItem('user', json);
+  }, [auth]);
+
+  const validationSchema = yup.object().shape({
     email: yup
       .string()
       .email('Incorrect email')
-      .required('Required')
+      .required('Email is required')
+      .matches(
+        /^[a-zA-Z0-9~@.\s]+$/,
+        'Only alphabets are allowed for this field '
+      )
       .min(8, 'Email is too short')
       .max(36, 'Email is too long'),
     password: yup
@@ -25,6 +38,8 @@ const AuthorizationView = () => {
       .min(8, 'Password is too short')
       .max(25, 'Password is too long'),
   });
+
+  const formikInitialState = { email: '', password: '' };
 
   return (
     <div className={styles.authorizationContainer}>
@@ -36,12 +51,13 @@ const AuthorizationView = () => {
                 <div className='card-body p-5 text-center'>
                   <h3 className='mb-5'>Sign in</h3>
                   <Formik
-                    initialValues={{ email: '', password: '' }}
-                    validationSchema={validationScheme}
+                    initialValues={formikInitialState}
+                    validationSchema={validationSchema}
                     onSubmit={(values, { setSubmitting }) => {
                       setTimeout(() => {
-                        dispatch(login());
+                        dispatch(login(values.email));
                         navigate('/');
+
                         setSubmitting(false);
                       }, 400);
                     }}
@@ -57,21 +73,30 @@ const AuthorizationView = () => {
                       /* and other goodies */
                     }) => (
                       <form onSubmit={handleSubmit}>
-                        <div
-                          className={cn('form-outline mb-4', styles.authInput)}
-                        >
-                          <input
-                            type='email'
-                            name='email'
-                            id='typeEmailX-2'
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.email}
-                            className='form-control form-control-lg'
-                          />
-                          <label className='form-label' htmlFor='typeEmailX-2'>
-                            Email
-                          </label>
+                        <div className={styles.authBlock}>
+                          <div
+                            className={cn(
+                              'form-outline mb-3',
+                              styles.authInput
+                            )}
+                          >
+                            <label
+                              className={cn('form-label', styles.inputLabel)}
+                              htmlFor='typeEmailX-2'
+                            >
+                              Email
+                            </label>
+                            <input
+                              type='email'
+                              name='email'
+                              id='typeEmailX-2'
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.email}
+                              className='form-control form-control-lg'
+                            />
+                          </div>
+
                           {errors.email && touched.email && (
                             <div
                               className={cn(
@@ -85,24 +110,29 @@ const AuthorizationView = () => {
                           )}
                         </div>
 
-                        <div
-                          className={cn('form-outline mb-4', styles.authInput)}
-                        >
-                          <input
-                            type='password'
-                            name='password'
-                            id='typePasswordX-2'
-                            className='form-control form-control-lg'
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.password}
-                          />
-                          <label
-                            className='form-label'
-                            htmlFor='typePasswordX-2'
+                        <div className={styles.authBlock}>
+                          <div
+                            className={cn(
+                              'form-outline mb-3',
+                              styles.authInput
+                            )}
                           >
-                            Password
-                          </label>
+                            <label
+                              className={cn('form-label', styles.inputLabel)}
+                              htmlFor='typePasswordX-2'
+                            >
+                              Password
+                            </label>
+                            <input
+                              type='password'
+                              name='password'
+                              id='typePasswordX-2'
+                              className='form-control form-control-lg'
+                              onChange={handleChange}
+                              onBlur={handleBlur}
+                              value={values.password}
+                            />
+                          </div>
                           {errors.password && touched.password && (
                             <div
                               className={cn(
