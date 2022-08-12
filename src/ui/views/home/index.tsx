@@ -6,6 +6,7 @@ import DogPhoto from '../../components/dogPhoto';
 import IpFinder from '../../components/ipFinder';
 import CatFacts from '../../components/catFacts';
 import Weather from '../../components/weather';
+import Toggle from '../../components/toggle';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../core/store/store';
 import { Status } from '../../../core/store/todo/types';
@@ -71,8 +72,9 @@ const HomeView = () => {
   }, [allTasks]);
 
   return (
-    <div className={styles.home}>
-      <>
+    <div className={styles.fullPage}>
+      <Toggle />
+      <div className={styles.home}>
         <div className={styles.todoBlock}>
           <div className={styles.addContainer}>
             <h2>Add task</h2>
@@ -134,7 +136,7 @@ const HomeView = () => {
             <Weather />
           </div>
         </div>
-      </>
+      </div>
     </div>
   );
 };
