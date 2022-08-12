@@ -3,15 +3,13 @@ import styles from '../../pages/authorization/authorization.module.scss';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import cn from 'classnames';
-import { useNavigate } from 'react-router-dom';
 import { login } from '../../../core/store/authorization';
 import { useDispatch } from 'react-redux';
 import useUpdateEffect from '../../hooks/useUpdateEffect';
 import { useAppSelector } from '../../../core/store/store';
+import { useFormik } from 'formik';
 
 const AuthorizationView = () => {
-  const navigate = useNavigate();
-
   const auth = useAppSelector((state) => state.login);
 
   const dispatch = useDispatch();
@@ -20,6 +18,11 @@ const AuthorizationView = () => {
     const json = JSON.stringify(auth);
     localStorage.setItem('user', json);
   }, [auth]);
+
+  const initialValues = {
+    email: '',
+    password: '',
+  };
 
   const validationSchema = yup.object().shape({
     email: yup
@@ -39,7 +42,13 @@ const AuthorizationView = () => {
       .max(25, 'Password is too long'),
   });
 
-  const formikInitialState = { email: '', password: '' };
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit: (values) => {
+      dispatch(login(values.email));
+    },
+  });
 
   return (
     <div className={styles.authorizationContainer}>
@@ -50,113 +59,74 @@ const AuthorizationView = () => {
               <div className='card shadow-2-strong'>
                 <div className='card-body p-5 text-center'>
                   <h3 className='mb-5'>Sign in</h3>
-                  <Formik
-                    initialValues={formikInitialState}
-                    validationSchema={validationSchema}
-                    onSubmit={(values, { setSubmitting }) => {
-                      setTimeout(() => {
-                        dispatch(login(values.email));
 
-                        setSubmitting(false);
-                      }, 400);
-                    }}
-                  >
-                    {({
-                      values,
-                      errors,
-                      touched,
-                      handleChange,
-                      handleBlur,
-                      handleSubmit,
-                      isSubmitting,
-                      /* and other goodies */
-                    }) => (
-                      <form onSubmit={handleSubmit}>
-                        <div className={styles.authBlock}>
-                          <div
-                            className={cn(
-                              'form-outline mb-3',
-                              styles.authInput
-                            )}
-                          >
-                            <label
-                              className={cn('form-label', styles.inputLabel)}
-                              htmlFor='typeEmailX-2'
-                            >
-                              Email
-                            </label>
-                            <input
-                              type='email'
-                              name='email'
-                              id='typeEmailX-2'
-                              onChange={handleChange}
-                              onBlur={handleBlur}
-                              value={values.email}
-                              className='form-control form-control-lg'
-                            />
-                          </div>
-
-                          {errors.email && touched.email && (
-                            <div
-                              className={cn(
-                                'alert alert-danger',
-                                styles.errorMsg
-                              )}
-                              role='alert'
-                            >
-                              {errors.email && touched.email && errors.email}
-                            </div>
-                          )}
-                        </div>
-
-                        <div className={styles.authBlock}>
-                          <div
-                            className={cn(
-                              'form-outline mb-3',
-                              styles.authInput
-                            )}
-                          >
-                            <label
-                              className={cn('form-label', styles.inputLabel)}
-                              htmlFor='typePasswordX-2'
-                            >
-                              Password
-                            </label>
-                            <input
-                              type='password'
-                              name='password'
-                              id='typePasswordX-2'
-                              className='form-control form-control-lg'
-                              onChange={handleChange}
-                              onBlur={handleBlur}
-                              value={values.password}
-                            />
-                          </div>
-                          {errors.password && touched.password && (
-                            <div
-                              className={cn(
-                                'alert alert-danger',
-                                styles.errorMsg
-                              )}
-                              role='alert'
-                            >
-                              {errors.password &&
-                                touched.password &&
-                                errors.password}
-                            </div>
-                          )}
-                        </div>
-
-                        <button
-                          className='btn btn-primary btn-lg btn-block'
-                          type='submit'
-                          disabled={isSubmitting}
+                  <form onSubmit={formik.handleSubmit}>
+                    <div className={styles.authBlock}>
+                      <div
+                        className={cn('form-outline mb-3', styles.authInput)}
+                      >
+                        <label
+                          className={cn('form-label', styles.inputLabel)}
+                          htmlFor='typeEmailX-2'
                         >
-                          Login
-                        </button>
-                      </form>
-                    )}
-                  </Formik>
+                          Email
+                        </label>
+                        <input
+                          type='email'
+                          id='typeEmailX-2'
+                          {...formik.getFieldProps('email')}
+                          className='form-control form-control-lg'
+                        />
+                      </div>
+
+                      {formik.errors.email && formik.touched.email && (
+                        <div
+                          className={cn('alert alert-danger', styles.errorMsg)}
+                          role='alert'
+                        >
+                          {formik.errors.email &&
+                            formik.touched.email &&
+                            formik.errors.email}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className={styles.authBlock}>
+                      <div
+                        className={cn('form-outline mb-3', styles.authInput)}
+                      >
+                        <label
+                          className={cn('form-label', styles.inputLabel)}
+                          htmlFor='typePasswordX-2'
+                        >
+                          Password
+                        </label>
+                        <input
+                          type='password'
+                          id='typePasswordX-2'
+                          className='form-control form-control-lg'
+                          {...formik.getFieldProps('password')}
+                        />
+                      </div>
+                      {formik.errors.password && formik.touched.password && (
+                        <div
+                          className={cn('alert alert-danger', styles.errorMsg)}
+                          role='alert'
+                        >
+                          {formik.errors.password &&
+                            formik.touched.password &&
+                            formik.errors.password}
+                        </div>
+                      )}
+                    </div>
+
+                    <button
+                      className='btn btn-primary btn-lg btn-block'
+                      type='submit'
+                    >
+                      Login
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
