@@ -48,7 +48,7 @@ const TodoBlock: React.FC<TodoProps> = ({
         })}
         onClick={() => onPinClick?.(id)}
       >
-        <PinIcon />
+        <PinIcon className={styles.svgs} />
       </button>
       <button
         className={cn(styles.todoImg, styles.todoDone, {
@@ -56,13 +56,13 @@ const TodoBlock: React.FC<TodoProps> = ({
         })}
         onClick={() => onDoneClick?.(id)}
       >
-        <DoneIcon />
+        <DoneIcon className={styles.svgs} />
       </button>
       <button
         className={cn(styles.todoImg, styles.todoDelete)}
         onClick={() => onDeleteClick(id)}
       >
-        <DeleteIcon />
+        <DeleteIcon className={styles.svgs} />
       </button>
     </div>
   );

@@ -100,7 +100,9 @@ const HomeView = () => {
                 placeholder='Enter to-do you want to add'
               />
 
-              <button type='submit'>Submit</button>
+              <button className={styles.addTask} type='submit'>
+                Submit
+              </button>
             </form>
           </div>
           <h2 className={styles.todoBlockHeader}>Here is your to-do list</h2>

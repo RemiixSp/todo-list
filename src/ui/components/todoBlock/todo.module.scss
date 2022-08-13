@@ -30,7 +30,7 @@
     top: 10px;
     left: 90%;
     width: 15px;
-    height: 15px;
+    height: 20px;
     cursor: pointer;
 
     &:hover {
@@ -78,11 +78,4 @@
 
 .darkThemePinned {
   background-color: variables.$firstBlackTheme;
-  p {
-    color: #fff;
-  }
-  .pinnedIdentifier {
-    color: #fff;
-    opacity: 0.6;
-  }
 }

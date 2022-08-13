@@ -85,3 +85,24 @@ h4 {
     font-size: 1.1em;
   }
 }
+
+.darkTheme {
+  background-color: variables.$thirdDarkTheme;
+
+  .mainTemp {
+    background-color: variables.$extremeBlackTheme !important;
+    color: #fff;
+  }
+
+  .eachAdditionalProp {
+    background-color: variables.$firstBlackTheme !important;
+    color: #fff;
+  }
+
+  .windInfo {
+    li {
+      background-color: variables.$firstBlackTheme !important;
+      color: #fff;
+    }
+  }
+}
