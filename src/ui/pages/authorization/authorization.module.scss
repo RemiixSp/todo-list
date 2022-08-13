@@ -1,3 +1,5 @@
+@use '../../style/variables';
+
 .container {
   width: 85%;
   margin: 0 auto;
@@ -20,5 +22,12 @@
         flex-direction: column;
       }
     }
+  }
+}
+.darkThemeContainer {
+  background-color: variables.$secondBlackTheme;
+  label,
+  h3 {
+    color: #fff;
   }
 }
