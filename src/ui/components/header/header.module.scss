@@ -73,6 +73,10 @@
 
       .profile {
         height: 46px;
+
+        @media (max-width: 450px) {
+          display: none;
+        }
       }
     }
   }
