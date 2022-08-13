@@ -1,8 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import { getThemeFromLS } from './getThemeFromLS';
 import { ThemeType } from './types';
 
 const initialState: ThemeType = {
-  darkMode: false,
+  darkMode: getThemeFromLS(),
 };
 
 export const authorizationSlice = createSlice({

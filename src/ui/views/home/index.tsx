@@ -77,6 +77,11 @@ const HomeView = () => {
   }, [login]);
 
   useUpdateEffect(() => {
+    const json = JSON.stringify(darkTheme);
+    localStorage.setItem('themeMode', json);
+  }, [darkTheme]);
+
+  useUpdateEffect(() => {
     const json = JSON.stringify(allTasks);
     localStorage.setItem('todos', json);
   }, [allTasks]);
