@@ -71,10 +71,10 @@ const HomeView = () => {
     dispatch(inizialization());
   }, []);
 
-  useEffect(() => {
-    const json = JSON.stringify(login);
-    localStorage.setItem('user', json);
-  }, [login]);
+  // useEffect(() => {
+  //   const json = JSON.stringify(login);
+  //   localStorage.setItem('user', json);
+  // }, [login]);
 
   useUpdateEffect(() => {
     const json = JSON.stringify(darkTheme);

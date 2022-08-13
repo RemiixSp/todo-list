@@ -14,6 +14,11 @@ export const authorizationSlice = createSlice({
     login: (state, action: PayloadAction<string>) => {
       state.isAuthorized = true;
       state.userName = action.payload;
+      const json = JSON.stringify({
+        isAuthorized: true,
+        userName: action.payload,
+      });
+      localStorage.setItem('user', json);
     },
     signOut: (state) => {
       state.isAuthorized = false;
