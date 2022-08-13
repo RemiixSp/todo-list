@@ -13,9 +13,12 @@ export const authorizationSlice = createSlice({
     changeMode: (state) => {
       state.darkMode = !state.darkMode;
     },
+    turnOffDarkMode: (state) => {
+      state.darkMode = false;
+    },
   },
 });
 
-export const { changeMode } = authorizationSlice.actions;
+export const { changeMode, turnOffDarkMode } = authorizationSlice.actions;
 
 export default authorizationSlice.reducer;

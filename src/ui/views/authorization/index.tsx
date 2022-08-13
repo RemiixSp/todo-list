@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../pages/authorization/authorization.module.scss';
 import * as yup from 'yup';
 import cn from 'classnames';
@@ -6,6 +6,7 @@ import { login } from '../../../core/store/authorization';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { useAppSelector } from '../../../core/store/store';
+import Toggle from '../../components/toggle';
 
 const AuthorizationView = () => {
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
@@ -34,6 +35,11 @@ const AuthorizationView = () => {
       .min(8, 'Password is too short')
       .max(25, 'Password is too long'),
   });
+
+  useEffect(() => {
+    //big big костилі xD
+    document.body.style.backgroundColor = darkTheme ? '#371b58' : 'white';
+  }, [darkTheme]);
 
   const formik = useFormik({
     initialValues,

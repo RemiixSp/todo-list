@@ -1,6 +1,11 @@
 export const getUserFromLS = () => {
   const data = localStorage.getItem('user');
-  const userName = data ? JSON.parse(data)?.userName : '';
-  const isAuthorized = data ? JSON.parse(data)?.isAuthorized : false;
+  let userName = '';
+  let isAuthorized = false;
+  if (data) {
+    const parseddate = JSON.parse(data);
+    userName = data ? parseddate?.userName : '';
+    isAuthorized = data ? parseddate?.isAuthorized : false;
+  }
   return { userName, isAuthorized };
 };
