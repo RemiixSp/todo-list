@@ -81,6 +81,11 @@ const HomeView = () => {
     localStorage.setItem('themeMode', json);
   }, [darkTheme]);
 
+  useEffect(() => {
+    //big big костилі xD
+    document.body.style.backgroundColor = darkTheme ? '#371b58' : 'white';
+  }, [darkTheme]);
+
   useUpdateEffect(() => {
     const json = JSON.stringify(allTasks);
     localStorage.setItem('todos', json);

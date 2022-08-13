@@ -12,6 +12,8 @@ import { ReactComponent as ProfilePhoto } from '../../../media/images/profilePho
 const Header = () => {
   const isAuthorized = useAppSelector((state) => state.login.isAuthorized);
 
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+
   const dispatch = useDispatch();
 
   const onSignOutClick = () => {
@@ -20,7 +22,7 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.header}>
+    <div className={cn(styles.header, { [styles.darkTheme]: darkTheme })}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <Link to='/'>
