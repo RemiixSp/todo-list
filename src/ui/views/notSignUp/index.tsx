@@ -1,16 +1,11 @@
 import styles from '../../pages/notSignUp/notLog.module.scss';
 import { ReactComponent as NotAurhorized } from '../../../media/images/hide.svg';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAppSelector } from '../../../core/store/store';
 import cn from 'classnames';
 
 const NotLoggedViev = () => {
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
-
-  useEffect(() => {
-    //big big костилі xD
-    document.body.style.backgroundColor = darkTheme ? '#371b58' : 'white';
-  }, [darkTheme]);
 
   return (
     <div

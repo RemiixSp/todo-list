@@ -111,7 +111,6 @@
   }
 
   .darkMode {
-    // background-color: variables.$extremeBlackTheme;
     h1,
     h2,
     h3,
@@ -150,4 +149,8 @@
       }
     }
   }
+}
+
+.darkThemeBody {
+  background-color: variables.$extremeBlackTheme;
 }

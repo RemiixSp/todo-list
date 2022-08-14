@@ -71,20 +71,15 @@ const HomeView = () => {
     dispatch(inizialization());
   }, []);
 
-  // useEffect(() => {
-  //   const json = JSON.stringify(login);
-  //   localStorage.setItem('user', json);
-  // }, [login]);
-
   useUpdateEffect(() => {
     const json = JSON.stringify(darkTheme);
     localStorage.setItem('themeMode', json);
   }, [darkTheme]);
 
-  useEffect(() => {
-    //big big костилі xD
-    document.body.style.backgroundColor = darkTheme ? '#371b58' : 'white';
-  }, [darkTheme]);
+  // useEffect(() => {
+  //   //big big костилі xD
+  //   document.body.style.backgroundColor = darkTheme ? '#371b58' : 'white';
+  // }, [darkTheme]);
 
   useUpdateEffect(() => {
     const json = JSON.stringify(allTasks);

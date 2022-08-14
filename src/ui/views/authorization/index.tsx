@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from '../../pages/authorization/authorization.module.scss';
 import * as yup from 'yup';
 import cn from 'classnames';
@@ -6,7 +6,6 @@ import { login } from '../../../core/store/authorization';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { useAppSelector } from '../../../core/store/store';
-import Toggle from '../../components/toggle';
 
 const AuthorizationView = () => {
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
@@ -36,11 +35,6 @@ const AuthorizationView = () => {
       .max(25, 'Password is too long'),
   });
 
-  useEffect(() => {
-    //big big костилі xD
-    document.body.style.backgroundColor = darkTheme ? '#371b58' : 'white';
-  }, [darkTheme]);
-
   const formik = useFormik({
     initialValues,
     validationSchema,
@@ -51,7 +45,7 @@ const AuthorizationView = () => {
 
   return (
     <div className={styles.authorizationContainer}>
-      <section className='vh-80'>
+      <section className='vh-100'>
         <div className='container py-5 h-100'>
           <div className='row d-flex justify-content-center align-items-center h-100'>
             <div className='col-12 col-md-8 col-lg-6 col-xl-5'>

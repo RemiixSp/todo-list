@@ -5,7 +5,7 @@
   margin: 0 auto;
 
   .authorizationContainer {
-    margin-top: 100px;
+    margin-top: -70px;
     .authBlock {
       height: 150px;
 
@@ -30,4 +30,8 @@
   h3 {
     color: #fff;
   }
+}
+
+.darkThemeBody {
+  background-color: variables.$extremeBlackTheme;
 }
