@@ -4,7 +4,7 @@ import ContentLoader from 'react-content-loader';
 const WeatherLoader = () => (
   <ContentLoader
     speed={2}
-    width={580}
+    width={'100%'}
     height={260}
     viewBox='0 0 580 260'
     backgroundColor='#f3f3f3'

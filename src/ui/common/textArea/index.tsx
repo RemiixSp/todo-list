@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React from 'react';
 
 interface TextAreaProps {
@@ -17,13 +18,15 @@ const TextArea: React.FC<TextAreaProps> = ({
   value,
   onChange,
 }) => (
-  <textarea
-    placeholder={placeholder}
-    className={className}
-    cols={cols}
-    rows={rows}
-    value={value}
-    onChange={onChange}
-  />
+  <div className='form-group'>
+    <textarea
+      placeholder={placeholder}
+      className={cn('form-control', className)}
+      cols={cols}
+      rows={rows}
+      value={value}
+      onChange={onChange}
+    />
+  </div>
 );
 export default TextArea;

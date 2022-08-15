@@ -4,6 +4,7 @@ import dogReducer from './dog';
 import ipReducer from './ipFinder';
 import factReducer from './facts';
 import weatherReducer from './weather';
+import loginReducer from './authorization';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
     ip: ipReducer,
     fact: factReducer,
     weather: weatherReducer,
+    login: loginReducer,
   },
 });
 

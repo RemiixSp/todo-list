@@ -4,15 +4,25 @@
   width: 47%;
   border: solid 2px variables.$borderViolet;
   margin-bottom: 12px;
-  border-radius: 10px;
+
+  @media (max-width: 680px) {
+    width: 95%;
+  }
 
   .ipHeader {
-    margin: 0 33%;
+    text-align: center;
+    @media (max-width: 475px) {
+      font-size: 1.1em;
+    }
   }
 
   .foundInfo {
-    height: 250px;
+    height: 280px;
     overflow: auto;
+
+    @media (max-width: 680px) {
+      height: 200px;
+    }
 
     .allInfo {
       display: flex;
@@ -33,18 +43,14 @@
       margin: 5px 35px;
     }
     .getIpContainer {
-      margin: 10px 5%;
+      margin: 15px 5%;
       display: flex;
       .getIpField {
-        height: 30px;
-        padding-left: 8px;
-        border-radius: 10px;
-        width: 70%;
       }
 
       .submitIp {
         width: 100px;
-        height: 30px;
+
         margin-left: 10px;
         box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
         transition: 0.4s;

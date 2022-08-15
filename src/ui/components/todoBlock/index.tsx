@@ -27,7 +27,7 @@ const TodoBlock: React.FC<TodoProps> = ({
 }) => {
   return (
     <div
-      className={cn(styles.todo, {
+      className={cn(styles.todo, 'card', {
         [styles.todoPinned]: status === Status.PINNED,
       })}
     >

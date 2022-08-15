@@ -44,7 +44,7 @@ const Weather = () => {
   );
 
   return (
-    <div className={styles.weatherWidget}>
+    <div className={cn(styles.weatherWidget, 'card')}>
       <h3 className={styles.weatherHeader}>Weather in {weather.name}</h3>
 
       {weather.status === Status.SUCCESS ? (

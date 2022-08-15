@@ -1,20 +1,27 @@
 @use '../../style/variables';
 
 .factsWidget {
-  width: 90%;
+  width: 96%;
   display: flex;
   justify-content: space-evenly;
   border: 2px solid variables.$borderViolet;
   border-radius: 10px;
   margin-bottom: 15px;
+
+  @media (max-width: 680px) {
+    flex-direction: column;
+    align-items: center;
+  }
   .catFacts {
     margin: 10px 0;
-
     padding: 10px;
     height: 230px;
     width: 40%;
     border: 1px solid variables.$borderViolet;
-    border-radius: 5px;
+
+    @media (max-width: 680px) {
+      width: 95%;
+    }
 
     .randomFact {
       background-color: variables.$greenAqua;
@@ -28,24 +35,38 @@
   .breedTypes {
     width: 55%;
     margin: 10px 0;
-    border-radius: 5px;
+
     padding-top: 10px;
     padding: 0 3%;
     overflow: auto;
     height: 230px;
     border: 1px solid variables.$borderViolet;
 
+    @media (max-width: 680px) {
+      width: 95%;
+    }
+
+    .breedsHeadere {
+      text-align: center;
+    }
+
     .allBreeds {
       margin-top: 10px;
+
       .breedList {
         .eachBreed {
           background-color: variables.$greenAqua;
           box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
           border-radius: 7px;
-          margin-bottom: 5px;
+          margin-bottom: 15px;
           padding: 5px 5px;
         }
       }
     }
+  }
+}
+h5 {
+  @media (max-width: 475px) {
+    font-size: 1.1em;
   }
 }
