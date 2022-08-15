@@ -28,6 +28,12 @@
         font-size: 18px;
         font-weight: 700;
       }
+      @media (max-width: 360px) {
+        font-size: 16px;
+      }
+      @media (max-width: 340px) {
+        font-size: 14px;
+      }
     }
 
     p {
@@ -38,10 +44,11 @@
     }
   }
   .authorization {
-    button {
+    .login {
+      color: rgb(104, 85, 224);
+      background-color: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(104, 85, 224, 1);
       cursor: pointer;
-      border: 0;
-      border-radius: 4px;
       font-weight: 600;
       margin: 0 10px;
       width: 100px;
@@ -56,10 +63,17 @@
       }
     }
 
-    .login {
-      color: rgb(104, 85, 224);
-      background-color: rgba(255, 255, 255, 1);
-      border: 1px solid rgba(104, 85, 224, 1);
+    .logOutContainer {
+      display: flex;
+      .signOut {
+        width: 100px;
+        padding: 10px 0;
+        margin: 0 10px;
+      }
+
+      .profile {
+        height: 46px;
+      }
     }
   }
 }
