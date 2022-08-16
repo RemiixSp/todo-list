@@ -11,7 +11,10 @@ export const authorizationSlice = createSlice({
   initialState,
   reducers: {
     changeMode: (state) => {
-      state.darkMode = !state.darkMode;
+      const newState = !state.darkMode;
+      state.darkMode = newState;
+      const json = JSON.stringify(newState);
+      localStorage.setItem('themeMode', json);
     },
     turnOffDarkMode: (state) => {
       state.darkMode = false;

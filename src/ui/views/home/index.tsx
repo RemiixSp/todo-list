@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../pages/home/home.module.scss';
 import cn from 'classnames';
 import DogPhoto from '../../components/dogPhoto';
@@ -8,11 +8,12 @@ import Weather from '../../components/weather';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../core/store/store';
 import { inizialization } from '../../../core/store/todo';
-import useUpdateEffect from '../../hooks/useUpdateEffect';
 import TodoList from '../../components/todoList';
 
 const HomeView = () => {
   const allTasks = useAppSelector((state) => state.todo);
+
+  console.log('all task  ' + allTasks);
 
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
 
@@ -21,16 +22,6 @@ const HomeView = () => {
   useEffect(() => {
     dispatch(inizialization());
   }, []);
-
-  useUpdateEffect(() => {
-    const json = JSON.stringify(darkTheme);
-    localStorage.setItem('themeMode', json);
-  }, [darkTheme]);
-
-  useUpdateEffect(() => {
-    const json = JSON.stringify(allTasks);
-    localStorage.setItem('todos', json);
-  }, [allTasks]);
 
   return (
     <div

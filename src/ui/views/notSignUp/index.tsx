@@ -9,7 +9,11 @@ const NotLoggedViev = () => {
 
   return (
     <div
-      className={cn(styles.notAuthorized, { [styles.darkTheme]: darkTheme })}
+      className={cn(
+        styles.notAuthorized,
+        { [styles.darkTheme]: darkTheme },
+        'vh-100'
+      )}
     >
       <NotAurhorized className={styles.hiddenContent} />
       <h3>Authorize first to see content</h3>
