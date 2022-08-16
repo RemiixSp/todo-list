@@ -36,7 +36,6 @@ const TodoForm = () => {
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      console.log('hello');
       const newTodo = {
         id: nanoid(),
         description: values.textField,
