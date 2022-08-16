@@ -1,4 +1,6 @@
 .header {
+  //everything breaks when trying position fixed/absolute(
+  // position: fixed;
   border-bottom: 2px solid #f6f6f6;
   padding: 25px 0;
   .container {
