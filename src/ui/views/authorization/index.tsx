@@ -122,7 +122,7 @@ const AuthorizationView = () => {
                     </div>
 
                     <button
-                      className='btn btn-primary btn-lg btn-block'
+                      className='btn btn-primary btn-lg btn-block mt-2'
                       type='submit'
                     >
                       Login

@@ -7,7 +7,6 @@ import cn from 'classnames';
 import { useAppSelector } from '../../../core/store/store';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../../../core/store/authorization';
-import { ReactComponent as ProfilePhoto } from '../../../media/images/profilePhoto.svg';
 import Toggle from '../toggle';
 
 const Header = () => {
@@ -29,7 +28,7 @@ const Header = () => {
           <Link to='/'>
             <img src={logo} alt='todo Logo' />
           </Link>
-          <div>
+          <div className={styles.headerTextContainer}>
             <h1>To-do app</h1>
             <p>the best for controlling your time</p>
           </div>

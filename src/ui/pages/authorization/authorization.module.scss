@@ -2,7 +2,12 @@
 
 .container {
   width: 85%;
+
   margin: 0 auto;
+
+  @media (max-width: 470px) {
+    width: 100%;
+  }
 
   .authorizationContainer {
     .authBlock {
