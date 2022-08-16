@@ -9,17 +9,18 @@
     padding-top: 300px;
 
     .hiddenContent {
-      margin: 0 47%;
+      margin: 0 auto;
+      display: block;
       width: 80px;
     }
     h3 {
       text-align: center;
 
       @media (max-width: 485px) {
-        font-size: 1.2em;
+        font-size: 1.2rem;
       }
       @media (max-width: 365px) {
-        font-size: 1em;
+        font-size: 1rem;
       }
     }
   }
