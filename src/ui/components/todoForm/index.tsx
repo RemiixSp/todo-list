@@ -9,28 +9,28 @@ import { useAppSelector } from '../../../core/store/store';
 import { addTask } from '../../../core/store/todo';
 import cn from 'classnames';
 
+const initialValues = {
+  textField: '',
+};
+
+const validationSchema = yup.object().shape({
+  textField: yup
+    .string()
+    .required('Todo description is required')
+    .matches(
+      /^[a-zA-Z0-9~@.\s]+$/,
+      'Only alphabets and numbers are allowed for this field '
+    )
+    .min(10, 'Too short message')
+    .max(200, 'Too long message'),
+});
+
 const TodoForm = () => {
   const allTasks = useAppSelector((state) => state.todo);
 
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
 
   const dispatch = useDispatch();
-
-  const initialValues = {
-    textField: '',
-  };
-
-  const validationSchema = yup.object().shape({
-    textField: yup
-      .string()
-      .required('Todo description is required')
-      .matches(
-        /^[a-zA-Z0-9~@.\s]+$/,
-        'Only alphabets and numbers are allowed for this field '
-      )
-      .min(10, 'Too short message')
-      .max(200, 'Too long message'),
-  });
 
   const formik = useFormik({
     initialValues,
