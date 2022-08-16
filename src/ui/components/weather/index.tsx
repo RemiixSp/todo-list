@@ -11,6 +11,8 @@ import { Status } from '../../../core/store/types';
 const Weather = () => {
   const weather = useAppSelector((state) => state.weather);
 
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+
   const dispatch = useAppDispatch();
 
   const getForecast = () => {
@@ -44,7 +46,11 @@ const Weather = () => {
   );
 
   return (
-    <div className={cn(styles.weatherWidget, 'card')}>
+    <div
+      className={cn(styles.weatherWidget, 'card', {
+        [styles.darkTheme]: darkTheme,
+      })}
+    >
       <h3 className={styles.weatherHeader}>Weather in {weather.name}</h3>
 
       {weather.status === Status.SUCCESS ? (

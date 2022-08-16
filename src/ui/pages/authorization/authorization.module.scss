@@ -1,9 +1,10 @@
+@use '../../style/variables';
+
 .container {
   width: 85%;
   margin: 0 auto;
 
   .authorizationContainer {
-    margin-top: 100px;
     .authBlock {
       height: 150px;
 
@@ -21,4 +22,15 @@
       }
     }
   }
+}
+.darkThemeContainer {
+  background-color: variables.$secondBlackTheme;
+  label,
+  h3 {
+    color: #fff;
+  }
+}
+
+.darkThemeBody {
+  background-color: variables.$extremeBlackTheme;
 }

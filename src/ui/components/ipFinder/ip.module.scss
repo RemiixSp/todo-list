@@ -32,6 +32,10 @@
         border-radius: 5px;
         margin: 5px;
         background-color: variables.$darkBlue;
+
+        p {
+          all: unset;
+        }
       }
     }
   }
@@ -45,8 +49,6 @@
     .getIpContainer {
       margin: 15px 5%;
       display: flex;
-      .getIpField {
-      }
 
       .submitIp {
         width: 100px;
@@ -64,5 +66,28 @@
         cursor: pointer;
       }
     }
+  }
+}
+
+.darkTheme {
+  background-color: variables.$thirdDarkTheme;
+
+  input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: #fff;
+  }
+
+  .infoObj {
+    background-color: variables.$firstBlackTheme !important;
+    color: rgba(234, 240, 246, 0.8);
+  }
+  .getIpField {
+    background-color: variables.$secondBlackTheme;
+    color: #fff;
+  }
+
+  .submitIp {
+    background-color: variables.$firstBlackTheme !important;
   }
 }

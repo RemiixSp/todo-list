@@ -54,10 +54,17 @@
           @media (max-width: 660px) {
             width: 47%;
           }
+          @media (max-width: 480px) {
+            width: 100%;
+          }
         }
         .humidity {
           width: 47%;
           background-color: variables.$greenAqua;
+
+          @media (max-width: 465px) {
+            width: 100%;
+          }
         }
       }
     }
@@ -68,13 +75,21 @@
       ul {
         margin-top: 10px;
         display: flex;
+        flex-wrap: wrap;
+
         justify-content: space-between;
         li {
           width: 48%;
+
           background-color: #97ddfc;
           padding: 10px 20px;
           border-radius: 10px;
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          @media (max-width: 460px) {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+          }
         }
       }
     }
@@ -83,5 +98,26 @@
 h4 {
   @media (max-width: 475px) {
     font-size: 1.1em;
+  }
+}
+
+.darkTheme {
+  background-color: variables.$thirdDarkTheme;
+
+  .mainTemp {
+    background-color: variables.$extremeBlackTheme !important;
+    color: #fff;
+  }
+
+  .eachAdditionalProp {
+    background-color: variables.$firstBlackTheme !important;
+    color: #fff;
+  }
+
+  .windInfo {
+    li {
+      background-color: variables.$firstBlackTheme !important;
+      color: #fff;
+    }
   }
 }

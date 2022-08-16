@@ -30,7 +30,7 @@
     top: 10px;
     left: 90%;
     width: 15px;
-    height: 15px;
+    height: 20px;
     cursor: pointer;
 
     &:hover {
@@ -63,4 +63,24 @@
     color: gray;
     font-size: 12px;
   }
+}
+
+.darkTheme {
+  background-color: variables.$thirdDarkTheme;
+  p {
+    color: #fff;
+  }
+  .pinnedIdentifier {
+    color: #fff;
+    opacity: 0.6;
+  }
+
+  svg {
+    fill: #fff;
+    opacity: 0.5;
+  }
+}
+
+.darkThemePinned {
+  background-color: variables.$firstBlackTheme;
 }

@@ -5,32 +5,35 @@ import cn from 'classnames';
 import { login } from '../../../core/store/authorization';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+import { useAppSelector } from '../../../core/store/store';
+
+const initialValues = {
+  email: '',
+  password: '',
+};
+
+const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Incorrect email')
+    .required('Email is required')
+    .matches(
+      /^[a-zA-Z0-9~@.\s]+$/,
+      'Only alphabets are allowed for this field '
+    )
+    .min(8, 'Email is too short')
+    .max(36, 'Email is too long'),
+  password: yup
+    .string()
+    .required('Required')
+    .min(8, 'Password is too short')
+    .max(25, 'Password is too long'),
+});
 
 const AuthorizationView = () => {
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+
   const dispatch = useDispatch();
-
-  const initialValues = {
-    email: '',
-    password: '',
-  };
-
-  const validationSchema = yup.object().shape({
-    email: yup
-      .string()
-      .email('Incorrect email')
-      .required('Email is required')
-      .matches(
-        /^[a-zA-Z0-9~@.\s]+$/,
-        'Only alphabets are allowed for this field '
-      )
-      .min(8, 'Email is too short')
-      .max(36, 'Email is too long'),
-    password: yup
-      .string()
-      .required('Required')
-      .min(8, 'Password is too short')
-      .max(25, 'Password is too long'),
-  });
 
   const formik = useFormik({
     initialValues,
@@ -42,11 +45,15 @@ const AuthorizationView = () => {
 
   return (
     <div className={styles.authorizationContainer}>
-      <section className='vh-80'>
+      <section className='vh-100'>
         <div className='container py-5 h-100'>
           <div className='row d-flex justify-content-center align-items-center h-100'>
             <div className='col-12 col-md-8 col-lg-6 col-xl-5'>
-              <div className='card shadow-2-strong'>
+              <div
+                className={cn('card shadow-2-strong', {
+                  [styles.darkThemeContainer]: darkTheme,
+                })}
+              >
                 <div className='card-body p-5 text-center'>
                   <h3 className='mb-5'>Sign in</h3>
 

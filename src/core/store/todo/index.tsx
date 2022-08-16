@@ -24,7 +24,14 @@ export const todoSlice = createSlice({
     },
 
     addTask: (state, action: PayloadAction<Task>) => {
-      state.listedTasks.push(action.payload);
+      const listedTasks = [...state.listedTasks, action.payload];
+      const json = JSON.stringify({ listedTasks, doneTasks: state.doneTasks });
+      localStorage.setItem('todos', json);
+
+      return {
+        ...state,
+        listedTasks,
+      };
     },
 
     finishTask: (state, action: PayloadAction<string>) => {
@@ -33,6 +40,8 @@ export const todoSlice = createSlice({
       if (neededObj) {
         const doneObj = { ...neededObj, status: Status.DONE };
         const doneTasks = [...state.doneTasks, doneObj];
+        const json = JSON.stringify({ listedTasks, doneTasks });
+        localStorage.setItem('todos', json);
 
         return {
           ...state,
@@ -45,7 +54,8 @@ export const todoSlice = createSlice({
     deleteTaskFromStorage: (state, action: PayloadAction<string>) => {
       const listedTasks = getFilteredTask(state.listedTasks, action.payload);
       const doneTasks = getFilteredTask(state.doneTasks, action.payload);
-
+      const json = JSON.stringify({ listedTasks, doneTasks });
+      localStorage.setItem('todos', json);
       return {
         ...state,
         listedTasks,
@@ -55,6 +65,8 @@ export const todoSlice = createSlice({
 
     pinTask: (state, action: PayloadAction<string>) => {
       let listedTasks = getPinOrUnpinTask(state.listedTasks, action.payload);
+      const json = JSON.stringify({ listedTasks, doneTasks: state.doneTasks });
+      localStorage.setItem('todos', json);
 
       return {
         ...state,

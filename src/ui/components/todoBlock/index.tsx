@@ -5,6 +5,7 @@ import { Status } from '../../../core/store/todo/types';
 import { ReactComponent as DoneIcon } from '../../../media/images/done.svg';
 import { ReactComponent as PinIcon } from '../../../media/images/pin.svg';
 import { ReactComponent as DeleteIcon } from '../../../media/images/delete.svg';
+import { useAppSelector } from '../../../core/store/store';
 
 interface TodoProps {
   id: string;
@@ -25,11 +26,19 @@ const TodoBlock: React.FC<TodoProps> = ({
   status,
   id,
 }) => {
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+
   return (
     <div
-      className={cn(styles.todo, 'card', {
-        [styles.todoPinned]: status === Status.PINNED,
-      })}
+      className={cn(
+        styles.todo,
+        'card',
+        {
+          [styles.todoPinned]: status === Status.PINNED,
+        },
+        { [styles.darkTheme]: darkTheme },
+        { [styles.darkThemePinned]: darkTheme && status === Status.PINNED }
+      )}
     >
       <p className={styles.pinnedIdentifier}>pinned</p>
       <p className={cn({ [styles.doneDescription]: done })}>{description}</p>
@@ -39,7 +48,7 @@ const TodoBlock: React.FC<TodoProps> = ({
         })}
         onClick={() => onPinClick?.(id)}
       >
-        <PinIcon />
+        <PinIcon className={styles.svgs} />
       </button>
       <button
         className={cn(styles.todoImg, styles.todoDone, {
@@ -47,13 +56,13 @@ const TodoBlock: React.FC<TodoProps> = ({
         })}
         onClick={() => onDoneClick?.(id)}
       >
-        <DoneIcon />
+        <DoneIcon className={styles.svgs} />
       </button>
       <button
         className={cn(styles.todoImg, styles.todoDelete)}
         onClick={() => onDeleteClick(id)}
       >
-        <DeleteIcon />
+        <DeleteIcon className={styles.svgs} />
       </button>
     </div>
   );

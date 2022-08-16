@@ -70,3 +70,19 @@ h5 {
     font-size: 1.1em;
   }
 }
+
+.darkTheme {
+  background-color: variables.$thirdDarkTheme;
+
+  .catFacts {
+    background-color: variables.$secondBlackTheme;
+  }
+  .breedTypes {
+    background-color: variables.$secondBlackTheme;
+  }
+  li,
+  .randomFact {
+    background-color: variables.$firstBlackTheme !important;
+    color: #fff;
+  }
+}

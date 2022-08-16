@@ -1,7 +1,14 @@
+@use '../../style/variables';
+
 .header {
+  position: absolute;
+  z-index: 1;
+  width: 85%;
+  top: 0;
+  left: 7.5%;
+
   border-bottom: 2px solid #f6f6f6;
   padding: 25px 0;
-
   .container {
     display: flex;
 
@@ -38,6 +45,7 @@
 
     p {
       color: #7b7b7b;
+
       @media (max-width: 685px) {
         display: none;
       }
@@ -50,7 +58,7 @@
       border: 1px solid rgba(104, 85, 224, 1);
       cursor: pointer;
       font-weight: 600;
-      margin: 0 10px;
+
       width: 100px;
       padding: 10px 0;
       box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
@@ -68,12 +76,26 @@
       .signOut {
         width: 100px;
         padding: 10px 0;
-        margin: 0 10px;
       }
 
       .profile {
-        height: 46px;
+        margin-right: 15px;
+        margin: auto 0;
+        margin-right: 20px;
+        color: #abb0b8;
+
+        @media (max-width: 400px) {
+          display: none;
+        }
       }
+    }
+  }
+}
+
+.darkTheme {
+  .logo {
+    h1 {
+      color: #fff;
     }
   }
 }

@@ -7,13 +7,18 @@ const initialState: AuthType = {
   userName: getUserFromLS().userName,
 };
 
-export const authorizationSlica = createSlice({
+export const authorizationSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
     login: (state, action: PayloadAction<string>) => {
       state.isAuthorized = true;
       state.userName = action.payload;
+      const json = JSON.stringify({
+        isAuthorized: true,
+        userName: action.payload,
+      });
+      localStorage.setItem('user', json);
     },
     signOut: (state) => {
       state.isAuthorized = false;
@@ -22,6 +27,6 @@ export const authorizationSlica = createSlice({
   },
 });
 
-export const { login, signOut } = authorizationSlica.actions;
+export const { login, signOut } = authorizationSlice.actions;
 
-export default authorizationSlica.reducer;
+export default authorizationSlice.reducer;

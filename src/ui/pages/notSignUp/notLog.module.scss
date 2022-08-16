@@ -1,13 +1,16 @@
+@use '../../style/variables';
+
 .container {
   width: 85%;
   margin: 0 auto;
 
   .notAuthorized {
-    margin: 20px auto;
+    margin: 0 auto;
+    padding-top: 300px;
 
     .hiddenContent {
-      margin-left: 40%;
-      width: 20%;
+      margin: 0 47%;
+      width: 80px;
     }
     h3 {
       text-align: center;
@@ -20,4 +23,17 @@
       }
     }
   }
+
+  .darkTheme {
+    .hiddenContent {
+      fill: #fff;
+    }
+    h3 {
+      color: #fff;
+    }
+  }
+}
+
+.darkThemeBody {
+  background-color: variables.$extremeBlackTheme;
 }

@@ -8,9 +8,12 @@ import { useAppSelector } from '../../../core/store/store';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../../../core/store/authorization';
 import { ReactComponent as ProfilePhoto } from '../../../media/images/profilePhoto.svg';
+import Toggle from '../toggle';
 
 const Header = () => {
-  const isAuthorized = useAppSelector((state) => state.login.isAuthorized);
+  const user = useAppSelector((state) => state.login);
+
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
 
   const dispatch = useDispatch();
 
@@ -20,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.header}>
+    <div className={cn(styles.header, { [styles.darkTheme]: darkTheme })}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <Link to='/'>
@@ -33,9 +36,9 @@ const Header = () => {
         </div>
         <div className={styles.authorization}>
           {window.location.pathname !== '/authorization' ? (
-            isAuthorized ? (
+            user.isAuthorized ? (
               <div className={styles.logOutContainer}>
-                <ProfilePhoto className={styles.profile} />
+                <p className={styles.profile}>{user.userName}</p>
                 <Button
                   className={cn(styles.signOut, 'btn-outline-danger')}
                   onClick={onSignOutClick}
@@ -53,6 +56,7 @@ const Header = () => {
           )}
         </div>
       </div>
+      <Toggle />
     </div>
   );
 };
