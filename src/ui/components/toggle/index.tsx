@@ -16,11 +16,15 @@ const Toggle: React.FC = () => {
   return (
     <div className={styles.toggleContainer}>
       <div className={styles.toggleSwitch}>
-        <label>
+        <label className={styles.toggleLable} htmlFor='toggle'>
+          Theme switch
+        </label>
+        <label className={styles.toggleContainerLabel}>
           <input
             onChange={onThemeChange}
             checked={darkTheme ? true : false}
             type='checkbox'
+            id='toggle'
           />
           <span className={styles.slider}></span>
         </label>

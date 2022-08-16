@@ -1,0 +1,53 @@
+@use '../../style/variables';
+
+.addContainer {
+  height: 350px;
+
+  h2 {
+    margin-bottom: 10px;
+    @media (max-width: 475px) {
+      font-size: 1.5em;
+    }
+  }
+
+  button {
+    display: block;
+    margin-top: 10px;
+    width: 120px;
+    height: 40px;
+    border: 3px solid variables.$borderViolet;
+    background: #fff;
+    color: variables.$borderViolet;
+    border-radius: 40px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.45s;
+
+    &:hover {
+      background: variables.$borderViolet;
+      color: #fff;
+    }
+  }
+
+  .todoDescription {
+    color: black;
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px 10px;
+    resize: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid variables.$borderViolet;
+  }
+
+  .errorMsg {
+    height: 50px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+}

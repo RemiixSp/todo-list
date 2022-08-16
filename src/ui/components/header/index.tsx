@@ -8,6 +8,7 @@ import { useAppSelector } from '../../../core/store/store';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../../../core/store/authorization';
 import { ReactComponent as ProfilePhoto } from '../../../media/images/profilePhoto.svg';
+import Toggle from '../toggle';
 
 const Header = () => {
   const isAuthorized = useAppSelector((state) => state.login.isAuthorized);
@@ -55,6 +56,7 @@ const Header = () => {
           )}
         </div>
       </div>
+      <Toggle />
     </div>
   );
 };

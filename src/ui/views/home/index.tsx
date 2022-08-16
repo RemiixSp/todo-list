@@ -20,40 +20,39 @@ import {
   inizialization,
 } from '../../../core/store/todo';
 import useUpdateEffect from '../../hooks/useUpdateEffect';
+import TodoForm from '../../components/todoForm';
 
 const HomeView = () => {
-  const [textAreaValue, setTextAreaValue] = useState('');
+  // const [textAreaValue, setTextAreaValue] = useState('');
 
   const allTasks = useAppSelector((state) => state.todo);
-
-  const login = useAppSelector((state) => state.login);
 
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
 
   const dispatch = useDispatch();
 
-  const onChangeTextAreaVal = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
-    setTextAreaValue(event.target.value);
+  // const onChangeTextAreaVal = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
+  //   setTextAreaValue(event.target.value);
 
-  const addTaskAction = () => {
-    const newTodo = {
-      id: nanoid(),
-      description: textAreaValue,
-      status: Status.LISTED,
-    };
-    if (
-      !allTasks.listedTasks?.find((obj) => obj.description === textAreaValue)
-    ) {
-      dispatch(addTask(newTodo));
-    }
-  };
+  // const addTaskAction = () => {
+  //   const newTodo = {
+  //     id: nanoid(),
+  //     description: textAreaValue,
+  //     status: Status.LISTED,
+  //   };
+  //   if (
+  //     !allTasks.listedTasks?.find((obj) => obj.description === textAreaValue)
+  //   ) {
+  //     dispatch(addTask(newTodo));
+  //   }
+  // };
 
-  const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  // const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
 
-    addTaskAction();
-    setTextAreaValue('');
-  };
+  //   addTaskAction();
+  //   setTextAreaValue('');
+  // };
 
   const makeTaskDone = (obj: string) => {
     dispatch(finishTask(obj));
@@ -76,11 +75,6 @@ const HomeView = () => {
     localStorage.setItem('themeMode', json);
   }, [darkTheme]);
 
-  // useEffect(() => {
-  //   //big big костилі xD
-  //   document.body.style.backgroundColor = darkTheme ? '#371b58' : 'white';
-  // }, [darkTheme]);
-
   useUpdateEffect(() => {
     const json = JSON.stringify(allTasks);
     localStorage.setItem('todos', json);
@@ -92,10 +86,9 @@ const HomeView = () => {
         [styles.darkMode]: darkTheme === true,
       })}
     >
-      <Toggle />
       <div className={styles.home}>
         <div className={styles.todoBlock}>
-          <div className={styles.addContainer}>
+          {/* <div className={styles.addContainer}>
             <h2>Add task</h2>
             <form onSubmit={onFormSubmit}>
               <TextArea
@@ -109,7 +102,9 @@ const HomeView = () => {
                 Submit
               </button>
             </form>
-          </div>
+          </div> */}
+
+          <TodoForm />
           <h2 className={styles.todoBlockHeader}>Here is your to-do list</h2>
           <div className={styles.allTodos}>
             {allTasks.listedTasks?.length === 0 ? (
