@@ -1,11 +1,10 @@
 @use '../../style/variables';
 
 .header {
-  position: fixed;
+  position: absolute;
   z-index: 1;
   width: 85%;
   top: 0;
-  background-color: variables.$firstBlackTheme;
 
   border-bottom: 2px solid #f6f6f6;
   padding: 25px 0;
