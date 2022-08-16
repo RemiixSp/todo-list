@@ -11,7 +11,7 @@ import { ReactComponent as ProfilePhoto } from '../../../media/images/profilePho
 import Toggle from '../toggle';
 
 const Header = () => {
-  const isAuthorized = useAppSelector((state) => state.login.isAuthorized);
+  const user = useAppSelector((state) => state.login);
 
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
 
@@ -36,9 +36,9 @@ const Header = () => {
         </div>
         <div className={styles.authorization}>
           {window.location.pathname !== '/authorization' ? (
-            isAuthorized ? (
+            user.isAuthorized ? (
               <div className={styles.logOutContainer}>
-                <ProfilePhoto className={styles.profile} />
+                <p className={styles.profile}>{user.userName}</p>
                 <Button
                   className={cn(styles.signOut, 'btn-outline-danger')}
                   onClick={onSignOutClick}

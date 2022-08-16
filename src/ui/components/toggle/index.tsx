@@ -15,10 +15,8 @@ const Toggle: React.FC = () => {
 
   return (
     <div className={styles.toggleContainer}>
+      <label className={styles.toggleLable}>Theme switch</label>
       <div className={styles.toggleSwitch}>
-        <label className={styles.toggleLable} htmlFor='toggle'>
-          Theme switch
-        </label>
         <label className={styles.toggleContainerLabel}>
           <input
             onChange={onThemeChange}
