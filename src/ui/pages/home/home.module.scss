@@ -12,77 +12,6 @@
       @media (max-width: 1300px) {
         flex-direction: column;
       }
-      .todoBlock {
-        max-width: 48%;
-        min-height: 200px;
-        flex-grow: 1;
-        @media (max-width: 1300px) {
-          max-width: 100%;
-        }
-        .addContainer {
-          height: 300px;
-
-          h2 {
-            margin-bottom: 10px;
-            @media (max-width: 475px) {
-              font-size: 1.5em;
-            }
-          }
-
-          button {
-            display: block;
-            margin-top: 10px;
-            width: 120px;
-            height: 40px;
-            border: 3px solid variables.$borderViolet;
-            background: #fff;
-            color: variables.$borderViolet;
-            border-radius: 40px;
-            cursor: pointer;
-            overflow: hidden;
-            transition: all 0.45s;
-
-            &:hover {
-              background: variables.$borderViolet;
-              color: #fff;
-            }
-          }
-
-          .todoDescription {
-            color: black;
-            height: 200px;
-            resize: none;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            border: 2px solid variables.$borderViolet;
-          }
-        }
-
-        .todoBlockHeader {
-          padding-top: 10px;
-          @media (max-width: 475px) {
-            font-size: 1.5em;
-          }
-        }
-
-        .allTodos {
-          min-height: 150px;
-          display: flex;
-          justify-content: space-around;
-          flex-wrap: wrap;
-          background-color: variables.$light-yellow;
-          border-radius: 15px;
-          margin-top: 10px;
-          margin-bottom: 15px;
-          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-          .noTask {
-            margin: auto 30px;
-            @media (max-width: 475px) {
-              font-size: 1.2em;
-            }
-          }
-        }
-      }
 
       .widgetsBlock {
         max-width: 48%;
@@ -117,30 +46,6 @@
     h4,
     h5 {
       color: white;
-    }
-
-    textArea::placeholder {
-      font-weight: bold;
-      opacity: 0.5;
-      color: #fff;
-    }
-    textArea {
-      color: #fff !important;
-    }
-
-    .todoBlock {
-      .addContainer {
-        .todoDescription {
-          background-color: variables.$secondBlackTheme;
-        }
-      }
-      .allTodos {
-        background-color: variables.$secondBlackTheme !important;
-      }
-    }
-
-    .addTask {
-      background-color: variables.$secondBlackTheme !important;
     }
 
     .widgetsBlock {

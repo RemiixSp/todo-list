@@ -12,6 +12,8 @@ import cn from 'classnames';
 const TodoForm = () => {
   const allTasks = useAppSelector((state) => state.todo);
 
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+
   const dispatch = useDispatch();
 
   const initialValues = {
@@ -51,7 +53,7 @@ const TodoForm = () => {
   });
 
   return (
-    <div className={styles.addContainer}>
+    <div className={cn(styles.addContainer, { [styles.darkTheme]: darkTheme })}>
       <h2>Add task</h2>
       <form onSubmit={formik.handleSubmit}>
         <textarea

@@ -1,0 +1,42 @@
+@use '../../style/variables';
+
+.todoBlock {
+  max-width: 48%;
+  min-height: 200px;
+  flex-grow: 1;
+  @media (max-width: 1300px) {
+    max-width: 100%;
+  }
+
+  .todoBlockHeader {
+    padding-top: 10px;
+    @media (max-width: 475px) {
+      font-size: 1.5em;
+    }
+  }
+
+  .allTodos {
+    min-height: 150px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: variables.$light-yellow;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    .noTask {
+      margin: auto 30px;
+      @media (max-width: 475px) {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+.darkTheme {
+  .allTodos {
+    background-color: variables.$secondBlackTheme !important;
+  }
+}
