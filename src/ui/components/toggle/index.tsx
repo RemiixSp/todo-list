@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../core/store/store';
 import { changeMode } from '../../../core/store/theme';
 import styles from './toggle.module.scss';
+import cn from 'classnames';
 
 const Toggle: React.FC = () => {
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
@@ -14,7 +15,12 @@ const Toggle: React.FC = () => {
   };
 
   return (
-    <div className={styles.toggleContainer}>
+    <div
+      className={cn(styles.toggleContainer, {
+        [styles.loginToggleContainer]:
+          window.location.pathname === '/authorization',
+      })}
+    >
       <label className={styles.toggleLable}>Theme switch</label>
       <div className={styles.toggleSwitch}>
         <label className={styles.toggleContainerLabel}>

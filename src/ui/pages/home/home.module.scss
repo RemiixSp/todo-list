@@ -4,6 +4,11 @@
   width: 85%;
   margin: 0 auto;
 
+  @media (max-width: 470px) {
+    width: 100%;
+    padding: 0 15px;
+  }
+
   .fullPage {
     .home {
       display: flex;
@@ -22,9 +27,6 @@
         flex-grow: 1;
         .widgetsHeader {
           margin-bottom: 10px;
-          @media (max-width: 475px) {
-            font-size: 1.5em;
-          }
         }
         .allWidgets {
           border-radius: 10px;

@@ -5,13 +5,14 @@
   width: 48%;
   padding: 10px;
   padding-right: 35px;
-  margin: 10px 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
 
   min-height: 140px;
   background-color: variables.$greenEmerald;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   word-wrap: break-word;
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     width: 90%;
   }
 
@@ -61,7 +62,7 @@
   .pinnedIdentifier {
     visibility: visible;
     color: gray;
-    font-size: 12px;
+    font-size: 0.8rem;
   }
 }
 

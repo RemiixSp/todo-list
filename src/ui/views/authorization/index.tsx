@@ -54,7 +54,9 @@ const AuthorizationView = () => {
                   [styles.darkThemeContainer]: darkTheme,
                 })}
               >
-                <div className='card-body p-5 text-center'>
+                <div
+                  className={cn('card-body p-5 text-center', styles.cardBody)}
+                >
                   <h3 className='mb-5'>Sign in</h3>
 
                   <form onSubmit={formik.handleSubmit}>
@@ -81,9 +83,11 @@ const AuthorizationView = () => {
                           className={cn('alert alert-danger', styles.errorMsg)}
                           role='alert'
                         >
-                          {formik.errors.email &&
-                            formik.touched.email &&
-                            formik.errors.email}
+                          <p className={styles.emailMsg}>
+                            {formik.errors.email &&
+                              formik.touched.email &&
+                              formik.errors.email}
+                          </p>
                         </div>
                       )}
                     </div>
@@ -118,7 +122,7 @@ const AuthorizationView = () => {
                     </div>
 
                     <button
-                      className='btn btn-primary btn-lg btn-block'
+                      className='btn btn-primary btn-lg btn-block mt-2'
                       type='submit'
                     >
                       Login
