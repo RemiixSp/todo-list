@@ -1,12 +1,12 @@
 @use './normalize';
 @use './variables';
 
-Html {
+html {
   font-size: 16px;
-  @media (max-width: 520px) {
+  @media (max-width: 1024px) {
     font-size: 14px;
   }
-  @media (max-width: 420px) {
+  @media (max-width: 475px) {
     font-size: 12px;
   }
 }
