@@ -7,9 +7,7 @@
   margin-bottom: 15px;
   .weatherHeader {
     text-align: center;
-    @media (max-width: 475px) {
-      font-size: 1.3rem;
-    }
+
     padding-top: 15px;
   }
 
@@ -36,10 +34,6 @@
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           border-radius: 10px;
           background-color: variables.$darkBlue;
-
-          @media (max-width: 415px) {
-            font-size: 1rem;
-          }
         }
 
         .eachAdditionalProp {
@@ -93,11 +87,6 @@
         }
       }
     }
-  }
-}
-h4 {
-  @media (max-width: 475px) {
-    font-size: 1.1rem;
   }
 }
 

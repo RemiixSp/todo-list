@@ -27,9 +27,6 @@
         flex-grow: 1;
         .widgetsHeader {
           margin-bottom: 10px;
-          @media (max-width: 475px) {
-            font-size: 1.5rem;
-          }
         }
         .allWidgets {
           border-radius: 10px;

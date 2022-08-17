@@ -10,9 +10,6 @@
 
   .todoBlockHeader {
     padding-top: 10px;
-    @media (max-width: 475px) {
-      font-size: 1.5rem;
-    }
   }
 
   .allTodos {
@@ -30,9 +27,6 @@
 
     .noTask {
       margin: auto 30px;
-      @media (max-width: 475px) {
-        font-size: 1.2rem;
-      }
     }
   }
 }
