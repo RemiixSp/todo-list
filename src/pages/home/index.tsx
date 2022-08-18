@@ -1,8 +1,8 @@
-import Header from '../../components/header';
+import Header from '../../ui/components/header';
 import styles from './home.module.scss';
-import HomeView from '../../views/home';
+import HomeView from '../../ui/views/home';
 import cn from 'classnames';
-import { useAppSelector } from '../../../core/store/store';
+import { useAppSelector } from '../../core/store/store';
 
 const Home = () => {
   const darkTheme = useAppSelector((state) => state.theme.darkMode);

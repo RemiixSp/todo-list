@@ -1,12 +1,12 @@
-import React from 'react';
-import Header from '../../components/header';
-import AuthorizationView from '../../views/authorization';
+import React, { useEffect } from 'react';
+import Header from '../../ui/components/header';
+import AuthorizationView from '../../ui/views/authorization';
 import styles from './authorization.module.scss';
 import cn from 'classnames';
-import { useAppSelector } from '../../../core/store/store';
+import { useAppSelector } from '../../core/store/store';
 
 const Authorization = () => {
-  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+  let darkTheme = useAppSelector((state) => state.theme.darkMode);
 
   return (
     <div

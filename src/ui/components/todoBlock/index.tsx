@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './todo.module.scss';
 import cn from 'classnames';
 import { Status } from '../../../core/store/todo/types';
-import { ReactComponent as DoneIcon } from '../../../media/images/done.svg';
-import { ReactComponent as PinIcon } from '../../../media/images/pin.svg';
-import { ReactComponent as DeleteIcon } from '../../../media/images/delete.svg';
+import DoneIcon from '../../../media/images/done.svg';
+import PinIcon from '../../../media/images/pin.svg';
+import DeleteIcon from '../../../media/images/delete.svg';
 import { useAppSelector } from '../../../core/store/store';
 
 interface TodoProps {
