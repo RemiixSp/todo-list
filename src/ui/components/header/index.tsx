@@ -31,7 +31,9 @@ const Header = () => {
       <div className={styles.container}>
         <div className={styles.logo}>
           <Link href='/'>
-            <Image src={logo} alt='todo Logo' />
+            <a className={styles.anchorWrapper}>
+              <Image src={logo} alt='todo Logo' />
+            </a>
           </Link>
           <div className={styles.headerTextContainer}>
             <h1>To-do app</h1>
@@ -52,7 +54,9 @@ const Header = () => {
               </div>
             ) : (
               <Link href='/authorization'>
-                <Button className={styles.login}>Sign in</Button>
+                <a>
+                  <Button className={styles.login}>Sign in</Button>
+                </a>
               </Link>
             )
           ) : (
