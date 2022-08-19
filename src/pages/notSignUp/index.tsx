@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './notLog.module.scss';
 import Header from '../../ui/components/header';
 import NotLoggedView from '../../ui/views/notSignUp';
@@ -7,6 +7,7 @@ import cn from 'classnames';
 
 const NotSignedUp = () => {
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
+  if (typeof window === 'undefined') return null;
 
   return (
     <div className={cn({ [styles.darkThemeBody]: darkTheme })}>
