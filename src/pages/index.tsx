@@ -19,6 +19,8 @@ const Home = () => {
     }
   }, []);
 
+  if (!user.isAuthorized) return null;
+
   return (
     <div className={cn({ [styles.darkThemeBody]: darkTheme })}>
       {user.isAuthorized && (
