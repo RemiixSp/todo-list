@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './notLog.module.scss';
 import Header from '../../ui/components/header';
 import NotLoggedView from '../../ui/views/notSignUp';

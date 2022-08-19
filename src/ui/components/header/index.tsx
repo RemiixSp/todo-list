@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import logo from '../../../media/images/logo.png';
+import logo from '../../../../public/images/logo.png';
 import styles from './header.module.scss';
 import Button from '../../common/button';
 import cn from 'classnames';
