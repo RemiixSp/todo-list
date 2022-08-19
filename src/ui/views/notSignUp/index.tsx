@@ -4,8 +4,8 @@ import React from 'react';
 import { useAppSelector } from '../../../core/store/store';
 import cn from 'classnames';
 
-const NotLoggedViev = () => {
-  let darkTheme = useAppSelector((state) => state.theme.darkMode);
+const NotLoggedView = () => {
+  const darkTheme = useAppSelector((state) => state.theme.darkMode);
 
   return (
     <div
@@ -21,4 +21,4 @@ const NotLoggedViev = () => {
   );
 };
 
-export default NotLoggedViev;
+export default NotLoggedView;
