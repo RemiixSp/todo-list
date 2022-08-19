@@ -1,10 +1,10 @@
-import styles from '../../pages/notSignUp/notLog.module.scss';
-import { ReactComponent as NotAurhorized } from '../../../media/images/hide.svg';
+import styles from '../../../pages/notSignUp/notLog.module.scss';
+import NotAurhorized from '../../../../public/images/hide.svg';
 import React from 'react';
 import { useAppSelector } from '../../../core/store/store';
 import cn from 'classnames';
 
-const NotLoggedViev = () => {
+const NotLoggedView = () => {
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
 
   return (
@@ -21,4 +21,4 @@ const NotLoggedViev = () => {
   );
 };
 
-export default NotLoggedViev;
+export default NotLoggedView;

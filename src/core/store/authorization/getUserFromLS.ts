@@ -1,5 +1,8 @@
+import { useEffect } from 'react';
+
 export const getUserFromLS = () => {
-  const data = localStorage.getItem('user');
+  const data = typeof window !== 'undefined' && localStorage.getItem('user');
+
   let userName = '';
   let isAuthorized = false;
   if (data) {

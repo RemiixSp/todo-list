@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from '../../pages/home/home.module.scss';
+import styles from '../../../../src/pages/home/home.module.scss';
 import cn from 'classnames';
 import DogPhoto from '../../components/dogPhoto';
 import IpFinder from '../../components/ipFinder';

@@ -25,6 +25,10 @@
     display: flex;
     flex-shrink: 0;
 
+    .anchorWrapper {
+      text-decoration: none;
+    }
+
     img {
       margin-right: 15px;
       height: 55px;

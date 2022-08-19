@@ -1,11 +1,12 @@
-import React from 'react';
-import styles from '../../pages/authorization/authorization.module.scss';
+import React, { useEffect } from 'react';
+import styles from '../../../../src/pages/authorization/authorization.module.scss';
 import * as yup from 'yup';
 import cn from 'classnames';
 import { login } from '../../../core/store/authorization';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { useAppSelector } from '../../../core/store/store';
+import { useRouter } from 'next/router';
 
 const initialValues = {
   email: '',
@@ -31,7 +32,9 @@ const validationSchema = yup.object().shape({
 });
 
 const AuthorizationView = () => {
-  const darkTheme = useAppSelector((state) => state.theme.darkMode);
+  let darkTheme = useAppSelector((state) => state.theme.darkMode);
+
+  const route = useRouter();
 
   const dispatch = useDispatch();
 
@@ -40,6 +43,7 @@ const AuthorizationView = () => {
     validationSchema,
     onSubmit: (values) => {
       dispatch(login(values.email));
+      route.push('/');
     },
   });
 

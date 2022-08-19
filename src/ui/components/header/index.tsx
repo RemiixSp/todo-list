@@ -1,15 +1,19 @@
-import React from 'react';
-import logo from '../../../media/images/logo.png';
+import React, { useEffect } from 'react';
+import logo from '../../../../public/images/logo.png';
 import styles from './header.module.scss';
 import Button from '../../common/button';
-import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import { useAppSelector } from '../../../core/store/store';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../../../core/store/authorization';
 import Toggle from '../toggle';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const Header = () => {
+  const router = useRouter();
+
   const user = useAppSelector((state) => state.login);
 
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
@@ -19,14 +23,17 @@ const Header = () => {
   const onSignOutClick = () => {
     dispatch(signOut());
     window.localStorage.removeItem('user');
+    router.push('/notSignUp');
   };
 
   return (
     <div className={cn(styles.header, { [styles.darkTheme]: darkTheme })}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <Link to='/'>
-            <img src={logo} alt='todo Logo' />
+          <Link href='/'>
+            <a className={styles.anchorWrapper}>
+              <Image src={logo} alt='todo Logo' />
+            </a>
           </Link>
           <div className={styles.headerTextContainer}>
             <h1>To-do app</h1>
@@ -34,7 +41,7 @@ const Header = () => {
           </div>
         </div>
         <div className={styles.authorization}>
-          {window.location.pathname !== '/authorization' ? (
+          {router.pathname !== '/authorization' ? (
             user.isAuthorized ? (
               <div className={styles.logOutContainer}>
                 <p className={styles.profile}>{user.userName}</p>
@@ -46,8 +53,10 @@ const Header = () => {
                 </Button>
               </div>
             ) : (
-              <Link to='/authorization'>
-                <Button className={styles.login}>Sign in</Button>
+              <Link href='/authorization'>
+                <a>
+                  <Button className={styles.login}>Sign in</Button>
+                </a>
               </Link>
             )
           ) : (
