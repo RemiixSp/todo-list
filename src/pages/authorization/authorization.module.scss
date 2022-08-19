@@ -1,0 +1,51 @@
+@use '../../ui/style/variables';
+.container {
+  width: 85%;
+
+  margin: 0 auto;
+
+  @media (max-width: 470px) {
+    width: 100%;
+  }
+
+  .authorizationContainer {
+    .authBlock {
+      height: 150px;
+
+      text-align: left;
+
+      .errorMsg {
+        height: 50px;
+        width: 50%;
+        min-width: 180px;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+
+        .emailMsg {
+          all: unset;
+        }
+      }
+    }
+
+    .cardBody {
+      @media (max-width: 450px) {
+        padding: 1rem !important;
+      }
+    }
+  }
+}
+.darkThemeContainer {
+  background-color: variables.$secondBlackTheme;
+  label,
+  h3 {
+    color: #fff;
+  }
+}
+
+.darkThemeBody {
+  background-color: variables.$extremeBlackTheme;
+}

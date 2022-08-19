@@ -1,0 +1,33 @@
+@use '../../ui/style/variables';
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+
+  .notAuthorized {
+    margin: 0 auto;
+    padding-top: 300px;
+
+    .hiddenContent {
+      margin: 0 auto;
+      display: block;
+      width: 80px;
+    }
+    h3 {
+      text-align: center;
+    }
+  }
+
+  .darkTheme {
+    .hiddenContent {
+      fill: #fff;
+    }
+    h3 {
+      color: #fff;
+    }
+  }
+}
+
+.darkThemeBody {
+  background-color: variables.$extremeBlackTheme;
+}

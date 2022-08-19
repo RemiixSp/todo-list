@@ -1,0 +1,87 @@
+@use '../../style/variables';
+
+.todo {
+  position: relative;
+  width: 48%;
+  padding: 10px;
+  padding-right: 35px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+
+  min-height: 140px;
+  background-color: variables.$greenEmerald;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  word-wrap: break-word;
+  @media (max-width: 600px) {
+    width: 90%;
+  }
+
+  p {
+    color: white;
+  }
+  .pinnedIdentifier {
+    position: absolute;
+    top: 10px;
+    left: 75%;
+    visibility: hidden;
+  }
+  .todoImg {
+    all: unset;
+    position: absolute;
+    top: 10px;
+    left: 90%;
+    width: 15px;
+    height: 20px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .todoDone {
+    top: 30px;
+  }
+  .todoDelete {
+    top: 50px;
+  }
+  .imgWhenDone {
+    visibility: hidden;
+  }
+  .doneDescription {
+    text-decoration: line-through;
+  }
+}
+
+.todoPinned {
+  background-color: variables.$greenPinned;
+  padding-right: 80px;
+  p {
+    color: black;
+  }
+  .pinnedIdentifier {
+    visibility: visible;
+    color: gray;
+    font-size: 0.8rem;
+  }
+}
+
+.darkTheme {
+  background-color: variables.$thirdDarkTheme;
+  p {
+    color: #fff;
+  }
+  .pinnedIdentifier {
+    color: #fff;
+    opacity: 0.6;
+  }
+
+  svg {
+    fill: #fff;
+    opacity: 0.5;
+  }
+}
+
+.darkThemePinned {
+  background-color: variables.$firstBlackTheme;
+}

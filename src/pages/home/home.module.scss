@@ -1,0 +1,63 @@
+@use '../../ui/style/variables';
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+
+  @media (max-width: 470px) {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .fullPage {
+    .home {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 200px;
+      @media (max-width: 1300px) {
+        flex-direction: column;
+      }
+
+      .widgetsBlock {
+        max-width: 48%;
+        margin-bottom: 50px;
+        @media (max-width: 1300px) {
+          max-width: 100%;
+        }
+        flex-grow: 1;
+        .widgetsHeader {
+          margin-bottom: 10px;
+        }
+        .allWidgets {
+          border-radius: 10px;
+          border: solid 2px variables.$borderViolet;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          display: flex;
+          justify-content: space-evenly;
+          flex-wrap: wrap;
+          padding-top: 12px;
+        }
+      }
+    }
+  }
+
+  .darkMode {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: white;
+    }
+
+    .widgetsBlock {
+      .allWidgets {
+        background-color: variables.$firstBlackTheme;
+      }
+    }
+  }
+}
+
+.darkThemeBody {
+  background-color: variables.$extremeBlackTheme;
+}
