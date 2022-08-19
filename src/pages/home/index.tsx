@@ -6,6 +6,9 @@ import { useAppSelector } from '../../core/store/store';
 
 const Home = () => {
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
+  const user = useAppSelector((state) => state.login);
+
+  if (!user.isAuthorized) return null;
 
   return (
     <div className={cn({ [styles.darkThemeBody]: darkTheme })}>
