@@ -13,8 +13,6 @@ import TodoList from '../../components/todoList';
 const HomeView = () => {
   const allTasks = useAppSelector((state) => state.todo);
 
-  console.log('all task  ' + allTasks);
-
   const darkTheme = useAppSelector((state) => state.theme.darkMode);
 
   const dispatch = useDispatch();
